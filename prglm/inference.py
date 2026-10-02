@@ -33,7 +33,7 @@ def generate(model,tok,prompt,max_tokens=20,temperature=1.,seed=42,record_trace=
     for i in range(max_tokens):
         x=torch.tensor([ids[-model.c.context:]],device=device)
         kwargs={k:v for k,v in settings.items() if v is not None}
-        if model.__class__.__name__ in ('PRGLM','PRGLMv1'): kwargs['seed']=seed+i
+        if model.__class__.__name__ in ('PRGLM','PRGLMv1','PRGLMv2'): kwargs['seed']=seed+i
         logits,traces=model(x,trace=record_trace,**kwargs)
         probs=(logits[0,-1]/max(temperature,1e-4)).softmax(-1)
         next_id=int(torch.multinomial(probs,1,generator=gen))

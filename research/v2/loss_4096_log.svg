@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450">
+<rect width="100%" height="100%" fill="white"/>
+<text x="85" y="25" font-size="18">LOSS / training bytes; validation=4096</text>
+<line x1="85" x2="875" y1="385.0" y2="385.0" stroke="#ddd"/>
+<text x="10" y="390.0" font-size="12">1.86</text>
+<line x1="85" x2="875" y1="317.0" y2="317.0" stroke="#ddd"/>
+<text x="10" y="322.0" font-size="12">2.63</text>
+<line x1="85" x2="875" y1="249.00000000000003" y2="249.00000000000003" stroke="#ddd"/>
+<text x="10" y="254.00000000000003" font-size="12">3.4</text>
+<line x1="85" x2="875" y1="181.00000000000006" y2="181.00000000000006" stroke="#ddd"/>
+<text x="10" y="186.00000000000006" font-size="12">4.18</text>
+<line x1="85" x2="875" y1="113.0" y2="113.0" stroke="#ddd"/>
+<text x="10" y="118.0" font-size="12">4.95</text>
+<line x1="85" x2="875" y1="45.0" y2="45.0" stroke="#ddd"/>
+<text x="10" y="50.0" font-size="12">5.72</text>
+<text x="85.0" y="405" text-anchor="middle" font-size="12">12,800</text>
+<text x="348.33333333333303" y="405" text-anchor="middle" font-size="12">51,200</text>
+<text x="611.6666666666665" y="405" text-anchor="middle" font-size="12">204,800</text>
+<text x="875.0" y="405" text-anchor="middle" font-size="12">819,200</text>
+<polyline points="85.00,126.85 348.33,194.70 611.67,299.87 875.00,338.08" fill="none" stroke="#2563eb" stroke-width="2"/>
+<circle cx="85.0" cy="126.85003590301346" r="4" fill="#2563eb"/>
+<circle cx="348.33333333333303" cy="194.69926680528755" r="4" fill="#2563eb"/>
+<circle cx="611.6666666666665" cy="299.86637762402165" r="4" fill="#2563eb"/>
+<circle cx="875.0" cy="338.0823963666281" r="4" fill="#2563eb"/>
+<text x="85" y="438" fill="#2563eb" font-size="12">transformer_core</text>
+<polyline points="85.00,192.61 348.33,267.76 611.67,324.84 875.00,356.67" fill="none" stroke="#0891b2" stroke-width="2"/>
+<circle cx="85.0" cy="192.6088207240807" r="4" fill="#0891b2"/>
+<circle cx="348.33333333333303" cy="267.76405919076126" r="4" fill="#0891b2"/>
+<circle cx="611.6666666666665" cy="324.8419395126421" r="4" fill="#0891b2"/>
+<circle cx="875.0" cy="356.66666666666663" r="4" fill="#0891b2"/>
+<text x="275" y="438" fill="#0891b2" font-size="12">transformer_total</text>
+<polyline points="85.00,73.54 348.33,213.51 611.67,302.96 875.00,321.84" fill="none" stroke="#e11d48" stroke-width="2"/>
+<circle cx="85.0" cy="73.53931808537004" r="4" fill="#e11d48"/>
+<circle cx="348.33333333333303" cy="213.51167159117853" r="4" fill="#e11d48"/>
+<circle cx="611.6666666666665" cy="302.9572335542358" r="4" fill="#e11d48"/>
+<circle cx="875.0" cy="321.8361329536371" r="4" fill="#e11d48"/>
+<text x="465" y="438" fill="#e11d48" font-size="12">prg_v1</text>
+<polyline points="85.00,73.33 348.33,213.51 611.67,302.73" fill="none" stroke="#a855f7" stroke-width="2"/>
+<circle cx="85.0" cy="73.33333333333337" r="4" fill="#a855f7"/>
+<circle cx="348.33333333333303" cy="213.50851807271428" r="4" fill="#a855f7"/>
+<circle cx="611.6666666666665" cy="302.73124784494973" r="4" fill="#a855f7"/>
+<text x="655" y="438" fill="#a855f7" font-size="12">prg_v2_adaptive</text>
+<text x="450" y="415" text-anchor="middle" font-size="12">Training target bytes (log scale)</text>
+<text x="15" y="40" font-size="12">loss</text></svg>

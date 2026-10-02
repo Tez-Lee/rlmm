@@ -60,6 +60,52 @@ def sample_v1():
     return FileResponse(file)
 
 
+@app.get('/api/learning_curve')
+def learning_curve():
+    file=ROOT/'research/phase_a/learning_curve.json'
+    if not file.exists():raise HTTPException(404,'Export Phase A results first')
+    return FileResponse(file)
+
+
+@app.get('/api/benchmarks_v2')
+def benchmarks_v2():
+    file=ROOT/'research/v2/results.json'
+    if not file.exists():raise HTTPException(404,'Export v2 results first')
+    return FileResponse(file)
+
+
+class V2Request(Request):
+    checkpoint_seed: int = Field(42,ge=42,le=44)
+    training_tokens: int = Field(819200,ge=12800,le=819200)
+    topology_model: str = Field('prg_v2_adaptive',pattern='^prg_v2_(adaptive|uniform|no_recurrence|no_accumulation)$')
+
+
+@app.post('/api/v2/generate')
+def generate_v2(req:V2Request):
+    from prglm.v2_inference import load_checkpoint
+    roots={'transformer_core':ROOT/'runs/phase_a','prg_v1':ROOT/'runs/phase_a',
+           req.topology_model:ROOT/'runs/mutable_v2'}
+    paths={name:root/f'seed{req.checkpoint_seed}'/name/f'model_tokens_{req.training_tokens}.pt'
+           for name,root in roots.items()}
+    if not all(p.exists() for p in paths.values()):raise HTTPException(503,'Selected milestone has not completed yet')
+    result=[]
+    for repeat in range(req.repeats):
+        outputs={}
+        for name,path in paths.items():
+            key=('v2',str(path))
+            if key not in cache:cache[key]=load_checkpoint(path)
+            model,tokenizer=cache[key]
+            settings={k:v for k,v in req.model_dump().items() if k in
+                {'recurrence','accumulation','fatigue','max_cycles','forced_region','stochastic',
+                 'recurrence_override','fatigue_strength','recovery'}} if name.startswith('prg') else {}
+            outputs[name]=generate(model,tokenizer,req.prompt,max_tokens=req.max_tokens,
+                temperature=req.temperature,seed=req.seed+repeat,**settings)
+            if name.startswith('prg_v2'):
+                outputs[name]['gateway_table']=model.gateway_table.cpu().tolist()
+        result.append(outputs)
+    return {'runs':result}
+
+
 @app.post('/api/generate')
 def api_generate(req:Request):
     root=V1_RUN if req.comparison=='byte-v1' else RUN

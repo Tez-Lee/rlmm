@@ -10,8 +10,9 @@ def main():
     p.add_argument('--archive',default='dashboard-bundle.zip')
     p.add_argument('--v1-run',default='runs/v1_final')
     p.add_argument('--refresh-legacy-sample',action='store_true')
+    p.add_argument('--refresh-v1',action='store_true')
     a=p.parse_args(); src=Path(a.run); dest=Path(a.dest); dest.mkdir(exist_ok=True)
-    for file in ('index.html','app.js','v1_dashboard.js'):
+    for file in ('index.html','app.js','v1_dashboard.js','learning_curve.js','v2_dashboard.js'):
         shutil.copy2(Path('web/static')/file,dest/file)
     bench=json.loads((src/'results.json').read_text())
     matched=Path(a.matched)/'results.json'
@@ -30,7 +31,7 @@ def main():
             sample[name]=generate(model,tok,'Once upon a time',max_tokens=8,seed=42)
         (dest/'sample.json').write_text(json.dumps({'runs':[sample]},indent=2))
     v1=Path(a.v1_run)
-    if (v1/'results.json').exists():
+    if (v1/'results.json').exists() and (a.refresh_v1 or not (dest/'v1_results.json').exists() or not (dest/'v1_sample.json').exists()):
         v1_bench=json.loads((v1/'results.json').read_text())
         v1_bench['ablations']={}
         for mode in ('recurrence','accumulation','fatigue'):
@@ -46,9 +47,13 @@ def main():
             model,tok=load(v1/'seed42',name)
             comparison[name]=generate(model,tok,'To be',max_tokens=8,seed=42)
         (dest/'v1_sample.json').write_text(json.dumps(comparison,indent=2))
+    curve=Path('research/phase_a/learning_curve.json')
+    if curve.exists():shutil.copy2(curve,dest/'learning_curve.json')
+    v2_report=Path('research/v2/results.json')
+    if v2_report.exists():shutil.copy2(v2_report,dest/'v2_results.json')
     with zipfile.ZipFile(a.archive,'w',compression=zipfile.ZIP_DEFLATED) as archive:
         for file in ('index.html','app.js','v1_dashboard.js','results.json','sample.json','README.md',
-                     'v1_results.json','v1_sample.json'):
+                     'v1_results.json','v1_sample.json','learning_curve.js','learning_curve.json','v2_dashboard.js','v2_results.json'):
             if (dest/file).exists():archive.write(dest/file,arcname=f'dashboard/{file}')
 
 

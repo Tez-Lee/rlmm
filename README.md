@@ -97,3 +97,112 @@ All ablations retrain PRG-v1 for the same 12,800 token budget and evaluate the s
 | Fatigue OFF | 228.6 ± 51.7 | +5.6 / +0.7 / +2.4 |
 
 Turning accumulation off worsened PPL for all three seeds, consistent with accumulated messages carrying useful information. Turning recurrence off improved PPL for all three seeds, so the current learned revisit policy does not support the central recurrence claim. The difference is small relative to the absolute PPL and this is a short training run. The next priority is to test longer token budgets and traversal-count interventions at the same packed budget, while replacing dense state decay with a lazy sparse update. An independently evaluated Monte Carlo traversal count is recorded alongside actual counts; route-probability calculations conditioned on a sampled path are labeled separately and are not treated as an exact expected count.
+
+## Continuous learning curves (Phase A, based on ad82f7c)
+
+The original v0/v1 model implementations and archived study remain unchanged.
+The new protocol is fixed in [configs/learning_curve.json](configs/learning_curve.json)
+and [research/EXPERIMENT_PROTOCOL.md](research/EXPERIMENT_PROTOCOL.md).
+Phase A uses one continuous run per seed/model, with milestones 12.8k,51.2k,
+204.8k,819.2k target bytes. Both4096/16384 held-out target bytes are evaluated.
+The latter contains the original prefix. PRG-v1 uses all three routing modes.
+
+```bash
+# Install project requirements using your existing environment, then:
+OMP_NUM_THREADS=1 python scripts/run_phase_a.py
+# Refresh the report and standalone SVG figures during/after training:
+OMP_NUM_THREADS=1 python -m prglm.curve_report
+```
+
+In this workspace use `PYTHONPATH=.deps:.` for the locally installed dependencies.
+Workers log to `runs/phase_a/worker_seed{42,43,44}.log`; progress and checkpoint
+files live under `runs/phase_a/seedSEED/MODEL/`. Repeating the same command
+resumes the optimizer and all training RNG states. A per-job lock prevents
+concurrent writes to the same run. Evaluation cannot alter the next training
+random stream. Checkpoint/token-stream/protocol mismatches are rejected.
+The resumable `.pt` includes optimizer state; separate model-only `.pt` sizes
+are reported. Local checkpoints are excluded from Git as in the original study.
+
+Results and linear/log-scale SVG charts are exported into `research/phase_a/`.
+The dashboard adds a separate learning-curve section; existing v0/v1 sections
+and JSON results are preserved. Three-seed groups are required for chart points;
+missing results stay pending. See `research/phase_a/REPORT.md` for current status.
+
+The preregistered mutable-topology experiment starts after Phase A completes.
+No v2 conclusions are inferred from partial v1 curves. The finite token budget
+also cannot prove an intrinsic representation limitation independent of all
+possible optimizers.
+
+## PRG-v2: slow discrete gateway adaptation
+
+`PRGLMv2` is a separate class. The existing v1 implementation is untouched.
+The neural engine is the v1 hard traversal plus detached training observers.
+Tests verify identical static outputs and gradients, accumulation and all three
+validation modes. The completed Phase A v1 runs therefore serve as static
+controls without retraining. Existing old `runs/prg_v2_*` names are v0-era
+experiments and are unrelated; they are preserved.
+
+Fast adaptation remains AdamW of the shared RouterNet/local-edge latent weights.
+Slow adaptation changes only gateway destination IDs after optimizer updates.
+Defaults fixed before v2 results: interval50 updates, per-source probability0.25,
+max8 replacements/opportunity, exploration0.10, temperature0.5, EMA decay0.95,
+100-update probation. This delays the first replacement until update100.
+Replace the eligible slot with lowest downstream credit +0.01×selection EMA;
+at most one slot/source/opportunity. Neural slot parameters and Adam moments
+are retained. Never select self, existing row destinations, or invalid IDs.
+
+Destination scoring uses standardized output-path credit per visit
++0.25×standardized visit frequency −1.0×standardized indegree. Credit is shared
+across visits in trajectories that contribute OUTPUT or cycle-cap readout.
+This is a magnitude/success **proxy**, not causal evidence of loss improvement.
+Message/accumulator activity, route probability/selection and success are
+reported separately. Optional `gradient_credit` records `|activation×gradient|`
+but is OFF in the main study. Exploration can be uniform (default) or low-visit.
+Uniform mutation is the random-rewiring control. Probation reverts roads with
+zero downstream credit when the original destination remains valid; duplicates
+are never introduced. Mutation, probation and EMA are frozen in eval/inference.
+
+The main experiment includes adaptive, uniform, adaptive+recurrenceOFF and
+adaptive+accumulationOFF, all with three seeds and four819.2k-token milestones.
+RecurrenceOFF inherits v1's ascending-destination-ID restriction: it changes the
+usable gateway graph as well as revisit behavior, so conclusions must disclose
+this confound. V2 OFF uses strict negative-infinity action masks: a sanity
+test exposed forbidden-action leakage with v1 finite-30 sentinels under very low
+OUTPUT logits. This was fixed before OFF main training; v1 and ON are unchanged.
+No-exploration is optional and is not needed for main conclusions.
+
+```bash
+# Requires complete Phase A checkpoint/results; resumes only incomplete jobs.
+OMP_NUM_THREADS=1 python scripts/run_mutable_v2.py
+# Small standalone smoke (does not contribute to main conclusions):
+OMP_NUM_THREADS=1 python -m prglm.v2_experiment --smoke \
+  --config configs/mutable_smoke.json --out runs/mutable_smoke_observer_v2
+# Refresh measured results and graphs:
+OMP_NUM_THREADS=1 python -m prglm.v2_report
+```
+
+The mutable runs use a new `runs/mutable_v2/seedSEED/MODEL/` hierarchy. A separate,
+checkpointed mutation RNG ensures that structural choices never consume the
+neural sampling RNG. EMA, gateway ages, probation, counters and full history are
+saved with optimizer/RNG checkpoints. `model_tokens_*.pt` exports discard
+training-only topology statistics, retaining actual gateway IDs and neural state.
+The packed inference budget is unchanged; training metadata and full checkpoint
+serialization are reported separately. No physical or packed execution backend
+is implemented. CPU timings under concurrent training are not hardware claims.
+
+`research/v2/REPORT.md` contains complete measured tables, paired controls,
+learning curves and the ten-question assessment when the study finishes.
+The dashboard preserves v0/v1 and adds v2 graph snapshots, topology diffs,
+hotness/indegree, probation history, actual validation-token trajectories and a
+live same-prompt comparison. Repository ZIP replay needs no external libraries.
+For live generation, start the existing FastAPI app from this repository:
+
+```bash
+OMP_NUM_THREADS=1 uvicorn web.app:app --host 127.0.0.1 --port 8000
+# Visit http://127.0.0.1:8000 and use the separate PRG-v2 section.
+```
+
+Select a completed checkpoint seed/milestone. Generation never changes topology.
+Repeats vary the generation seed and show output/trajectory variations. Static
+repository replay uses saved held-out trajectories; generating new text requires
+the local backend and the local checkpoints (not included in the ZIP).

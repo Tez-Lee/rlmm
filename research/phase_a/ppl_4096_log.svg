@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450">
+<rect width="100%" height="100%" fill="white"/>
+<text x="85" y="25" font-size="18">PPL vs training bytes; validation=4096</text>
+<line x1="85" x2="875" y1="385.0" y2="385.0" stroke="#ddd"/>
+<text x="10" y="390.0" font-size="12">-12.8</text>
+<line x1="85" x2="875" y1="317.0" y2="317.0" stroke="#ddd"/>
+<text x="10" y="322.0" font-size="12">39.2</text>
+<line x1="85" x2="875" y1="249.0" y2="249.0" stroke="#ddd"/>
+<text x="10" y="254.0" font-size="12">91.1</text>
+<line x1="85" x2="875" y1="181.0" y2="181.0" stroke="#ddd"/>
+<text x="10" y="186.0" font-size="12">143</text>
+<line x1="85" x2="875" y1="113.0" y2="113.0" stroke="#ddd"/>
+<text x="10" y="118.0" font-size="12">195</text>
+<line x1="85" x2="875" y1="45.0" y2="45.0" stroke="#ddd"/>
+<text x="10" y="50.0" font-size="12">247</text>
+<text x="85.0" y="405" text-anchor="middle" font-size="12">12,800</text>
+<text x="348.33333333333303" y="405" text-anchor="middle" font-size="12">51,200</text>
+<text x="611.6666666666665" y="405" text-anchor="middle" font-size="12">204,800</text>
+<text x="875.0" y="405" text-anchor="middle" font-size="12">819,200</text>
+<polyline points="85.00,210.04 348.33,295.14 611.67,346.14 875.00,353.94" fill="none" stroke="#2563eb" stroke-width="2"/>
+<circle cx="85.0" cy="210.04224357151944" r="4" fill="#2563eb"/>
+<circle cx="348.33333333333303" cy="295.13777486223285" r="4" fill="#2563eb"/>
+<circle cx="611.6666666666665" cy="346.1390987416433" r="4" fill="#2563eb"/>
+<circle cx="875.0" cy="353.94408788126253" r="4" fill="#2563eb"/>
+<text x="85" y="438" fill="#2563eb" font-size="12">transformer_core/sampled</text>
+<polyline points="85.00,293.35 348.33,336.43 611.67,351.62 875.00,356.67" fill="none" stroke="#0891b2" stroke-width="2"/>
+<circle cx="85.0" cy="293.3527172051248" r="4" fill="#0891b2"/>
+<circle cx="348.33333333333303" cy="336.4265096113938" r="4" fill="#0891b2"/>
+<circle cx="611.6666666666665" cy="351.62133106044195" r="4" fill="#0891b2"/>
+<circle cx="875.0" cy="356.6666666666667" r="4" fill="#0891b2"/>
+<text x="275" y="438" fill="#0891b2" font-size="12">transformer_total/sampled</text>
+<polyline points="85.00,73.33 348.33,309.28 611.67,346.92 875.00,351.04" fill="none" stroke="#e11d48" stroke-width="2"/>
+<circle cx="85.0" cy="73.33333333333331" r="4" fill="#e11d48"/>
+<circle cx="348.33333333333303" cy="309.27659683293814" r="4" fill="#e11d48"/>
+<circle cx="611.6666666666665" cy="346.9244325822169" r="4" fill="#e11d48"/>
+<circle cx="875.0" cy="351.04346449326704" r="4" fill="#e11d48"/>
+<text x="465" y="438" fill="#e11d48" font-size="12">prg_v1/sampled</text>
+<polyline points="85.00,104.13 348.33,310.47 611.67,346.91 875.00,351.04" fill="none" stroke="#a855f7" stroke-width="2"/>
+<circle cx="85.0" cy="104.12733019500928" r="4" fill="#a855f7"/>
+<circle cx="348.33333333333303" cy="310.47108093420087" r="4" fill="#a855f7"/>
+<circle cx="611.6666666666665" cy="346.9092667766328" r="4" fill="#a855f7"/>
+<circle cx="875.0" cy="351.04239989279995" r="4" fill="#a855f7"/>
+<text x="655" y="438" fill="#a855f7" font-size="12">prg_v1/argmax</text>
+<polyline points="85.00,96.02 348.33,310.71 611.67,346.93 875.00,350.50" fill="none" stroke="#16a34a" stroke-width="2"/>
+<circle cx="85.0" cy="96.01728255080508" r="4" fill="#16a34a"/>
+<circle cx="348.33333333333303" cy="310.70996764433687" r="4" fill="#16a34a"/>
+<circle cx="611.6666666666665" cy="346.92647808092636" r="4" fill="#16a34a"/>
+<circle cx="875.0" cy="350.49874074402214" r="4" fill="#16a34a"/>
+<text x="845" y="438" fill="#16a34a" font-size="12">prg_v1/expected</text>
+<text x="450" y="415" text-anchor="middle" font-size="12">Training target bytes (log scale)</text>
+<text x="15" y="40" font-size="12">ppl</text></svg>

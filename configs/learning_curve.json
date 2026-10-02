@@ -1,0 +1,16 @@
+{
+  "base_commit": "ad82f7ce83d21fe25fe69a0e1fb4476672982892",
+  "corpus": "data/raw/tinyshakespeare.txt",
+  "seeds": [42, 43, 44],
+  "milestones": [12800, 51200, 204800, 819200],
+  "validation_bytes": [4096, 16384],
+  "batch": 4,
+  "val_batch": 8,
+  "lr": 0.0003,
+  "models": ["transformer_core", "transformer_total", "prg_v1"],
+  "v1": {"vocab_size": 256, "context": 32, "regions": 32, "region_size": 1024,
+         "edges_per_node": 16, "gateways": 4, "active_nodes": 16,
+         "initial_regions": 2, "max_cycles": 4, "d_model": 64},
+  "transformers": {"transformer_core": {"d_model": 32, "layers": 3},
+                   "transformer_total": {"d_model": 84, "layers": 1}}
+}

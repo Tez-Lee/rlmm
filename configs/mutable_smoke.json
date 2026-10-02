@@ -1,0 +1,71 @@
+{
+  "base_commit": "ad82f7ce83d21fe25fe69a0e1fb4476672982892",
+  "corpus": "data/raw/tinyshakespeare.txt",
+  "seeds": [
+    42
+  ],
+  "milestones": [
+    128,
+    512
+  ],
+  "validation_bytes": [
+    64,
+    128
+  ],
+  "batch": 4,
+  "val_batch": 8,
+  "lr": 0.0003,
+  "models": [
+    "prg_v2_uniform",
+    "prg_v2_adaptive"
+  ],
+  "v1": {
+    "vocab_size": 256,
+    "context": 4,
+    "regions": 6,
+    "region_size": 24,
+    "edges_per_node": 4,
+    "gateways": 2,
+    "active_nodes": 3,
+    "initial_regions": 2,
+    "max_cycles": 3,
+    "d_model": 16
+  },
+  "transformers": {
+    "transformer_core": {
+      "d_model": 32,
+      "layers": 3
+    },
+    "transformer_total": {
+      "d_model": 84,
+      "layers": 1
+    }
+  },
+  "v2": {
+    "mutation_interval": 2,
+    "mutation_probability": 1.0,
+    "exploration_epsilon": 0.1,
+    "hotness_temperature": 0.5,
+    "hotness_ema_decay": 0.95,
+    "maximum_rewires_per_interval": 2,
+    "probation_steps": 4,
+    "probation": true,
+    "gradient_credit": false
+  },
+  "variants": {
+    "prg_v2_uniform": {
+      "topology_mode": "uniform"
+    },
+    "prg_v2_adaptive": {
+      "topology_mode": "adaptive"
+    },
+    "prg_v2_no_recurrence": {
+      "topology_mode": "adaptive",
+      "recurrence": false
+    },
+    "prg_v2_no_accumulation": {
+      "topology_mode": "adaptive",
+      "accumulation": false
+    }
+  }
+}
