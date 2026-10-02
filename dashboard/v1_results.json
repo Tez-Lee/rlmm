@@ -1,0 +1,8146 @@
+{
+  "corpus": "data/raw/tinyshakespeare.txt",
+  "tokenizer": "utf8-byte-256",
+  "validation_positions": "contiguous nonoverlapping windows from held-out final 10%",
+  "validation_tokens": 4096,
+  "matched_transformers": {
+    "transformer_core": [
+      32,
+      3
+    ],
+    "transformer_total": [
+      84,
+      1
+    ]
+  },
+  "results": [
+    {
+      "model": "transformer_core",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 32,
+        "layers": 3,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 42
+      },
+      "seed": 42,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 4.874518394470215,
+      "validation": {
+        "sampled": {
+          "loss": 4.863183319568634,
+          "ppl": 129.4355818038993,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 25086.92354420915,
+      "serialized_bytes": 203946,
+      "memory": {
+        "static": {
+          "embedding_output_head": 32768,
+          "global_router": 0,
+          "shared_router_network": 0,
+          "region_specific_parameters": 0,
+          "local_edges": 0,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 156800,
+          "other_static_metadata": 4096
+        },
+        "dynamic": {
+          "node_state": 0,
+          "fatigue_state": 0,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 24576
+        },
+        "total_static_packed_bytes": 193664,
+        "peak_theoretical_inference_bytes": 218240,
+        "core_static_packed_bytes": 156800,
+        "trainable_numerical_parameters": 47392,
+        "structural_low_bit_parameters": 0,
+        "dynamic_assumption": "fp32 K/V cache estimate; current Transformer code recomputes context"
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 5.953952312469482
+        },
+        {
+          "step": 2,
+          "train_loss": 6.033508777618408
+        },
+        {
+          "step": 3,
+          "train_loss": 6.094192981719971
+        },
+        {
+          "step": 4,
+          "train_loss": 6.005597114562988
+        },
+        {
+          "step": 5,
+          "train_loss": 5.992080211639404
+        },
+        {
+          "step": 6,
+          "train_loss": 6.053555488586426
+        },
+        {
+          "step": 7,
+          "train_loss": 5.960711479187012
+        },
+        {
+          "step": 8,
+          "train_loss": 5.890536308288574
+        },
+        {
+          "step": 9,
+          "train_loss": 5.94324254989624
+        },
+        {
+          "step": 10,
+          "train_loss": 5.816787242889404
+        },
+        {
+          "step": 11,
+          "train_loss": 5.8838911056518555
+        },
+        {
+          "step": 12,
+          "train_loss": 6.008990287780762
+        },
+        {
+          "step": 13,
+          "train_loss": 5.785967826843262
+        },
+        {
+          "step": 14,
+          "train_loss": 5.77609920501709
+        },
+        {
+          "step": 15,
+          "train_loss": 6.0260725021362305
+        },
+        {
+          "step": 16,
+          "train_loss": 5.804083347320557
+        },
+        {
+          "step": 17,
+          "train_loss": 6.033397197723389
+        },
+        {
+          "step": 18,
+          "train_loss": 5.780060768127441
+        },
+        {
+          "step": 19,
+          "train_loss": 5.6662797927856445
+        },
+        {
+          "step": 20,
+          "train_loss": 5.842581272125244
+        },
+        {
+          "step": 21,
+          "train_loss": 5.6996989250183105
+        },
+        {
+          "step": 22,
+          "train_loss": 5.746583938598633
+        },
+        {
+          "step": 23,
+          "train_loss": 5.822512626647949
+        },
+        {
+          "step": 24,
+          "train_loss": 5.733955383300781
+        },
+        {
+          "step": 25,
+          "train_loss": 5.676244258880615
+        },
+        {
+          "step": 26,
+          "train_loss": 5.540133953094482
+        },
+        {
+          "step": 27,
+          "train_loss": 5.78994607925415
+        },
+        {
+          "step": 28,
+          "train_loss": 5.6093010902404785
+        },
+        {
+          "step": 29,
+          "train_loss": 5.52595853805542
+        },
+        {
+          "step": 30,
+          "train_loss": 5.421119213104248
+        },
+        {
+          "step": 31,
+          "train_loss": 5.62420129776001
+        },
+        {
+          "step": 32,
+          "train_loss": 5.636466979980469
+        },
+        {
+          "step": 33,
+          "train_loss": 5.638251781463623
+        },
+        {
+          "step": 34,
+          "train_loss": 5.587973117828369
+        },
+        {
+          "step": 35,
+          "train_loss": 5.490645408630371
+        },
+        {
+          "step": 36,
+          "train_loss": 5.52815055847168
+        },
+        {
+          "step": 37,
+          "train_loss": 5.3741278648376465
+        },
+        {
+          "step": 38,
+          "train_loss": 5.453364372253418
+        },
+        {
+          "step": 39,
+          "train_loss": 5.415042400360107
+        },
+        {
+          "step": 40,
+          "train_loss": 5.373424053192139
+        },
+        {
+          "step": 41,
+          "train_loss": 5.438266277313232
+        },
+        {
+          "step": 42,
+          "train_loss": 5.285867691040039
+        },
+        {
+          "step": 43,
+          "train_loss": 5.282532691955566
+        },
+        {
+          "step": 44,
+          "train_loss": 5.550313949584961
+        },
+        {
+          "step": 45,
+          "train_loss": 5.330239295959473
+        },
+        {
+          "step": 46,
+          "train_loss": 5.474092960357666
+        },
+        {
+          "step": 47,
+          "train_loss": 5.396844387054443
+        },
+        {
+          "step": 48,
+          "train_loss": 5.343636512756348
+        },
+        {
+          "step": 49,
+          "train_loss": 5.227554798126221
+        },
+        {
+          "step": 50,
+          "train_loss": 5.40692138671875
+        },
+        {
+          "step": 51,
+          "train_loss": 5.221844673156738
+        },
+        {
+          "step": 52,
+          "train_loss": 5.4150776863098145
+        },
+        {
+          "step": 53,
+          "train_loss": 5.21143913269043
+        },
+        {
+          "step": 54,
+          "train_loss": 5.049113750457764
+        },
+        {
+          "step": 55,
+          "train_loss": 5.23572301864624
+        },
+        {
+          "step": 56,
+          "train_loss": 5.218099594116211
+        },
+        {
+          "step": 57,
+          "train_loss": 5.232930660247803
+        },
+        {
+          "step": 58,
+          "train_loss": 5.181973934173584
+        },
+        {
+          "step": 59,
+          "train_loss": 5.2638468742370605
+        },
+        {
+          "step": 60,
+          "train_loss": 5.240581035614014
+        },
+        {
+          "step": 61,
+          "train_loss": 5.2126007080078125
+        },
+        {
+          "step": 62,
+          "train_loss": 5.136125564575195
+        },
+        {
+          "step": 63,
+          "train_loss": 5.147841453552246
+        },
+        {
+          "step": 64,
+          "train_loss": 5.154314994812012
+        },
+        {
+          "step": 65,
+          "train_loss": 5.103327751159668
+        },
+        {
+          "step": 66,
+          "train_loss": 4.991261959075928
+        },
+        {
+          "step": 67,
+          "train_loss": 5.1804938316345215
+        },
+        {
+          "step": 68,
+          "train_loss": 5.140638828277588
+        },
+        {
+          "step": 69,
+          "train_loss": 5.119657039642334
+        },
+        {
+          "step": 70,
+          "train_loss": 5.204680442810059
+        },
+        {
+          "step": 71,
+          "train_loss": 5.121896266937256
+        },
+        {
+          "step": 72,
+          "train_loss": 5.141397953033447
+        },
+        {
+          "step": 73,
+          "train_loss": 5.15507698059082
+        },
+        {
+          "step": 74,
+          "train_loss": 5.098390579223633
+        },
+        {
+          "step": 75,
+          "train_loss": 5.058091163635254
+        },
+        {
+          "step": 76,
+          "train_loss": 4.907375335693359
+        },
+        {
+          "step": 77,
+          "train_loss": 5.012022018432617
+        },
+        {
+          "step": 78,
+          "train_loss": 4.987407684326172
+        },
+        {
+          "step": 79,
+          "train_loss": 4.824906826019287
+        },
+        {
+          "step": 80,
+          "train_loss": 4.847032070159912
+        },
+        {
+          "step": 81,
+          "train_loss": 5.027708053588867
+        },
+        {
+          "step": 82,
+          "train_loss": 4.851144313812256
+        },
+        {
+          "step": 83,
+          "train_loss": 4.917084217071533
+        },
+        {
+          "step": 84,
+          "train_loss": 4.927740573883057
+        },
+        {
+          "step": 85,
+          "train_loss": 5.116118431091309
+        },
+        {
+          "step": 86,
+          "train_loss": 4.995782852172852
+        },
+        {
+          "step": 87,
+          "train_loss": 4.896385192871094
+        },
+        {
+          "step": 88,
+          "train_loss": 5.0076823234558105
+        },
+        {
+          "step": 89,
+          "train_loss": 5.028972148895264
+        },
+        {
+          "step": 90,
+          "train_loss": 4.886965274810791
+        },
+        {
+          "step": 91,
+          "train_loss": 4.96033239364624
+        },
+        {
+          "step": 92,
+          "train_loss": 4.7989091873168945
+        },
+        {
+          "step": 93,
+          "train_loss": 4.805698394775391
+        },
+        {
+          "step": 94,
+          "train_loss": 4.930761337280273
+        },
+        {
+          "step": 95,
+          "train_loss": 4.85653829574585
+        },
+        {
+          "step": 96,
+          "train_loss": 4.732816219329834
+        },
+        {
+          "step": 97,
+          "train_loss": 4.921087741851807
+        },
+        {
+          "step": 98,
+          "train_loss": 4.922802448272705
+        },
+        {
+          "step": 99,
+          "train_loss": 4.686126708984375
+        },
+        {
+          "step": 100,
+          "train_loss": 4.874518394470215
+        }
+      ],
+      "inference_tokens_per_second": 731.318313729469,
+      "inference_latency_seconds_per_token": 0.0013673936249460894
+    },
+    {
+      "model": "transformer_total",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 84,
+        "layers": 1,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 42
+      },
+      "seed": 42,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 3.9187464714050293,
+      "validation": {
+        "sampled": {
+          "loss": 3.964447498321533,
+          "ppl": 52.69114939748334,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 35609.10105976578,
+      "serialized_bytes": 446702,
+      "memory": {
+        "static": {
+          "embedding_output_head": 86016,
+          "global_router": 0,
+          "shared_router_network": 0,
+          "region_specific_parameters": 0,
+          "local_edges": 0,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 354480,
+          "other_static_metadata": 10752
+        },
+        "dynamic": {
+          "node_state": 0,
+          "fatigue_state": 0,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 21504
+        },
+        "total_static_packed_bytes": 451248,
+        "peak_theoretical_inference_bytes": 472752,
+        "core_static_packed_bytes": 354480,
+        "trainable_numerical_parameters": 110124,
+        "structural_low_bit_parameters": 0,
+        "dynamic_assumption": "fp32 K/V cache estimate; current Transformer code recomputes context"
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 6.977036476135254
+        },
+        {
+          "step": 2,
+          "train_loss": 6.668506145477295
+        },
+        {
+          "step": 3,
+          "train_loss": 7.142990589141846
+        },
+        {
+          "step": 4,
+          "train_loss": 6.77108097076416
+        },
+        {
+          "step": 5,
+          "train_loss": 6.8084564208984375
+        },
+        {
+          "step": 6,
+          "train_loss": 6.992646217346191
+        },
+        {
+          "step": 7,
+          "train_loss": 6.602902889251709
+        },
+        {
+          "step": 8,
+          "train_loss": 6.703280925750732
+        },
+        {
+          "step": 9,
+          "train_loss": 6.845191955566406
+        },
+        {
+          "step": 10,
+          "train_loss": 6.6469292640686035
+        },
+        {
+          "step": 11,
+          "train_loss": 6.667751789093018
+        },
+        {
+          "step": 12,
+          "train_loss": 6.853911399841309
+        },
+        {
+          "step": 13,
+          "train_loss": 6.547070503234863
+        },
+        {
+          "step": 14,
+          "train_loss": 6.404619216918945
+        },
+        {
+          "step": 15,
+          "train_loss": 6.622596740722656
+        },
+        {
+          "step": 16,
+          "train_loss": 6.570826053619385
+        },
+        {
+          "step": 17,
+          "train_loss": 6.480893611907959
+        },
+        {
+          "step": 18,
+          "train_loss": 6.219089508056641
+        },
+        {
+          "step": 19,
+          "train_loss": 6.302675724029541
+        },
+        {
+          "step": 20,
+          "train_loss": 6.31887674331665
+        },
+        {
+          "step": 21,
+          "train_loss": 6.351597785949707
+        },
+        {
+          "step": 22,
+          "train_loss": 6.220291614532471
+        },
+        {
+          "step": 23,
+          "train_loss": 6.42044734954834
+        },
+        {
+          "step": 24,
+          "train_loss": 6.1520161628723145
+        },
+        {
+          "step": 25,
+          "train_loss": 6.029577255249023
+        },
+        {
+          "step": 26,
+          "train_loss": 6.1805033683776855
+        },
+        {
+          "step": 27,
+          "train_loss": 6.081582069396973
+        },
+        {
+          "step": 28,
+          "train_loss": 5.9167022705078125
+        },
+        {
+          "step": 29,
+          "train_loss": 5.993713855743408
+        },
+        {
+          "step": 30,
+          "train_loss": 5.766585350036621
+        },
+        {
+          "step": 31,
+          "train_loss": 6.1158318519592285
+        },
+        {
+          "step": 32,
+          "train_loss": 5.814255237579346
+        },
+        {
+          "step": 33,
+          "train_loss": 5.8817830085754395
+        },
+        {
+          "step": 34,
+          "train_loss": 5.769657135009766
+        },
+        {
+          "step": 35,
+          "train_loss": 5.65010404586792
+        },
+        {
+          "step": 36,
+          "train_loss": 5.56156063079834
+        },
+        {
+          "step": 37,
+          "train_loss": 5.409164905548096
+        },
+        {
+          "step": 38,
+          "train_loss": 5.355939865112305
+        },
+        {
+          "step": 39,
+          "train_loss": 5.526674747467041
+        },
+        {
+          "step": 40,
+          "train_loss": 5.260472774505615
+        },
+        {
+          "step": 41,
+          "train_loss": 5.275906562805176
+        },
+        {
+          "step": 42,
+          "train_loss": 5.10967493057251
+        },
+        {
+          "step": 43,
+          "train_loss": 5.369687557220459
+        },
+        {
+          "step": 44,
+          "train_loss": 5.464929580688477
+        },
+        {
+          "step": 45,
+          "train_loss": 5.004781246185303
+        },
+        {
+          "step": 46,
+          "train_loss": 5.3051300048828125
+        },
+        {
+          "step": 47,
+          "train_loss": 4.871103286743164
+        },
+        {
+          "step": 48,
+          "train_loss": 4.969671249389648
+        },
+        {
+          "step": 49,
+          "train_loss": 4.906802654266357
+        },
+        {
+          "step": 50,
+          "train_loss": 4.961691856384277
+        },
+        {
+          "step": 51,
+          "train_loss": 4.666775226593018
+        },
+        {
+          "step": 52,
+          "train_loss": 4.730706691741943
+        },
+        {
+          "step": 53,
+          "train_loss": 4.737285614013672
+        },
+        {
+          "step": 54,
+          "train_loss": 4.399501323699951
+        },
+        {
+          "step": 55,
+          "train_loss": 4.665887355804443
+        },
+        {
+          "step": 56,
+          "train_loss": 4.6000542640686035
+        },
+        {
+          "step": 57,
+          "train_loss": 4.781971454620361
+        },
+        {
+          "step": 58,
+          "train_loss": 4.6930928230285645
+        },
+        {
+          "step": 59,
+          "train_loss": 4.688610553741455
+        },
+        {
+          "step": 60,
+          "train_loss": 4.5231242179870605
+        },
+        {
+          "step": 61,
+          "train_loss": 4.654036045074463
+        },
+        {
+          "step": 62,
+          "train_loss": 4.463573455810547
+        },
+        {
+          "step": 63,
+          "train_loss": 4.444775104522705
+        },
+        {
+          "step": 64,
+          "train_loss": 4.2910332679748535
+        },
+        {
+          "step": 65,
+          "train_loss": 4.3973894119262695
+        },
+        {
+          "step": 66,
+          "train_loss": 4.21118688583374
+        },
+        {
+          "step": 67,
+          "train_loss": 4.403537273406982
+        },
+        {
+          "step": 68,
+          "train_loss": 4.309685707092285
+        },
+        {
+          "step": 69,
+          "train_loss": 4.193081855773926
+        },
+        {
+          "step": 70,
+          "train_loss": 4.46806001663208
+        },
+        {
+          "step": 71,
+          "train_loss": 4.2881975173950195
+        },
+        {
+          "step": 72,
+          "train_loss": 4.23219108581543
+        },
+        {
+          "step": 73,
+          "train_loss": 4.103057384490967
+        },
+        {
+          "step": 74,
+          "train_loss": 4.381351947784424
+        },
+        {
+          "step": 75,
+          "train_loss": 4.445675849914551
+        },
+        {
+          "step": 76,
+          "train_loss": 3.936070680618286
+        },
+        {
+          "step": 77,
+          "train_loss": 4.167708396911621
+        },
+        {
+          "step": 78,
+          "train_loss": 4.258694648742676
+        },
+        {
+          "step": 79,
+          "train_loss": 3.9376940727233887
+        },
+        {
+          "step": 80,
+          "train_loss": 4.0974602699279785
+        },
+        {
+          "step": 81,
+          "train_loss": 4.059070110321045
+        },
+        {
+          "step": 82,
+          "train_loss": 4.201968193054199
+        },
+        {
+          "step": 83,
+          "train_loss": 4.002046585083008
+        },
+        {
+          "step": 84,
+          "train_loss": 4.157503128051758
+        },
+        {
+          "step": 85,
+          "train_loss": 4.250136852264404
+        },
+        {
+          "step": 86,
+          "train_loss": 4.0422043800354
+        },
+        {
+          "step": 87,
+          "train_loss": 3.9261012077331543
+        },
+        {
+          "step": 88,
+          "train_loss": 4.0448760986328125
+        },
+        {
+          "step": 89,
+          "train_loss": 4.148177146911621
+        },
+        {
+          "step": 90,
+          "train_loss": 4.010756492614746
+        },
+        {
+          "step": 91,
+          "train_loss": 4.107508182525635
+        },
+        {
+          "step": 92,
+          "train_loss": 3.9168245792388916
+        },
+        {
+          "step": 93,
+          "train_loss": 3.9462544918060303
+        },
+        {
+          "step": 94,
+          "train_loss": 4.292769432067871
+        },
+        {
+          "step": 95,
+          "train_loss": 3.9381940364837646
+        },
+        {
+          "step": 96,
+          "train_loss": 3.857158660888672
+        },
+        {
+          "step": 97,
+          "train_loss": 4.0651397705078125
+        },
+        {
+          "step": 98,
+          "train_loss": 4.205813407897949
+        },
+        {
+          "step": 99,
+          "train_loss": 3.7633056640625
+        },
+        {
+          "step": 100,
+          "train_loss": 3.9187464714050293
+        }
+      ],
+      "inference_tokens_per_second": 1835.2542709531053,
+      "inference_latency_seconds_per_token": 0.0005448836250252498
+    },
+    {
+      "model": "prg",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 64,
+        "layers": 2,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 42
+      },
+      "seed": 42,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 6.521836280822754,
+      "validation": {
+        "sampled": {
+          "loss": 6.667560189962387,
+          "ppl": 786.4744135766767,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 640.160842524205,
+      "serialized_bytes": 84594,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 2080,
+          "shared_router_network": 9360,
+          "region_specific_parameters": 2048,
+          "local_edges": 48,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 768,
+          "other_static_metadata": 0
+        },
+        "dynamic": {
+          "node_state": 2048,
+          "fatigue_state": 32,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 256
+        },
+        "total_static_packed_bytes": 79840,
+        "peak_theoretical_inference_bytes": 82176,
+        "core_static_packed_bytes": 14304,
+        "trainable_numerical_parameters": 20140,
+        "structural_low_bit_parameters": 192
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 7.639481544494629
+        },
+        {
+          "step": 2,
+          "train_loss": 7.051845550537109
+        },
+        {
+          "step": 3,
+          "train_loss": 7.428722381591797
+        },
+        {
+          "step": 4,
+          "train_loss": 7.29559850692749
+        },
+        {
+          "step": 5,
+          "train_loss": 7.320178508758545
+        },
+        {
+          "step": 6,
+          "train_loss": 7.217646598815918
+        },
+        {
+          "step": 7,
+          "train_loss": 7.138868808746338
+        },
+        {
+          "step": 8,
+          "train_loss": 7.398553848266602
+        },
+        {
+          "step": 9,
+          "train_loss": 7.174639701843262
+        },
+        {
+          "step": 10,
+          "train_loss": 6.97323751449585
+        },
+        {
+          "step": 11,
+          "train_loss": 7.390856742858887
+        },
+        {
+          "step": 12,
+          "train_loss": 7.390167713165283
+        },
+        {
+          "step": 13,
+          "train_loss": 6.975459575653076
+        },
+        {
+          "step": 14,
+          "train_loss": 7.085170745849609
+        },
+        {
+          "step": 15,
+          "train_loss": 6.9925079345703125
+        },
+        {
+          "step": 16,
+          "train_loss": 7.0657453536987305
+        },
+        {
+          "step": 17,
+          "train_loss": 7.051856994628906
+        },
+        {
+          "step": 18,
+          "train_loss": 6.9240593910217285
+        },
+        {
+          "step": 19,
+          "train_loss": 7.3948187828063965
+        },
+        {
+          "step": 20,
+          "train_loss": 6.957425117492676
+        },
+        {
+          "step": 21,
+          "train_loss": 7.279332637786865
+        },
+        {
+          "step": 22,
+          "train_loss": 7.368834495544434
+        },
+        {
+          "step": 23,
+          "train_loss": 7.158796787261963
+        },
+        {
+          "step": 24,
+          "train_loss": 7.123961925506592
+        },
+        {
+          "step": 25,
+          "train_loss": 6.779987335205078
+        },
+        {
+          "step": 26,
+          "train_loss": 6.897217750549316
+        },
+        {
+          "step": 27,
+          "train_loss": 7.07471227645874
+        },
+        {
+          "step": 28,
+          "train_loss": 7.121433258056641
+        },
+        {
+          "step": 29,
+          "train_loss": 7.124807834625244
+        },
+        {
+          "step": 30,
+          "train_loss": 6.776042938232422
+        },
+        {
+          "step": 31,
+          "train_loss": 7.0452470779418945
+        },
+        {
+          "step": 32,
+          "train_loss": 7.004655361175537
+        },
+        {
+          "step": 33,
+          "train_loss": 6.939069747924805
+        },
+        {
+          "step": 34,
+          "train_loss": 7.220276832580566
+        },
+        {
+          "step": 35,
+          "train_loss": 7.112081050872803
+        },
+        {
+          "step": 36,
+          "train_loss": 7.109411239624023
+        },
+        {
+          "step": 37,
+          "train_loss": 7.024959087371826
+        },
+        {
+          "step": 38,
+          "train_loss": 6.795799255371094
+        },
+        {
+          "step": 39,
+          "train_loss": 6.96687650680542
+        },
+        {
+          "step": 40,
+          "train_loss": 7.039673805236816
+        },
+        {
+          "step": 41,
+          "train_loss": 6.759737491607666
+        },
+        {
+          "step": 42,
+          "train_loss": 7.019092082977295
+        },
+        {
+          "step": 43,
+          "train_loss": 6.957101345062256
+        },
+        {
+          "step": 44,
+          "train_loss": 6.997387886047363
+        },
+        {
+          "step": 45,
+          "train_loss": 6.639058589935303
+        },
+        {
+          "step": 46,
+          "train_loss": 6.7707600593566895
+        },
+        {
+          "step": 47,
+          "train_loss": 6.861299514770508
+        },
+        {
+          "step": 48,
+          "train_loss": 6.854313373565674
+        },
+        {
+          "step": 49,
+          "train_loss": 6.9669718742370605
+        },
+        {
+          "step": 50,
+          "train_loss": 6.818151473999023
+        },
+        {
+          "step": 51,
+          "train_loss": 6.8345746994018555
+        },
+        {
+          "step": 52,
+          "train_loss": 6.562167167663574
+        },
+        {
+          "step": 53,
+          "train_loss": 6.88399600982666
+        },
+        {
+          "step": 54,
+          "train_loss": 6.80023193359375
+        },
+        {
+          "step": 55,
+          "train_loss": 6.881730079650879
+        },
+        {
+          "step": 56,
+          "train_loss": 6.895470142364502
+        },
+        {
+          "step": 57,
+          "train_loss": 6.7467570304870605
+        },
+        {
+          "step": 58,
+          "train_loss": 6.832254409790039
+        },
+        {
+          "step": 59,
+          "train_loss": 6.790863513946533
+        },
+        {
+          "step": 60,
+          "train_loss": 6.739188194274902
+        },
+        {
+          "step": 61,
+          "train_loss": 6.855861186981201
+        },
+        {
+          "step": 62,
+          "train_loss": 6.515758991241455
+        },
+        {
+          "step": 63,
+          "train_loss": 6.645712852478027
+        },
+        {
+          "step": 64,
+          "train_loss": 6.697192192077637
+        },
+        {
+          "step": 65,
+          "train_loss": 6.679213047027588
+        },
+        {
+          "step": 66,
+          "train_loss": 6.555088043212891
+        },
+        {
+          "step": 67,
+          "train_loss": 6.638731479644775
+        },
+        {
+          "step": 68,
+          "train_loss": 6.579031467437744
+        },
+        {
+          "step": 69,
+          "train_loss": 6.938045024871826
+        },
+        {
+          "step": 70,
+          "train_loss": 6.8614606857299805
+        },
+        {
+          "step": 71,
+          "train_loss": 6.648416996002197
+        },
+        {
+          "step": 72,
+          "train_loss": 6.5146307945251465
+        },
+        {
+          "step": 73,
+          "train_loss": 6.50339937210083
+        },
+        {
+          "step": 74,
+          "train_loss": 6.355705738067627
+        },
+        {
+          "step": 75,
+          "train_loss": 6.849875450134277
+        },
+        {
+          "step": 76,
+          "train_loss": 6.673130512237549
+        },
+        {
+          "step": 77,
+          "train_loss": 6.402065753936768
+        },
+        {
+          "step": 78,
+          "train_loss": 6.88045597076416
+        },
+        {
+          "step": 79,
+          "train_loss": 6.630453586578369
+        },
+        {
+          "step": 80,
+          "train_loss": 6.629319667816162
+        },
+        {
+          "step": 81,
+          "train_loss": 6.417729377746582
+        },
+        {
+          "step": 82,
+          "train_loss": 6.331273078918457
+        },
+        {
+          "step": 83,
+          "train_loss": 6.578884124755859
+        },
+        {
+          "step": 84,
+          "train_loss": 6.495675086975098
+        },
+        {
+          "step": 85,
+          "train_loss": 6.445227146148682
+        },
+        {
+          "step": 86,
+          "train_loss": 6.537270545959473
+        },
+        {
+          "step": 87,
+          "train_loss": 6.446447849273682
+        },
+        {
+          "step": 88,
+          "train_loss": 6.4012227058410645
+        },
+        {
+          "step": 89,
+          "train_loss": 6.507870197296143
+        },
+        {
+          "step": 90,
+          "train_loss": 6.384903907775879
+        },
+        {
+          "step": 91,
+          "train_loss": 6.494142532348633
+        },
+        {
+          "step": 92,
+          "train_loss": 6.346590042114258
+        },
+        {
+          "step": 93,
+          "train_loss": 6.3966217041015625
+        },
+        {
+          "step": 94,
+          "train_loss": 6.472259521484375
+        },
+        {
+          "step": 95,
+          "train_loss": 6.484704494476318
+        },
+        {
+          "step": 96,
+          "train_loss": 6.309356212615967
+        },
+        {
+          "step": 97,
+          "train_loss": 6.522726058959961
+        },
+        {
+          "step": 98,
+          "train_loss": 6.609814167022705
+        },
+        {
+          "step": 99,
+          "train_loss": 6.476024627685547
+        },
+        {
+          "step": 100,
+          "train_loss": 6.521836280822754
+        }
+      ],
+      "inference_tokens_per_second": 66.91202525718418,
+      "inference_latency_seconds_per_token": 0.014944996749932216
+    },
+    {
+      "model": "prg_v1",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 42
+      },
+      "seed": 42,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 5.638794898986816,
+      "validation": {
+        "expected": {
+          "loss": 5.521102279424667,
+          "ppl": 249.91035646637448,
+          "validation_tokens": 4096
+        },
+        "argmax": {
+          "loss": 5.438676685094833,
+          "ppl": 230.1374375663532,
+          "validation_tokens": 4096
+        },
+        "sampled": {
+          "loss": 5.605004638433456,
+          "ppl": 271.7831860796086,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 461.08415807182445,
+      "serialized_bytes": 2193354,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128
+        },
+        "total_static_packed_bytes": 220860,
+        "peak_theoretical_inference_bytes": 483398,
+        "core_static_packed_bytes": 155324,
+        "trainable_numerical_parameters": 546711,
+        "structural_low_bit_parameters": 524288
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 6.261536121368408
+        },
+        {
+          "step": 2,
+          "train_loss": 6.132110118865967
+        },
+        {
+          "step": 3,
+          "train_loss": 6.14976692199707
+        },
+        {
+          "step": 4,
+          "train_loss": 6.333873271942139
+        },
+        {
+          "step": 5,
+          "train_loss": 6.167638301849365
+        },
+        {
+          "step": 6,
+          "train_loss": 6.027963161468506
+        },
+        {
+          "step": 7,
+          "train_loss": 6.137859344482422
+        },
+        {
+          "step": 8,
+          "train_loss": 6.1480021476745605
+        },
+        {
+          "step": 9,
+          "train_loss": 6.230896949768066
+        },
+        {
+          "step": 10,
+          "train_loss": 6.087397575378418
+        },
+        {
+          "step": 11,
+          "train_loss": 6.070712566375732
+        },
+        {
+          "step": 12,
+          "train_loss": 6.102658271789551
+        },
+        {
+          "step": 13,
+          "train_loss": 6.0018792152404785
+        },
+        {
+          "step": 14,
+          "train_loss": 6.08039665222168
+        },
+        {
+          "step": 15,
+          "train_loss": 5.937719821929932
+        },
+        {
+          "step": 16,
+          "train_loss": 5.868016242980957
+        },
+        {
+          "step": 17,
+          "train_loss": 5.98199462890625
+        },
+        {
+          "step": 18,
+          "train_loss": 6.0979766845703125
+        },
+        {
+          "step": 19,
+          "train_loss": 6.071233749389648
+        },
+        {
+          "step": 20,
+          "train_loss": 5.925039291381836
+        },
+        {
+          "step": 21,
+          "train_loss": 6.042286396026611
+        },
+        {
+          "step": 22,
+          "train_loss": 6.044933319091797
+        },
+        {
+          "step": 23,
+          "train_loss": 6.063753604888916
+        },
+        {
+          "step": 24,
+          "train_loss": 6.106650352478027
+        },
+        {
+          "step": 25,
+          "train_loss": 6.018954753875732
+        },
+        {
+          "step": 26,
+          "train_loss": 6.075709819793701
+        },
+        {
+          "step": 27,
+          "train_loss": 5.841808795928955
+        },
+        {
+          "step": 28,
+          "train_loss": 6.016652584075928
+        },
+        {
+          "step": 29,
+          "train_loss": 6.039060115814209
+        },
+        {
+          "step": 30,
+          "train_loss": 5.998094081878662
+        },
+        {
+          "step": 31,
+          "train_loss": 5.995938777923584
+        },
+        {
+          "step": 32,
+          "train_loss": 5.938839912414551
+        },
+        {
+          "step": 33,
+          "train_loss": 6.018745422363281
+        },
+        {
+          "step": 34,
+          "train_loss": 5.9554948806762695
+        },
+        {
+          "step": 35,
+          "train_loss": 5.97606897354126
+        },
+        {
+          "step": 36,
+          "train_loss": 6.045730113983154
+        },
+        {
+          "step": 37,
+          "train_loss": 6.057351589202881
+        },
+        {
+          "step": 38,
+          "train_loss": 6.0030412673950195
+        },
+        {
+          "step": 39,
+          "train_loss": 6.043695449829102
+        },
+        {
+          "step": 40,
+          "train_loss": 5.862130165100098
+        },
+        {
+          "step": 41,
+          "train_loss": 6.030556678771973
+        },
+        {
+          "step": 42,
+          "train_loss": 5.91998815536499
+        },
+        {
+          "step": 43,
+          "train_loss": 5.821554660797119
+        },
+        {
+          "step": 44,
+          "train_loss": 5.895671367645264
+        },
+        {
+          "step": 45,
+          "train_loss": 6.111660480499268
+        },
+        {
+          "step": 46,
+          "train_loss": 6.02175235748291
+        },
+        {
+          "step": 47,
+          "train_loss": 5.7461161613464355
+        },
+        {
+          "step": 48,
+          "train_loss": 5.8526129722595215
+        },
+        {
+          "step": 49,
+          "train_loss": 6.071717262268066
+        },
+        {
+          "step": 50,
+          "train_loss": 5.88169002532959
+        },
+        {
+          "step": 51,
+          "train_loss": 5.92125129699707
+        },
+        {
+          "step": 52,
+          "train_loss": 5.733007431030273
+        },
+        {
+          "step": 53,
+          "train_loss": 5.924209117889404
+        },
+        {
+          "step": 54,
+          "train_loss": 5.935921669006348
+        },
+        {
+          "step": 55,
+          "train_loss": 5.647975921630859
+        },
+        {
+          "step": 56,
+          "train_loss": 5.658888339996338
+        },
+        {
+          "step": 57,
+          "train_loss": 5.845707416534424
+        },
+        {
+          "step": 58,
+          "train_loss": 5.730342864990234
+        },
+        {
+          "step": 59,
+          "train_loss": 5.764350891113281
+        },
+        {
+          "step": 60,
+          "train_loss": 5.848387718200684
+        },
+        {
+          "step": 61,
+          "train_loss": 5.7736897468566895
+        },
+        {
+          "step": 62,
+          "train_loss": 5.891794681549072
+        },
+        {
+          "step": 63,
+          "train_loss": 5.8024396896362305
+        },
+        {
+          "step": 64,
+          "train_loss": 5.84113073348999
+        },
+        {
+          "step": 65,
+          "train_loss": 5.652092456817627
+        },
+        {
+          "step": 66,
+          "train_loss": 5.808444499969482
+        },
+        {
+          "step": 67,
+          "train_loss": 5.7379655838012695
+        },
+        {
+          "step": 68,
+          "train_loss": 5.811172962188721
+        },
+        {
+          "step": 69,
+          "train_loss": 5.785253524780273
+        },
+        {
+          "step": 70,
+          "train_loss": 5.754881381988525
+        },
+        {
+          "step": 71,
+          "train_loss": 5.767191410064697
+        },
+        {
+          "step": 72,
+          "train_loss": 5.559976577758789
+        },
+        {
+          "step": 73,
+          "train_loss": 5.504858016967773
+        },
+        {
+          "step": 74,
+          "train_loss": 5.707752227783203
+        },
+        {
+          "step": 75,
+          "train_loss": 5.688828945159912
+        },
+        {
+          "step": 76,
+          "train_loss": 5.753484725952148
+        },
+        {
+          "step": 77,
+          "train_loss": 5.745533466339111
+        },
+        {
+          "step": 78,
+          "train_loss": 5.852145195007324
+        },
+        {
+          "step": 79,
+          "train_loss": 5.729578971862793
+        },
+        {
+          "step": 80,
+          "train_loss": 5.691454887390137
+        },
+        {
+          "step": 81,
+          "train_loss": 5.807008266448975
+        },
+        {
+          "step": 82,
+          "train_loss": 5.658942222595215
+        },
+        {
+          "step": 83,
+          "train_loss": 5.709723472595215
+        },
+        {
+          "step": 84,
+          "train_loss": 5.8293843269348145
+        },
+        {
+          "step": 85,
+          "train_loss": 5.628542900085449
+        },
+        {
+          "step": 86,
+          "train_loss": 5.632668495178223
+        },
+        {
+          "step": 87,
+          "train_loss": 5.65792179107666
+        },
+        {
+          "step": 88,
+          "train_loss": 5.696261882781982
+        },
+        {
+          "step": 89,
+          "train_loss": 5.643701076507568
+        },
+        {
+          "step": 90,
+          "train_loss": 5.614603042602539
+        },
+        {
+          "step": 91,
+          "train_loss": 5.744121074676514
+        },
+        {
+          "step": 92,
+          "train_loss": 5.667738914489746
+        },
+        {
+          "step": 93,
+          "train_loss": 5.537195205688477
+        },
+        {
+          "step": 94,
+          "train_loss": 5.684225082397461
+        },
+        {
+          "step": 95,
+          "train_loss": 5.494996070861816
+        },
+        {
+          "step": 96,
+          "train_loss": 5.585172176361084
+        },
+        {
+          "step": 97,
+          "train_loss": 5.551411151885986
+        },
+        {
+          "step": 98,
+          "train_loss": 5.577668190002441
+        },
+        {
+          "step": 99,
+          "train_loss": 5.562417030334473
+        },
+        {
+          "step": 100,
+          "train_loss": 5.638794898986816
+        }
+      ],
+      "inference_tokens_per_second": 39.79780466650454,
+      "inference_latency_seconds_per_token": 0.02512701412501883,
+      "dynamics": {
+        "diagnostic_tokens": 32,
+        "total_nodes": 32768,
+        "total_local_edges": 524288,
+        "nonzero_ternary_local_edges": 320660,
+        "total_region_edges": 128,
+        "active_regions_per_token": 6.125,
+        "active_nodes_per_token": 63.1875,
+        "node_visits_per_token": 98.0,
+        "traversed_local_edges_per_token": 1568.0,
+        "effective_nonzero_edges_per_token": 964.34375,
+        "active_node_ratio_per_cycle": 0.0007476806640625,
+        "active_edge_ratio_per_cycle": 0.0007476806640625,
+        "region_utilization": [
+          6,
+          2,
+          7,
+          3,
+          7,
+          3,
+          10,
+          3,
+          6,
+          6,
+          7,
+          7,
+          5,
+          8,
+          3,
+          8,
+          1,
+          16,
+          4,
+          4,
+          0,
+          4,
+          3,
+          4,
+          2,
+          21,
+          1,
+          7,
+          15,
+          7,
+          9,
+          7
+        ],
+        "actual_traversal_count_per_token": 6.125,
+        "monte_carlo_expected_traversal_count_per_token": 5.6171875,
+        "monte_carlo_traversal_std": 0.46643774944481375,
+        "expected_traversal_count_per_walker": 2.3414951910534993,
+        "actual_traversal_count_per_walker": 3.0625,
+        "base_local_transition_probability": 0.16613153725558397,
+        "mean_accumulator_magnitude": 0.3241141844084676,
+        "mean_output_contribution_magnitude": 0.3636690487667006,
+        "probability_accumulator_correlation": -0.22784114826292712,
+        "visits_accumulator_correlation": 0.5446425987427123,
+        "expected_actual_traversal_correlation": 0.9942673589184091,
+        "accumulator_contribution_correlation": 0.1617217657186257,
+        "trajectory_example": [
+          {
+            "cycle": 0,
+            "events": [
+              {
+                "region": 12,
+                "previous_region": -1,
+                "destination": 12,
+                "action": 0,
+                "base_probability": [
+                  0.18775764107704163,
+                  0.13643686473369598,
+                  0.14275401830673218,
+                  0.15781629085540771,
+                  0.17144504189491272,
+                  1.6750459390845948e-14,
+                  0.20379018783569336
+                ],
+                "route_probability": [
+                  0.18775764107704163,
+                  0.13643686473369598,
+                  0.14275401830673218,
+                  0.15781629085540771,
+                  0.17144504189491272,
+                  1.6750459390845948e-14,
+                  0.20379018783569336
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.2642941474914551,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  507,
+                  514,
+                  521,
+                  528,
+                  535,
+                  542,
+                  549,
+                  556,
+                  563,
+                  570,
+                  577,
+                  584,
+                  591,
+                  598,
+                  605,
+                  612
+                ],
+                "nonzero_edges": 164
+              },
+              {
+                "region": 9,
+                "previous_region": -1,
+                "destination": -1,
+                "action": 6,
+                "base_probability": [
+                  0.1871568262577057,
+                  0.13990934193134308,
+                  0.14444920420646667,
+                  0.15433280169963837,
+                  0.16909629106521606,
+                  1.681426468869672e-14,
+                  0.20505553483963013
+                ],
+                "route_probability": [
+                  0.1871568262577057,
+                  0.13990934193134308,
+                  0.14444920420646667,
+                  0.15433280169963837,
+                  0.16909629106521606,
+                  1.681426468869672e-14,
+                  0.20505553483963013
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.2036675214767456,
+                "contribution_magnitude": 1.4828397035598755,
+                "walker": 1,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  396,
+                  403,
+                  410,
+                  417,
+                  424,
+                  431,
+                  438,
+                  445,
+                  452,
+                  459,
+                  466,
+                  473,
+                  480,
+                  487,
+                  494,
+                  501
+                ],
+                "nonzero_edges": 151
+              }
+            ],
+            "active": [
+              12,
+              9
+            ],
+            "fatigue": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.00945668388158083,
+              0.0,
+              0.0,
+              0.012224188074469566,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "region_visits": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 1,
+            "events": [
+              {
+                "region": 12,
+                "previous_region": -1,
+                "destination": 29,
+                "action": 1,
+                "base_probability": [
+                  0.19312600791454315,
+                  0.14269192516803741,
+                  0.1435409039258957,
+                  0.13102348148822784,
+                  0.1659971922636032,
+                  1.620559020093157e-14,
+                  0.22362050414085388
+                ],
+                "route_probability": [
+                  0.1267700046300888,
+                  0.1544266939163208,
+                  0.15534549951553345,
+                  0.14179864525794983,
+                  0.17964854836463928,
+                  1.063752510149828e-14,
+                  0.2420107126235962
+                ],
+                "accumulator_before": 0.2642941474914551,
+                "accumulator_magnitude": 0.37285274267196655,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 1.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  515,
+                  515,
+                  515,
+                  529,
+                  541,
+                  541,
+                  541,
+                  561,
+                  569,
+                  569,
+                  569,
+                  580,
+                  585,
+                  592,
+                  608,
+                  608
+                ],
+                "nonzero_edges": 157
+              }
+            ],
+            "active": [
+              12
+            ],
+            "fatigue": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.800000011920929,
+              0.0,
+              0.0,
+              1.7999999523162842,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.00945668388158083,
+              0.0,
+              0.0,
+              0.015347188338637352,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "region_visits": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              2.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 2,
+            "events": [
+              {
+                "region": 29,
+                "previous_region": 12,
+                "destination": 12,
+                "action": 5,
+                "base_probability": [
+                  0.14640142023563385,
+                  0.11788617819547653,
+                  0.12932126224040985,
+                  0.11894930899143219,
+                  0.13588988780975342,
+                  0.17181460559368134,
+                  0.17973732948303223
+                ],
+                "route_probability": [
+                  0.14640142023563385,
+                  0.11788617819547653,
+                  0.12932126224040985,
+                  0.11894930899143219,
+                  0.13588988780975342,
+                  0.17181460559368134,
+                  0.17973732948303223
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.3391273021697998,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  518,
+                  518,
+                  518,
+                  533,
+                  543,
+                  543,
+                  543,
+                  569,
+                  575,
+                  575,
+                  575,
+                  575,
+                  592,
+                  585,
+                  615,
+                  615
+                ],
+                "nonzero_edges": 158
+              }
+            ],
+            "active": [
+              29
+            ],
+            "fatigue": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.64000004529953,
+              0.0,
+              0.0,
+              1.4399999380111694,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.00945668388158083,
+              0.0,
+              0.0,
+              0.015347188338637352,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.01229865662753582,
+              0.0,
+              0.0
+            ],
+            "region_visits": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              2.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 3,
+            "events": [
+              {
+                "region": 12,
+                "previous_region": 29,
+                "destination": 31,
+                "action": 3,
+                "base_probability": [
+                  0.1554124504327774,
+                  0.12716534733772278,
+                  0.12252876907587051,
+                  0.1058877557516098,
+                  0.13748882710933685,
+                  0.16395750641822815,
+                  0.1875593066215515
+                ],
+                "route_probability": [
+                  0.09047820419073105,
+                  0.15209639072418213,
+                  0.14655078947544098,
+                  0.12664727866649628,
+                  0.16444380581378937,
+                  0.09545295685529709,
+                  0.22433070838451385
+                ],
+                "accumulator_before": 0.15162448585033417,
+                "accumulator_magnitude": 0.7027703523635864,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 1.4399999380111694,
+                "active_nodes": 16,
+                "node_indices": [
+                  511,
+                  511,
+                  511,
+                  535,
+                  535,
+                  535,
+                  535,
+                  567,
+                  567,
+                  567,
+                  567,
+                  567,
+                  586,
+                  578,
+                  608,
+                  608
+                ],
+                "nonzero_edges": 167
+              }
+            ],
+            "active": [
+              12
+            ],
+            "fatigue": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.5120000243186951,
+              0.0,
+              0.0,
+              2.1519999504089355,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.800000011920929,
+              0.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.00945668388158083,
+              0.0,
+              0.0,
+              0.023154690861701965,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.01229865662753582,
+              0.0,
+              0.0
+            ],
+            "region_visits": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "model": "transformer_core",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 32,
+        "layers": 3,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 43
+      },
+      "seed": 43,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 4.711963176727295,
+      "validation": {
+        "sampled": {
+          "loss": 4.728877633810043,
+          "ppl": 113.16847457286006,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 23561.066230460154,
+      "serialized_bytes": 203946,
+      "memory": {
+        "static": {
+          "embedding_output_head": 32768,
+          "global_router": 0,
+          "shared_router_network": 0,
+          "region_specific_parameters": 0,
+          "local_edges": 0,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 156800,
+          "other_static_metadata": 4096
+        },
+        "dynamic": {
+          "node_state": 0,
+          "fatigue_state": 0,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 24576
+        },
+        "total_static_packed_bytes": 193664,
+        "peak_theoretical_inference_bytes": 218240,
+        "core_static_packed_bytes": 156800,
+        "trainable_numerical_parameters": 47392,
+        "structural_low_bit_parameters": 0,
+        "dynamic_assumption": "fp32 K/V cache estimate; current Transformer code recomputes context"
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 6.117328643798828
+        },
+        {
+          "step": 2,
+          "train_loss": 5.981269359588623
+        },
+        {
+          "step": 3,
+          "train_loss": 5.990387916564941
+        },
+        {
+          "step": 4,
+          "train_loss": 5.806540012359619
+        },
+        {
+          "step": 5,
+          "train_loss": 5.803280830383301
+        },
+        {
+          "step": 6,
+          "train_loss": 5.954190254211426
+        },
+        {
+          "step": 7,
+          "train_loss": 5.8450703620910645
+        },
+        {
+          "step": 8,
+          "train_loss": 5.91249418258667
+        },
+        {
+          "step": 9,
+          "train_loss": 5.72909688949585
+        },
+        {
+          "step": 10,
+          "train_loss": 5.8375325202941895
+        },
+        {
+          "step": 11,
+          "train_loss": 5.788424968719482
+        },
+        {
+          "step": 12,
+          "train_loss": 5.9674458503723145
+        },
+        {
+          "step": 13,
+          "train_loss": 5.689207553863525
+        },
+        {
+          "step": 14,
+          "train_loss": 6.115861415863037
+        },
+        {
+          "step": 15,
+          "train_loss": 5.675968647003174
+        },
+        {
+          "step": 16,
+          "train_loss": 5.7928876876831055
+        },
+        {
+          "step": 17,
+          "train_loss": 5.813137054443359
+        },
+        {
+          "step": 18,
+          "train_loss": 5.487325191497803
+        },
+        {
+          "step": 19,
+          "train_loss": 5.643062591552734
+        },
+        {
+          "step": 20,
+          "train_loss": 5.617981910705566
+        },
+        {
+          "step": 21,
+          "train_loss": 5.428788661956787
+        },
+        {
+          "step": 22,
+          "train_loss": 5.647332191467285
+        },
+        {
+          "step": 23,
+          "train_loss": 5.61866569519043
+        },
+        {
+          "step": 24,
+          "train_loss": 5.503806114196777
+        },
+        {
+          "step": 25,
+          "train_loss": 5.4735941886901855
+        },
+        {
+          "step": 26,
+          "train_loss": 5.434649467468262
+        },
+        {
+          "step": 27,
+          "train_loss": 5.560953617095947
+        },
+        {
+          "step": 28,
+          "train_loss": 5.467938423156738
+        },
+        {
+          "step": 29,
+          "train_loss": 5.328241348266602
+        },
+        {
+          "step": 30,
+          "train_loss": 5.305783271789551
+        },
+        {
+          "step": 31,
+          "train_loss": 5.446576118469238
+        },
+        {
+          "step": 32,
+          "train_loss": 5.362670421600342
+        },
+        {
+          "step": 33,
+          "train_loss": 5.449709892272949
+        },
+        {
+          "step": 34,
+          "train_loss": 5.199057579040527
+        },
+        {
+          "step": 35,
+          "train_loss": 5.413699626922607
+        },
+        {
+          "step": 36,
+          "train_loss": 5.205195426940918
+        },
+        {
+          "step": 37,
+          "train_loss": 5.231324195861816
+        },
+        {
+          "step": 38,
+          "train_loss": 5.159197807312012
+        },
+        {
+          "step": 39,
+          "train_loss": 5.19731330871582
+        },
+        {
+          "step": 40,
+          "train_loss": 5.171181678771973
+        },
+        {
+          "step": 41,
+          "train_loss": 5.261724948883057
+        },
+        {
+          "step": 42,
+          "train_loss": 5.190120697021484
+        },
+        {
+          "step": 43,
+          "train_loss": 5.229361534118652
+        },
+        {
+          "step": 44,
+          "train_loss": 5.1934733390808105
+        },
+        {
+          "step": 45,
+          "train_loss": 5.09943962097168
+        },
+        {
+          "step": 46,
+          "train_loss": 5.223020553588867
+        },
+        {
+          "step": 47,
+          "train_loss": 5.029649257659912
+        },
+        {
+          "step": 48,
+          "train_loss": 4.993730545043945
+        },
+        {
+          "step": 49,
+          "train_loss": 5.058744430541992
+        },
+        {
+          "step": 50,
+          "train_loss": 5.093242645263672
+        },
+        {
+          "step": 51,
+          "train_loss": 5.059111595153809
+        },
+        {
+          "step": 52,
+          "train_loss": 4.99251651763916
+        },
+        {
+          "step": 53,
+          "train_loss": 5.043979644775391
+        },
+        {
+          "step": 54,
+          "train_loss": 5.198371887207031
+        },
+        {
+          "step": 55,
+          "train_loss": 5.012219429016113
+        },
+        {
+          "step": 56,
+          "train_loss": 4.962672710418701
+        },
+        {
+          "step": 57,
+          "train_loss": 5.082759380340576
+        },
+        {
+          "step": 58,
+          "train_loss": 4.986172676086426
+        },
+        {
+          "step": 59,
+          "train_loss": 4.917099475860596
+        },
+        {
+          "step": 60,
+          "train_loss": 5.124191761016846
+        },
+        {
+          "step": 61,
+          "train_loss": 4.932772636413574
+        },
+        {
+          "step": 62,
+          "train_loss": 4.958986282348633
+        },
+        {
+          "step": 63,
+          "train_loss": 4.955974102020264
+        },
+        {
+          "step": 64,
+          "train_loss": 4.993966102600098
+        },
+        {
+          "step": 65,
+          "train_loss": 5.024332046508789
+        },
+        {
+          "step": 66,
+          "train_loss": 4.911907196044922
+        },
+        {
+          "step": 67,
+          "train_loss": 4.951038837432861
+        },
+        {
+          "step": 68,
+          "train_loss": 4.931332588195801
+        },
+        {
+          "step": 69,
+          "train_loss": 4.818655967712402
+        },
+        {
+          "step": 70,
+          "train_loss": 5.096042633056641
+        },
+        {
+          "step": 71,
+          "train_loss": 4.890267372131348
+        },
+        {
+          "step": 72,
+          "train_loss": 4.8680901527404785
+        },
+        {
+          "step": 73,
+          "train_loss": 4.914414405822754
+        },
+        {
+          "step": 74,
+          "train_loss": 4.75395393371582
+        },
+        {
+          "step": 75,
+          "train_loss": 4.805237770080566
+        },
+        {
+          "step": 76,
+          "train_loss": 4.879904270172119
+        },
+        {
+          "step": 77,
+          "train_loss": 4.910943508148193
+        },
+        {
+          "step": 78,
+          "train_loss": 4.9127397537231445
+        },
+        {
+          "step": 79,
+          "train_loss": 4.808374404907227
+        },
+        {
+          "step": 80,
+          "train_loss": 4.848320960998535
+        },
+        {
+          "step": 81,
+          "train_loss": 4.6750946044921875
+        },
+        {
+          "step": 82,
+          "train_loss": 4.917935848236084
+        },
+        {
+          "step": 83,
+          "train_loss": 4.946346282958984
+        },
+        {
+          "step": 84,
+          "train_loss": 4.700052261352539
+        },
+        {
+          "step": 85,
+          "train_loss": 4.740041732788086
+        },
+        {
+          "step": 86,
+          "train_loss": 4.694607257843018
+        },
+        {
+          "step": 87,
+          "train_loss": 5.021028995513916
+        },
+        {
+          "step": 88,
+          "train_loss": 4.7368035316467285
+        },
+        {
+          "step": 89,
+          "train_loss": 4.836779594421387
+        },
+        {
+          "step": 90,
+          "train_loss": 4.706159591674805
+        },
+        {
+          "step": 91,
+          "train_loss": 5.028004169464111
+        },
+        {
+          "step": 92,
+          "train_loss": 4.855348587036133
+        },
+        {
+          "step": 93,
+          "train_loss": 4.804323196411133
+        },
+        {
+          "step": 94,
+          "train_loss": 4.7392096519470215
+        },
+        {
+          "step": 95,
+          "train_loss": 4.802308082580566
+        },
+        {
+          "step": 96,
+          "train_loss": 4.737260341644287
+        },
+        {
+          "step": 97,
+          "train_loss": 4.718440532684326
+        },
+        {
+          "step": 98,
+          "train_loss": 4.6960296630859375
+        },
+        {
+          "step": 99,
+          "train_loss": 4.977612018585205
+        },
+        {
+          "step": 100,
+          "train_loss": 4.711963176727295
+        }
+      ],
+      "inference_tokens_per_second": 1552.6115024926703,
+      "inference_latency_seconds_per_token": 0.0006440761248995841
+    },
+    {
+      "model": "transformer_total",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 84,
+        "layers": 1,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 43
+      },
+      "seed": 43,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 3.9825057983398438,
+      "validation": {
+        "sampled": {
+          "loss": 4.090040296316147,
+          "ppl": 59.74229905021116,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 41883.80858213181,
+      "serialized_bytes": 446702,
+      "memory": {
+        "static": {
+          "embedding_output_head": 86016,
+          "global_router": 0,
+          "shared_router_network": 0,
+          "region_specific_parameters": 0,
+          "local_edges": 0,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 354480,
+          "other_static_metadata": 10752
+        },
+        "dynamic": {
+          "node_state": 0,
+          "fatigue_state": 0,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 21504
+        },
+        "total_static_packed_bytes": 451248,
+        "peak_theoretical_inference_bytes": 472752,
+        "core_static_packed_bytes": 354480,
+        "trainable_numerical_parameters": 110124,
+        "structural_low_bit_parameters": 0,
+        "dynamic_assumption": "fp32 K/V cache estimate; current Transformer code recomputes context"
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 6.637857913970947
+        },
+        {
+          "step": 2,
+          "train_loss": 6.703717231750488
+        },
+        {
+          "step": 3,
+          "train_loss": 6.470859527587891
+        },
+        {
+          "step": 4,
+          "train_loss": 6.51740026473999
+        },
+        {
+          "step": 5,
+          "train_loss": 6.524677753448486
+        },
+        {
+          "step": 6,
+          "train_loss": 6.519887447357178
+        },
+        {
+          "step": 7,
+          "train_loss": 6.4175543785095215
+        },
+        {
+          "step": 8,
+          "train_loss": 6.243438243865967
+        },
+        {
+          "step": 9,
+          "train_loss": 6.435390949249268
+        },
+        {
+          "step": 10,
+          "train_loss": 6.552217960357666
+        },
+        {
+          "step": 11,
+          "train_loss": 6.412997245788574
+        },
+        {
+          "step": 12,
+          "train_loss": 6.426220893859863
+        },
+        {
+          "step": 13,
+          "train_loss": 6.404284954071045
+        },
+        {
+          "step": 14,
+          "train_loss": 6.359996318817139
+        },
+        {
+          "step": 15,
+          "train_loss": 6.0889177322387695
+        },
+        {
+          "step": 16,
+          "train_loss": 6.237457275390625
+        },
+        {
+          "step": 17,
+          "train_loss": 6.374207973480225
+        },
+        {
+          "step": 18,
+          "train_loss": 6.2771806716918945
+        },
+        {
+          "step": 19,
+          "train_loss": 6.088698863983154
+        },
+        {
+          "step": 20,
+          "train_loss": 6.131247043609619
+        },
+        {
+          "step": 21,
+          "train_loss": 6.04207181930542
+        },
+        {
+          "step": 22,
+          "train_loss": 6.2797932624816895
+        },
+        {
+          "step": 23,
+          "train_loss": 5.955822944641113
+        },
+        {
+          "step": 24,
+          "train_loss": 5.970781326293945
+        },
+        {
+          "step": 25,
+          "train_loss": 5.810448169708252
+        },
+        {
+          "step": 26,
+          "train_loss": 6.080987453460693
+        },
+        {
+          "step": 27,
+          "train_loss": 6.0972700119018555
+        },
+        {
+          "step": 28,
+          "train_loss": 5.956384181976318
+        },
+        {
+          "step": 29,
+          "train_loss": 5.9053635597229
+        },
+        {
+          "step": 30,
+          "train_loss": 5.737410068511963
+        },
+        {
+          "step": 31,
+          "train_loss": 5.913680553436279
+        },
+        {
+          "step": 32,
+          "train_loss": 5.665150165557861
+        },
+        {
+          "step": 33,
+          "train_loss": 5.538701057434082
+        },
+        {
+          "step": 34,
+          "train_loss": 5.585406303405762
+        },
+        {
+          "step": 35,
+          "train_loss": 5.718384742736816
+        },
+        {
+          "step": 36,
+          "train_loss": 5.39464807510376
+        },
+        {
+          "step": 37,
+          "train_loss": 5.359708786010742
+        },
+        {
+          "step": 38,
+          "train_loss": 5.395944118499756
+        },
+        {
+          "step": 39,
+          "train_loss": 5.702819347381592
+        },
+        {
+          "step": 40,
+          "train_loss": 5.498337745666504
+        },
+        {
+          "step": 41,
+          "train_loss": 5.446310997009277
+        },
+        {
+          "step": 42,
+          "train_loss": 5.5079545974731445
+        },
+        {
+          "step": 43,
+          "train_loss": 5.151131629943848
+        },
+        {
+          "step": 44,
+          "train_loss": 5.403733253479004
+        },
+        {
+          "step": 45,
+          "train_loss": 5.088697910308838
+        },
+        {
+          "step": 46,
+          "train_loss": 5.256235599517822
+        },
+        {
+          "step": 47,
+          "train_loss": 5.15627384185791
+        },
+        {
+          "step": 48,
+          "train_loss": 4.8662214279174805
+        },
+        {
+          "step": 49,
+          "train_loss": 4.921342372894287
+        },
+        {
+          "step": 50,
+          "train_loss": 4.9716081619262695
+        },
+        {
+          "step": 51,
+          "train_loss": 4.937142848968506
+        },
+        {
+          "step": 52,
+          "train_loss": 4.787374496459961
+        },
+        {
+          "step": 53,
+          "train_loss": 4.741768836975098
+        },
+        {
+          "step": 54,
+          "train_loss": 5.050315856933594
+        },
+        {
+          "step": 55,
+          "train_loss": 4.741115570068359
+        },
+        {
+          "step": 56,
+          "train_loss": 4.675754547119141
+        },
+        {
+          "step": 57,
+          "train_loss": 4.641490459442139
+        },
+        {
+          "step": 58,
+          "train_loss": 4.715507984161377
+        },
+        {
+          "step": 59,
+          "train_loss": 4.345571041107178
+        },
+        {
+          "step": 60,
+          "train_loss": 4.79918098449707
+        },
+        {
+          "step": 61,
+          "train_loss": 4.568714618682861
+        },
+        {
+          "step": 62,
+          "train_loss": 4.673776149749756
+        },
+        {
+          "step": 63,
+          "train_loss": 4.422068119049072
+        },
+        {
+          "step": 64,
+          "train_loss": 4.343632221221924
+        },
+        {
+          "step": 65,
+          "train_loss": 4.360891342163086
+        },
+        {
+          "step": 66,
+          "train_loss": 4.607266902923584
+        },
+        {
+          "step": 67,
+          "train_loss": 4.292636394500732
+        },
+        {
+          "step": 68,
+          "train_loss": 4.423564434051514
+        },
+        {
+          "step": 69,
+          "train_loss": 4.3435211181640625
+        },
+        {
+          "step": 70,
+          "train_loss": 4.754266262054443
+        },
+        {
+          "step": 71,
+          "train_loss": 4.5351881980896
+        },
+        {
+          "step": 72,
+          "train_loss": 4.177509307861328
+        },
+        {
+          "step": 73,
+          "train_loss": 4.396430015563965
+        },
+        {
+          "step": 74,
+          "train_loss": 4.225129127502441
+        },
+        {
+          "step": 75,
+          "train_loss": 4.230532169342041
+        },
+        {
+          "step": 76,
+          "train_loss": 4.482884883880615
+        },
+        {
+          "step": 77,
+          "train_loss": 4.330994606018066
+        },
+        {
+          "step": 78,
+          "train_loss": 4.28458309173584
+        },
+        {
+          "step": 79,
+          "train_loss": 4.10386323928833
+        },
+        {
+          "step": 80,
+          "train_loss": 4.113075256347656
+        },
+        {
+          "step": 81,
+          "train_loss": 3.9660122394561768
+        },
+        {
+          "step": 82,
+          "train_loss": 4.349222660064697
+        },
+        {
+          "step": 83,
+          "train_loss": 4.410101413726807
+        },
+        {
+          "step": 84,
+          "train_loss": 3.9830214977264404
+        },
+        {
+          "step": 85,
+          "train_loss": 4.035032749176025
+        },
+        {
+          "step": 86,
+          "train_loss": 4.072842597961426
+        },
+        {
+          "step": 87,
+          "train_loss": 4.382491111755371
+        },
+        {
+          "step": 88,
+          "train_loss": 4.148708343505859
+        },
+        {
+          "step": 89,
+          "train_loss": 4.01996374130249
+        },
+        {
+          "step": 90,
+          "train_loss": 3.978879928588867
+        },
+        {
+          "step": 91,
+          "train_loss": 4.3812971115112305
+        },
+        {
+          "step": 92,
+          "train_loss": 4.128047466278076
+        },
+        {
+          "step": 93,
+          "train_loss": 4.056258678436279
+        },
+        {
+          "step": 94,
+          "train_loss": 4.051479339599609
+        },
+        {
+          "step": 95,
+          "train_loss": 4.115608215332031
+        },
+        {
+          "step": 96,
+          "train_loss": 4.252777099609375
+        },
+        {
+          "step": 97,
+          "train_loss": 4.0651984214782715
+        },
+        {
+          "step": 98,
+          "train_loss": 3.9490556716918945
+        },
+        {
+          "step": 99,
+          "train_loss": 4.279656887054443
+        },
+        {
+          "step": 100,
+          "train_loss": 3.9825057983398438
+        }
+      ],
+      "inference_tokens_per_second": 2347.0617866774874,
+      "inference_latency_seconds_per_token": 0.0004260646250031641
+    },
+    {
+      "model": "prg",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 64,
+        "layers": 2,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 43
+      },
+      "seed": 43,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 6.143615245819092,
+      "validation": {
+        "sampled": {
+          "loss": 6.222370803356171,
+          "ppl": 503.89645642118046,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 680.6212976285377,
+      "serialized_bytes": 84594,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 2080,
+          "shared_router_network": 9360,
+          "region_specific_parameters": 2048,
+          "local_edges": 48,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 768,
+          "other_static_metadata": 0
+        },
+        "dynamic": {
+          "node_state": 2048,
+          "fatigue_state": 32,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 256
+        },
+        "total_static_packed_bytes": 79840,
+        "peak_theoretical_inference_bytes": 82176,
+        "core_static_packed_bytes": 14304,
+        "trainable_numerical_parameters": 20140,
+        "structural_low_bit_parameters": 192
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 7.025562763214111
+        },
+        {
+          "step": 2,
+          "train_loss": 6.991846084594727
+        },
+        {
+          "step": 3,
+          "train_loss": 6.926992416381836
+        },
+        {
+          "step": 4,
+          "train_loss": 6.74501895904541
+        },
+        {
+          "step": 5,
+          "train_loss": 6.631795406341553
+        },
+        {
+          "step": 6,
+          "train_loss": 6.971634864807129
+        },
+        {
+          "step": 7,
+          "train_loss": 6.83265495300293
+        },
+        {
+          "step": 8,
+          "train_loss": 6.899415969848633
+        },
+        {
+          "step": 9,
+          "train_loss": 6.957651138305664
+        },
+        {
+          "step": 10,
+          "train_loss": 6.803796291351318
+        },
+        {
+          "step": 11,
+          "train_loss": 6.846181392669678
+        },
+        {
+          "step": 12,
+          "train_loss": 6.9072394371032715
+        },
+        {
+          "step": 13,
+          "train_loss": 6.9897308349609375
+        },
+        {
+          "step": 14,
+          "train_loss": 6.884613037109375
+        },
+        {
+          "step": 15,
+          "train_loss": 6.903785705566406
+        },
+        {
+          "step": 16,
+          "train_loss": 7.011150360107422
+        },
+        {
+          "step": 17,
+          "train_loss": 6.824092864990234
+        },
+        {
+          "step": 18,
+          "train_loss": 6.735915184020996
+        },
+        {
+          "step": 19,
+          "train_loss": 6.9172282218933105
+        },
+        {
+          "step": 20,
+          "train_loss": 6.821903228759766
+        },
+        {
+          "step": 21,
+          "train_loss": 6.566112518310547
+        },
+        {
+          "step": 22,
+          "train_loss": 6.902809143066406
+        },
+        {
+          "step": 23,
+          "train_loss": 6.60059928894043
+        },
+        {
+          "step": 24,
+          "train_loss": 6.629920482635498
+        },
+        {
+          "step": 25,
+          "train_loss": 6.672030448913574
+        },
+        {
+          "step": 26,
+          "train_loss": 6.937982082366943
+        },
+        {
+          "step": 27,
+          "train_loss": 6.797806739807129
+        },
+        {
+          "step": 28,
+          "train_loss": 6.887910842895508
+        },
+        {
+          "step": 29,
+          "train_loss": 6.677220344543457
+        },
+        {
+          "step": 30,
+          "train_loss": 6.563616752624512
+        },
+        {
+          "step": 31,
+          "train_loss": 6.769757270812988
+        },
+        {
+          "step": 32,
+          "train_loss": 6.7686028480529785
+        },
+        {
+          "step": 33,
+          "train_loss": 6.655357360839844
+        },
+        {
+          "step": 34,
+          "train_loss": 6.734771251678467
+        },
+        {
+          "step": 35,
+          "train_loss": 6.623668670654297
+        },
+        {
+          "step": 36,
+          "train_loss": 6.484139442443848
+        },
+        {
+          "step": 37,
+          "train_loss": 6.60283088684082
+        },
+        {
+          "step": 38,
+          "train_loss": 6.6786956787109375
+        },
+        {
+          "step": 39,
+          "train_loss": 6.878111839294434
+        },
+        {
+          "step": 40,
+          "train_loss": 6.859846591949463
+        },
+        {
+          "step": 41,
+          "train_loss": 6.646543979644775
+        },
+        {
+          "step": 42,
+          "train_loss": 6.5683674812316895
+        },
+        {
+          "step": 43,
+          "train_loss": 6.371199607849121
+        },
+        {
+          "step": 44,
+          "train_loss": 6.761468410491943
+        },
+        {
+          "step": 45,
+          "train_loss": 6.35859489440918
+        },
+        {
+          "step": 46,
+          "train_loss": 6.555994987487793
+        },
+        {
+          "step": 47,
+          "train_loss": 6.629033088684082
+        },
+        {
+          "step": 48,
+          "train_loss": 6.333631992340088
+        },
+        {
+          "step": 49,
+          "train_loss": 6.48313045501709
+        },
+        {
+          "step": 50,
+          "train_loss": 6.568593978881836
+        },
+        {
+          "step": 51,
+          "train_loss": 6.544595241546631
+        },
+        {
+          "step": 52,
+          "train_loss": 6.475379943847656
+        },
+        {
+          "step": 53,
+          "train_loss": 6.488898277282715
+        },
+        {
+          "step": 54,
+          "train_loss": 6.624266147613525
+        },
+        {
+          "step": 55,
+          "train_loss": 6.369144916534424
+        },
+        {
+          "step": 56,
+          "train_loss": 6.320763111114502
+        },
+        {
+          "step": 57,
+          "train_loss": 6.26166296005249
+        },
+        {
+          "step": 58,
+          "train_loss": 6.560304641723633
+        },
+        {
+          "step": 59,
+          "train_loss": 6.388272762298584
+        },
+        {
+          "step": 60,
+          "train_loss": 6.408788681030273
+        },
+        {
+          "step": 61,
+          "train_loss": 6.409882545471191
+        },
+        {
+          "step": 62,
+          "train_loss": 6.321088790893555
+        },
+        {
+          "step": 63,
+          "train_loss": 6.314181327819824
+        },
+        {
+          "step": 64,
+          "train_loss": 6.228057384490967
+        },
+        {
+          "step": 65,
+          "train_loss": 6.242154121398926
+        },
+        {
+          "step": 66,
+          "train_loss": 6.313277721405029
+        },
+        {
+          "step": 67,
+          "train_loss": 6.231156349182129
+        },
+        {
+          "step": 68,
+          "train_loss": 6.507575511932373
+        },
+        {
+          "step": 69,
+          "train_loss": 6.312568664550781
+        },
+        {
+          "step": 70,
+          "train_loss": 6.4302473068237305
+        },
+        {
+          "step": 71,
+          "train_loss": 6.378079891204834
+        },
+        {
+          "step": 72,
+          "train_loss": 6.175508499145508
+        },
+        {
+          "step": 73,
+          "train_loss": 6.252519607543945
+        },
+        {
+          "step": 74,
+          "train_loss": 6.174386024475098
+        },
+        {
+          "step": 75,
+          "train_loss": 6.224822044372559
+        },
+        {
+          "step": 76,
+          "train_loss": 6.246571063995361
+        },
+        {
+          "step": 77,
+          "train_loss": 6.394649505615234
+        },
+        {
+          "step": 78,
+          "train_loss": 6.1867570877075195
+        },
+        {
+          "step": 79,
+          "train_loss": 6.3258442878723145
+        },
+        {
+          "step": 80,
+          "train_loss": 6.1570844650268555
+        },
+        {
+          "step": 81,
+          "train_loss": 6.043491840362549
+        },
+        {
+          "step": 82,
+          "train_loss": 6.280688762664795
+        },
+        {
+          "step": 83,
+          "train_loss": 6.3362555503845215
+        },
+        {
+          "step": 84,
+          "train_loss": 6.14636754989624
+        },
+        {
+          "step": 85,
+          "train_loss": 6.094981670379639
+        },
+        {
+          "step": 86,
+          "train_loss": 6.121393203735352
+        },
+        {
+          "step": 87,
+          "train_loss": 6.27656888961792
+        },
+        {
+          "step": 88,
+          "train_loss": 6.121286869049072
+        },
+        {
+          "step": 89,
+          "train_loss": 6.195235729217529
+        },
+        {
+          "step": 90,
+          "train_loss": 5.958891868591309
+        },
+        {
+          "step": 91,
+          "train_loss": 6.260646820068359
+        },
+        {
+          "step": 92,
+          "train_loss": 6.1449456214904785
+        },
+        {
+          "step": 93,
+          "train_loss": 6.121475696563721
+        },
+        {
+          "step": 94,
+          "train_loss": 6.058195114135742
+        },
+        {
+          "step": 95,
+          "train_loss": 6.023314952850342
+        },
+        {
+          "step": 96,
+          "train_loss": 6.175421237945557
+        },
+        {
+          "step": 97,
+          "train_loss": 5.808521270751953
+        },
+        {
+          "step": 98,
+          "train_loss": 5.935161590576172
+        },
+        {
+          "step": 99,
+          "train_loss": 6.225167274475098
+        },
+        {
+          "step": 100,
+          "train_loss": 6.143615245819092
+        }
+      ],
+      "inference_tokens_per_second": 70.92345835813444,
+      "inference_latency_seconds_per_token": 0.01409970724989762
+    },
+    {
+      "model": "prg_v1",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 43
+      },
+      "seed": 43,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 5.4512715339660645,
+      "validation": {
+        "expected": {
+          "loss": 5.380802422761917,
+          "ppl": 217.19648892568296,
+          "validation_tokens": 4096
+        },
+        "argmax": {
+          "loss": 5.342588782310486,
+          "ppl": 209.0532036129258,
+          "validation_tokens": 4096
+        },
+        "sampled": {
+          "loss": 5.452237188816071,
+          "ppl": 233.27947278681066,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 494.8988093923174,
+      "serialized_bytes": 2193354,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128
+        },
+        "total_static_packed_bytes": 220860,
+        "peak_theoretical_inference_bytes": 483398,
+        "core_static_packed_bytes": 155324,
+        "trainable_numerical_parameters": 546711,
+        "structural_low_bit_parameters": 524288
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 6.029969692230225
+        },
+        {
+          "step": 2,
+          "train_loss": 5.936147689819336
+        },
+        {
+          "step": 3,
+          "train_loss": 5.980091571807861
+        },
+        {
+          "step": 4,
+          "train_loss": 5.972929000854492
+        },
+        {
+          "step": 5,
+          "train_loss": 6.026988506317139
+        },
+        {
+          "step": 6,
+          "train_loss": 5.848086357116699
+        },
+        {
+          "step": 7,
+          "train_loss": 6.0699567794799805
+        },
+        {
+          "step": 8,
+          "train_loss": 5.732595443725586
+        },
+        {
+          "step": 9,
+          "train_loss": 6.017955780029297
+        },
+        {
+          "step": 10,
+          "train_loss": 5.998783111572266
+        },
+        {
+          "step": 11,
+          "train_loss": 5.954531669616699
+        },
+        {
+          "step": 12,
+          "train_loss": 5.814388275146484
+        },
+        {
+          "step": 13,
+          "train_loss": 6.087876796722412
+        },
+        {
+          "step": 14,
+          "train_loss": 5.937749862670898
+        },
+        {
+          "step": 15,
+          "train_loss": 5.807470321655273
+        },
+        {
+          "step": 16,
+          "train_loss": 5.796634674072266
+        },
+        {
+          "step": 17,
+          "train_loss": 6.017923831939697
+        },
+        {
+          "step": 18,
+          "train_loss": 5.990888595581055
+        },
+        {
+          "step": 19,
+          "train_loss": 5.794027805328369
+        },
+        {
+          "step": 20,
+          "train_loss": 5.883400917053223
+        },
+        {
+          "step": 21,
+          "train_loss": 5.8989577293396
+        },
+        {
+          "step": 22,
+          "train_loss": 5.943317413330078
+        },
+        {
+          "step": 23,
+          "train_loss": 5.981547832489014
+        },
+        {
+          "step": 24,
+          "train_loss": 5.84672212600708
+        },
+        {
+          "step": 25,
+          "train_loss": 5.858300685882568
+        },
+        {
+          "step": 26,
+          "train_loss": 5.955777168273926
+        },
+        {
+          "step": 27,
+          "train_loss": 5.949912071228027
+        },
+        {
+          "step": 28,
+          "train_loss": 5.8589863777160645
+        },
+        {
+          "step": 29,
+          "train_loss": 5.889506816864014
+        },
+        {
+          "step": 30,
+          "train_loss": 5.879695415496826
+        },
+        {
+          "step": 31,
+          "train_loss": 5.828911304473877
+        },
+        {
+          "step": 32,
+          "train_loss": 5.833292007446289
+        },
+        {
+          "step": 33,
+          "train_loss": 5.825913906097412
+        },
+        {
+          "step": 34,
+          "train_loss": 5.743129253387451
+        },
+        {
+          "step": 35,
+          "train_loss": 5.840877056121826
+        },
+        {
+          "step": 36,
+          "train_loss": 5.790853023529053
+        },
+        {
+          "step": 37,
+          "train_loss": 5.848716735839844
+        },
+        {
+          "step": 38,
+          "train_loss": 5.799197673797607
+        },
+        {
+          "step": 39,
+          "train_loss": 5.764639377593994
+        },
+        {
+          "step": 40,
+          "train_loss": 5.787174701690674
+        },
+        {
+          "step": 41,
+          "train_loss": 5.885558605194092
+        },
+        {
+          "step": 42,
+          "train_loss": 5.965902328491211
+        },
+        {
+          "step": 43,
+          "train_loss": 5.930114269256592
+        },
+        {
+          "step": 44,
+          "train_loss": 5.770127296447754
+        },
+        {
+          "step": 45,
+          "train_loss": 5.773868560791016
+        },
+        {
+          "step": 46,
+          "train_loss": 5.83061408996582
+        },
+        {
+          "step": 47,
+          "train_loss": 5.773786544799805
+        },
+        {
+          "step": 48,
+          "train_loss": 5.697887897491455
+        },
+        {
+          "step": 49,
+          "train_loss": 5.697461128234863
+        },
+        {
+          "step": 50,
+          "train_loss": 5.962019443511963
+        },
+        {
+          "step": 51,
+          "train_loss": 5.77272891998291
+        },
+        {
+          "step": 52,
+          "train_loss": 5.838736534118652
+        },
+        {
+          "step": 53,
+          "train_loss": 5.612637996673584
+        },
+        {
+          "step": 54,
+          "train_loss": 5.76963996887207
+        },
+        {
+          "step": 55,
+          "train_loss": 5.645765781402588
+        },
+        {
+          "step": 56,
+          "train_loss": 5.824346542358398
+        },
+        {
+          "step": 57,
+          "train_loss": 5.778232097625732
+        },
+        {
+          "step": 58,
+          "train_loss": 5.805617809295654
+        },
+        {
+          "step": 59,
+          "train_loss": 5.702157974243164
+        },
+        {
+          "step": 60,
+          "train_loss": 5.8091206550598145
+        },
+        {
+          "step": 61,
+          "train_loss": 5.693315505981445
+        },
+        {
+          "step": 62,
+          "train_loss": 5.526638507843018
+        },
+        {
+          "step": 63,
+          "train_loss": 5.64606237411499
+        },
+        {
+          "step": 64,
+          "train_loss": 5.692722320556641
+        },
+        {
+          "step": 65,
+          "train_loss": 5.599266529083252
+        },
+        {
+          "step": 66,
+          "train_loss": 5.594518184661865
+        },
+        {
+          "step": 67,
+          "train_loss": 5.686366558074951
+        },
+        {
+          "step": 68,
+          "train_loss": 5.570233345031738
+        },
+        {
+          "step": 69,
+          "train_loss": 5.564816474914551
+        },
+        {
+          "step": 70,
+          "train_loss": 5.72230339050293
+        },
+        {
+          "step": 71,
+          "train_loss": 5.655998706817627
+        },
+        {
+          "step": 72,
+          "train_loss": 5.444881439208984
+        },
+        {
+          "step": 73,
+          "train_loss": 5.640265941619873
+        },
+        {
+          "step": 74,
+          "train_loss": 5.559830188751221
+        },
+        {
+          "step": 75,
+          "train_loss": 5.642332553863525
+        },
+        {
+          "step": 76,
+          "train_loss": 5.678889751434326
+        },
+        {
+          "step": 77,
+          "train_loss": 5.597452163696289
+        },
+        {
+          "step": 78,
+          "train_loss": 5.564330577850342
+        },
+        {
+          "step": 79,
+          "train_loss": 5.676207542419434
+        },
+        {
+          "step": 80,
+          "train_loss": 5.589776515960693
+        },
+        {
+          "step": 81,
+          "train_loss": 5.586978435516357
+        },
+        {
+          "step": 82,
+          "train_loss": 5.599490642547607
+        },
+        {
+          "step": 83,
+          "train_loss": 5.538241386413574
+        },
+        {
+          "step": 84,
+          "train_loss": 5.49013614654541
+        },
+        {
+          "step": 85,
+          "train_loss": 5.435500144958496
+        },
+        {
+          "step": 86,
+          "train_loss": 5.447185039520264
+        },
+        {
+          "step": 87,
+          "train_loss": 5.529303073883057
+        },
+        {
+          "step": 88,
+          "train_loss": 5.5010905265808105
+        },
+        {
+          "step": 89,
+          "train_loss": 5.3501200675964355
+        },
+        {
+          "step": 90,
+          "train_loss": 5.523226737976074
+        },
+        {
+          "step": 91,
+          "train_loss": 5.4949235916137695
+        },
+        {
+          "step": 92,
+          "train_loss": 5.493779182434082
+        },
+        {
+          "step": 93,
+          "train_loss": 5.591180324554443
+        },
+        {
+          "step": 94,
+          "train_loss": 5.433156490325928
+        },
+        {
+          "step": 95,
+          "train_loss": 5.493329048156738
+        },
+        {
+          "step": 96,
+          "train_loss": 5.651475429534912
+        },
+        {
+          "step": 97,
+          "train_loss": 5.549817085266113
+        },
+        {
+          "step": 98,
+          "train_loss": 5.350594520568848
+        },
+        {
+          "step": 99,
+          "train_loss": 5.614248275756836
+        },
+        {
+          "step": 100,
+          "train_loss": 5.4512715339660645
+        }
+      ],
+      "inference_tokens_per_second": 43.08629756149569,
+      "inference_latency_seconds_per_token": 0.023209234875025686,
+      "dynamics": {
+        "diagnostic_tokens": 32,
+        "total_nodes": 32768,
+        "total_local_edges": 524288,
+        "nonzero_ternary_local_edges": 320258,
+        "total_region_edges": 128,
+        "active_regions_per_token": 5.71875,
+        "active_nodes_per_token": 60.875,
+        "node_visits_per_token": 91.5,
+        "traversed_local_edges_per_token": 1464.0,
+        "effective_nonzero_edges_per_token": 889.84375,
+        "active_node_ratio_per_cycle": 0.000698089599609375,
+        "active_edge_ratio_per_cycle": 0.000698089599609375,
+        "region_utilization": [
+          14,
+          2,
+          9,
+          2,
+          7,
+          5,
+          11,
+          10,
+          10,
+          10,
+          6,
+          5,
+          6,
+          10,
+          1,
+          8,
+          1,
+          5,
+          0,
+          8,
+          0,
+          5,
+          4,
+          5,
+          8,
+          4,
+          2,
+          3,
+          11,
+          2,
+          7,
+          2
+        ],
+        "actual_traversal_count_per_token": 5.71875,
+        "monte_carlo_expected_traversal_count_per_token": 5.68359375,
+        "monte_carlo_traversal_std": 0.4075999206482994,
+        "expected_traversal_count_per_walker": 2.2113089296522963,
+        "actual_traversal_count_per_walker": 2.859375,
+        "base_local_transition_probability": 0.11588627051134578,
+        "mean_accumulator_magnitude": 0.2622857158545588,
+        "mean_output_contribution_magnitude": 0.3914350101856586,
+        "probability_accumulator_correlation": -0.19563192783595104,
+        "visits_accumulator_correlation": 0.5272262293838963,
+        "expected_actual_traversal_correlation": 0.9973694730370644,
+        "accumulator_contribution_correlation": 0.179693163748858,
+        "trajectory_example": [
+          {
+            "cycle": 0,
+            "events": [
+              {
+                "region": 10,
+                "previous_region": -1,
+                "destination": 12,
+                "action": 2,
+                "base_probability": [
+                  0.1270686835050583,
+                  0.15488916635513306,
+                  0.197474867105484,
+                  0.15130747854709625,
+                  0.15452510118484497,
+                  1.4838606079005216e-14,
+                  0.21473470330238342
+                ],
+                "route_probability": [
+                  0.1270686835050583,
+                  0.15488916635513306,
+                  0.197474867105484,
+                  0.15130747854709625,
+                  0.15452510118484497,
+                  1.4838606079005216e-14,
+                  0.21473470330238342
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.204521045088768,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  433,
+                  440,
+                  447,
+                  454,
+                  461,
+                  468,
+                  475,
+                  482,
+                  489,
+                  496,
+                  503,
+                  510,
+                  517,
+                  524,
+                  531,
+                  538
+                ],
+                "nonzero_edges": 162
+              },
+              {
+                "region": 15,
+                "previous_region": -1,
+                "destination": 0,
+                "action": 1,
+                "base_probability": [
+                  0.12853503227233887,
+                  0.15612851083278656,
+                  0.19497282803058624,
+                  0.15288963913917542,
+                  0.15572573244571686,
+                  1.469140361123368e-14,
+                  0.2117481529712677
+                ],
+                "route_probability": [
+                  0.12853503227233887,
+                  0.15612851083278656,
+                  0.19497282803058624,
+                  0.15288963913917542,
+                  0.15572573244571686,
+                  1.469140361123368e-14,
+                  0.2117481529712677
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.20111115276813507,
+                "contribution_magnitude": 0.0,
+                "walker": 1,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  618,
+                  625,
+                  632,
+                  639,
+                  646,
+                  653,
+                  660,
+                  667,
+                  674,
+                  681,
+                  688,
+                  695,
+                  702,
+                  709,
+                  716,
+                  723
+                ],
+                "nonzero_edges": 151
+              }
+            ],
+            "active": [
+              10,
+              15
+            ],
+            "fatigue": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.009284579195082188,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.008860365487635136,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "region_visits": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 1,
+            "events": [
+              {
+                "region": 12,
+                "previous_region": 10,
+                "destination": 12,
+                "action": 0,
+                "base_probability": [
+                  0.1099667027592659,
+                  0.1422501802444458,
+                  0.16420483589172363,
+                  0.13683293759822845,
+                  0.13591589033603668,
+                  0.11686637997627258,
+                  0.19396306574344635
+                ],
+                "route_probability": [
+                  0.1099667027592659,
+                  0.1422501802444458,
+                  0.16420483589172363,
+                  0.13683293759822845,
+                  0.13591589033603668,
+                  0.11686637997627258,
+                  0.19396306574344635
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.1857815980911255,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  432,
+                  447,
+                  451,
+                  459,
+                  459,
+                  475,
+                  467,
+                  475,
+                  483,
+                  499,
+                  499,
+                  514,
+                  514,
+                  523,
+                  523,
+                  534
+                ],
+                "nonzero_edges": 154
+              },
+              {
+                "region": 0,
+                "previous_region": 15,
+                "destination": 2,
+                "action": 2,
+                "base_probability": [
+                  0.10806993395090103,
+                  0.1421653777360916,
+                  0.16183285415172577,
+                  0.13765184581279755,
+                  0.13619929552078247,
+                  0.11499781161546707,
+                  0.1990828663110733
+                ],
+                "route_probability": [
+                  0.10806993395090103,
+                  0.1421653777360916,
+                  0.16183285415172577,
+                  0.13765184581279755,
+                  0.13619929552078247,
+                  0.11499781161546707,
+                  0.1990828663110733
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.17406342923641205,
+                "contribution_magnitude": 0.0,
+                "walker": 1,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  617,
+                  632,
+                  638,
+                  638,
+                  638,
+                  645,
+                  657,
+                  674,
+                  677,
+                  674,
+                  696,
+                  696,
+                  696,
+                  713,
+                  709,
+                  722
+                ],
+                "nonzero_edges": 164
+              }
+            ],
+            "active": [
+              12,
+              0
+            ],
+            "fatigue": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.800000011920929,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.800000011920929,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.007140362169593573,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.009284579195082188,
+              0.0,
+              0.0060411435551941395,
+              0.0,
+              0.0,
+              0.008860365487635136,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "region_visits": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 2,
+            "events": [
+              {
+                "region": 12,
+                "previous_region": 10,
+                "destination": 16,
+                "action": 4,
+                "base_probability": [
+                  0.11069376021623611,
+                  0.1282074898481369,
+                  0.16243292391300201,
+                  0.1388162076473236,
+                  0.14625585079193115,
+                  0.12107499688863754,
+                  0.19251877069473267
+                ],
+                "route_probability": [
+                  0.07387621700763702,
+                  0.14107243716716766,
+                  0.17873221635818481,
+                  0.15274567902088165,
+                  0.16093185544013977,
+                  0.08080458641052246,
+                  0.2118370234966278
+                ],
+                "accumulator_before": 0.1857815980911255,
+                "accumulator_magnitude": 0.28210240602493286,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 1.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  424,
+                  453,
+                  457,
+                  467,
+                  467,
+                  467,
+                  472,
+                  467,
+                  478,
+                  507,
+                  507,
+                  516,
+                  516,
+                  516,
+                  516,
+                  527
+                ],
+                "nonzero_edges": 135
+              },
+              {
+                "region": 2,
+                "previous_region": 0,
+                "destination": 19,
+                "action": 1,
+                "base_probability": [
+                  0.10586122423410416,
+                  0.14314711093902588,
+                  0.16898901760578156,
+                  0.13589777052402496,
+                  0.1365448534488678,
+                  0.11168364435434341,
+                  0.197876438498497
+                ],
+                "route_probability": [
+                  0.10586122423410416,
+                  0.14314711093902588,
+                  0.16898901760578156,
+                  0.13589777052402496,
+                  0.1365448534488678,
+                  0.11168364435434341,
+                  0.197876438498497
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.1936803162097931,
+                "contribution_magnitude": 0.0,
+                "walker": 1,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  625,
+                  633,
+                  644,
+                  644,
+                  644,
+                  644,
+                  653,
+                  672,
+                  672,
+                  672,
+                  704,
+                  704,
+                  704,
+                  711,
+                  704,
+                  715
+                ],
+                "nonzero_edges": 136
+              }
+            ],
+            "active": [
+              12,
+              2
+            ],
+            "fatigue": [
+              0.800000011920929,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.64000004529953,
+              0.0,
+              1.7999999523162842,
+              0.0,
+              0.0,
+              0.64000004529953,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.007140362169593573,
+              0.0,
+              0.005481460597366095,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.009284579195082188,
+              0.0,
+              0.00800046045333147,
+              0.0,
+              0.0,
+              0.008860365487635136,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "region_visits": [
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              2.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 3,
+            "events": [
+              {
+                "region": 16,
+                "previous_region": 12,
+                "destination": -1,
+                "action": 6,
+                "base_probability": [
+                  0.1065949946641922,
+                  0.14646640419960022,
+                  0.15988603234291077,
+                  0.13887156546115875,
+                  0.12971456348896027,
+                  0.11178956925868988,
+                  0.2066769301891327
+                ],
+                "route_probability": [
+                  0.1065949946641922,
+                  0.14646640419960022,
+                  0.15988603234291077,
+                  0.13887156546115875,
+                  0.12971456348896027,
+                  0.11178956925868988,
+                  0.2066769301891327
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.5089966058731079,
+                "contribution_magnitude": 2.8974409103393555,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  430,
+                  461,
+                  461,
+                  474,
+                  474,
+                  474,
+                  474,
+                  474,
+                  474,
+                  506,
+                  506,
+                  520,
+                  520,
+                  520,
+                  520,
+                  520
+                ],
+                "nonzero_edges": 168
+              },
+              {
+                "region": 19,
+                "previous_region": 2,
+                "destination": 6,
+                "action": 3,
+                "base_probability": [
+                  0.104720838367939,
+                  0.1480882465839386,
+                  0.16735143959522247,
+                  0.13334155082702637,
+                  0.1373056173324585,
+                  0.11460024863481522,
+                  0.19459202885627747
+                ],
+                "route_probability": [
+                  0.104720838367939,
+                  0.1480882465839386,
+                  0.16735143959522247,
+                  0.13334155082702637,
+                  0.1373056173324585,
+                  0.11460024863481522,
+                  0.19459202885627747
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.22850380837917328,
+                "contribution_magnitude": 0.0,
+                "walker": 1,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  627,
+                  637,
+                  647,
+                  647,
+                  647,
+                  647,
+                  647,
+                  664,
+                  664,
+                  664,
+                  698,
+                  698,
+                  698,
+                  703,
+                  698,
+                  711
+                ],
+                "nonzero_edges": 170
+              }
+            ],
+            "active": [
+              16,
+              19
+            ],
+            "fatigue": [
+              0.64000004529953,
+              0.0,
+              0.800000011920929,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.5120000243186951,
+              0.0,
+              1.4399999380111694,
+              0.0,
+              0.0,
+              0.5120000243186951,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.007140362169593573,
+              0.0,
+              0.005481460597366095,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.009284579195082188,
+              0.0,
+              0.00800046045333147,
+              0.0,
+              0.0,
+              0.008860365487635136,
+              0.0109211765229702,
+              0.0,
+              0.0,
+              0.007146804127842188,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "region_visits": [
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              2.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "model": "transformer_core",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 32,
+        "layers": 3,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 44
+      },
+      "seed": 44,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 4.804596900939941,
+      "validation": {
+        "sampled": {
+          "loss": 4.788464844226837,
+          "ppl": 120.11682900739385,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 28466.310936097176,
+      "serialized_bytes": 203946,
+      "memory": {
+        "static": {
+          "embedding_output_head": 32768,
+          "global_router": 0,
+          "shared_router_network": 0,
+          "region_specific_parameters": 0,
+          "local_edges": 0,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 156800,
+          "other_static_metadata": 4096
+        },
+        "dynamic": {
+          "node_state": 0,
+          "fatigue_state": 0,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 24576
+        },
+        "total_static_packed_bytes": 193664,
+        "peak_theoretical_inference_bytes": 218240,
+        "core_static_packed_bytes": 156800,
+        "trainable_numerical_parameters": 47392,
+        "structural_low_bit_parameters": 0,
+        "dynamic_assumption": "fp32 K/V cache estimate; current Transformer code recomputes context"
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 6.028449535369873
+        },
+        {
+          "step": 2,
+          "train_loss": 6.099397659301758
+        },
+        {
+          "step": 3,
+          "train_loss": 6.173005104064941
+        },
+        {
+          "step": 4,
+          "train_loss": 5.871539115905762
+        },
+        {
+          "step": 5,
+          "train_loss": 6.0141215324401855
+        },
+        {
+          "step": 6,
+          "train_loss": 6.260193824768066
+        },
+        {
+          "step": 7,
+          "train_loss": 5.798392295837402
+        },
+        {
+          "step": 8,
+          "train_loss": 5.909728527069092
+        },
+        {
+          "step": 9,
+          "train_loss": 5.708681583404541
+        },
+        {
+          "step": 10,
+          "train_loss": 5.926979064941406
+        },
+        {
+          "step": 11,
+          "train_loss": 5.993844032287598
+        },
+        {
+          "step": 12,
+          "train_loss": 5.870306968688965
+        },
+        {
+          "step": 13,
+          "train_loss": 5.827930450439453
+        },
+        {
+          "step": 14,
+          "train_loss": 5.836073875427246
+        },
+        {
+          "step": 15,
+          "train_loss": 5.730221748352051
+        },
+        {
+          "step": 16,
+          "train_loss": 5.861373424530029
+        },
+        {
+          "step": 17,
+          "train_loss": 5.954115867614746
+        },
+        {
+          "step": 18,
+          "train_loss": 5.745929718017578
+        },
+        {
+          "step": 19,
+          "train_loss": 5.693556785583496
+        },
+        {
+          "step": 20,
+          "train_loss": 5.719498634338379
+        },
+        {
+          "step": 21,
+          "train_loss": 5.641129016876221
+        },
+        {
+          "step": 22,
+          "train_loss": 5.727672100067139
+        },
+        {
+          "step": 23,
+          "train_loss": 5.678107738494873
+        },
+        {
+          "step": 24,
+          "train_loss": 5.548648357391357
+        },
+        {
+          "step": 25,
+          "train_loss": 5.606561660766602
+        },
+        {
+          "step": 26,
+          "train_loss": 5.460227012634277
+        },
+        {
+          "step": 27,
+          "train_loss": 5.513317108154297
+        },
+        {
+          "step": 28,
+          "train_loss": 5.564927101135254
+        },
+        {
+          "step": 29,
+          "train_loss": 5.658439636230469
+        },
+        {
+          "step": 30,
+          "train_loss": 5.489145278930664
+        },
+        {
+          "step": 31,
+          "train_loss": 5.412327289581299
+        },
+        {
+          "step": 32,
+          "train_loss": 5.408974647521973
+        },
+        {
+          "step": 33,
+          "train_loss": 5.342040061950684
+        },
+        {
+          "step": 34,
+          "train_loss": 5.3051533699035645
+        },
+        {
+          "step": 35,
+          "train_loss": 5.449169158935547
+        },
+        {
+          "step": 36,
+          "train_loss": 5.336879730224609
+        },
+        {
+          "step": 37,
+          "train_loss": 5.566504955291748
+        },
+        {
+          "step": 38,
+          "train_loss": 5.396865367889404
+        },
+        {
+          "step": 39,
+          "train_loss": 5.250182628631592
+        },
+        {
+          "step": 40,
+          "train_loss": 5.283865451812744
+        },
+        {
+          "step": 41,
+          "train_loss": 5.409218788146973
+        },
+        {
+          "step": 42,
+          "train_loss": 5.266571998596191
+        },
+        {
+          "step": 43,
+          "train_loss": 5.259289264678955
+        },
+        {
+          "step": 44,
+          "train_loss": 5.165156364440918
+        },
+        {
+          "step": 45,
+          "train_loss": 5.3265838623046875
+        },
+        {
+          "step": 46,
+          "train_loss": 5.1728105545043945
+        },
+        {
+          "step": 47,
+          "train_loss": 5.117748737335205
+        },
+        {
+          "step": 48,
+          "train_loss": 5.15696382522583
+        },
+        {
+          "step": 49,
+          "train_loss": 5.154329299926758
+        },
+        {
+          "step": 50,
+          "train_loss": 5.281972408294678
+        },
+        {
+          "step": 51,
+          "train_loss": 5.081497669219971
+        },
+        {
+          "step": 52,
+          "train_loss": 5.1346564292907715
+        },
+        {
+          "step": 53,
+          "train_loss": 4.984492778778076
+        },
+        {
+          "step": 54,
+          "train_loss": 5.003114700317383
+        },
+        {
+          "step": 55,
+          "train_loss": 5.13344144821167
+        },
+        {
+          "step": 56,
+          "train_loss": 5.254546642303467
+        },
+        {
+          "step": 57,
+          "train_loss": 5.043485641479492
+        },
+        {
+          "step": 58,
+          "train_loss": 5.053281307220459
+        },
+        {
+          "step": 59,
+          "train_loss": 5.076900959014893
+        },
+        {
+          "step": 60,
+          "train_loss": 5.1727447509765625
+        },
+        {
+          "step": 61,
+          "train_loss": 4.990180015563965
+        },
+        {
+          "step": 62,
+          "train_loss": 5.03511381149292
+        },
+        {
+          "step": 63,
+          "train_loss": 5.1636962890625
+        },
+        {
+          "step": 64,
+          "train_loss": 4.981806755065918
+        },
+        {
+          "step": 65,
+          "train_loss": 5.00737190246582
+        },
+        {
+          "step": 66,
+          "train_loss": 4.95584774017334
+        },
+        {
+          "step": 67,
+          "train_loss": 4.977081298828125
+        },
+        {
+          "step": 68,
+          "train_loss": 4.951591491699219
+        },
+        {
+          "step": 69,
+          "train_loss": 5.064541816711426
+        },
+        {
+          "step": 70,
+          "train_loss": 4.955621719360352
+        },
+        {
+          "step": 71,
+          "train_loss": 4.84068489074707
+        },
+        {
+          "step": 72,
+          "train_loss": 4.921156406402588
+        },
+        {
+          "step": 73,
+          "train_loss": 4.906545639038086
+        },
+        {
+          "step": 74,
+          "train_loss": 4.780973434448242
+        },
+        {
+          "step": 75,
+          "train_loss": 4.888535976409912
+        },
+        {
+          "step": 76,
+          "train_loss": 5.152047157287598
+        },
+        {
+          "step": 77,
+          "train_loss": 4.845137119293213
+        },
+        {
+          "step": 78,
+          "train_loss": 4.933846473693848
+        },
+        {
+          "step": 79,
+          "train_loss": 4.992964267730713
+        },
+        {
+          "step": 80,
+          "train_loss": 4.815525054931641
+        },
+        {
+          "step": 81,
+          "train_loss": 4.788212776184082
+        },
+        {
+          "step": 82,
+          "train_loss": 4.917226791381836
+        },
+        {
+          "step": 83,
+          "train_loss": 5.034182548522949
+        },
+        {
+          "step": 84,
+          "train_loss": 4.943488597869873
+        },
+        {
+          "step": 85,
+          "train_loss": 4.851100444793701
+        },
+        {
+          "step": 86,
+          "train_loss": 4.942692756652832
+        },
+        {
+          "step": 87,
+          "train_loss": 4.836938381195068
+        },
+        {
+          "step": 88,
+          "train_loss": 4.880708694458008
+        },
+        {
+          "step": 89,
+          "train_loss": 5.108921051025391
+        },
+        {
+          "step": 90,
+          "train_loss": 4.764437198638916
+        },
+        {
+          "step": 91,
+          "train_loss": 4.66306209564209
+        },
+        {
+          "step": 92,
+          "train_loss": 4.645761489868164
+        },
+        {
+          "step": 93,
+          "train_loss": 4.918129920959473
+        },
+        {
+          "step": 94,
+          "train_loss": 4.880870342254639
+        },
+        {
+          "step": 95,
+          "train_loss": 4.792798042297363
+        },
+        {
+          "step": 96,
+          "train_loss": 4.789881229400635
+        },
+        {
+          "step": 97,
+          "train_loss": 4.776528358459473
+        },
+        {
+          "step": 98,
+          "train_loss": 4.603678226470947
+        },
+        {
+          "step": 99,
+          "train_loss": 4.781064033508301
+        },
+        {
+          "step": 100,
+          "train_loss": 4.804596900939941
+        }
+      ],
+      "inference_tokens_per_second": 1423.469054456745,
+      "inference_latency_seconds_per_token": 0.0007025091250625337
+    },
+    {
+      "model": "transformer_total",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 84,
+        "layers": 1,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 44
+      },
+      "seed": 44,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 4.30128288269043,
+      "validation": {
+        "sampled": {
+          "loss": 4.081970125436783,
+          "ppl": 59.26210870336329,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 44691.8267405563,
+      "serialized_bytes": 446702,
+      "memory": {
+        "static": {
+          "embedding_output_head": 86016,
+          "global_router": 0,
+          "shared_router_network": 0,
+          "region_specific_parameters": 0,
+          "local_edges": 0,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 354480,
+          "other_static_metadata": 10752
+        },
+        "dynamic": {
+          "node_state": 0,
+          "fatigue_state": 0,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 21504
+        },
+        "total_static_packed_bytes": 451248,
+        "peak_theoretical_inference_bytes": 472752,
+        "core_static_packed_bytes": 354480,
+        "trainable_numerical_parameters": 110124,
+        "structural_low_bit_parameters": 0,
+        "dynamic_assumption": "fp32 K/V cache estimate; current Transformer code recomputes context"
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 6.908251762390137
+        },
+        {
+          "step": 2,
+          "train_loss": 6.837167739868164
+        },
+        {
+          "step": 3,
+          "train_loss": 6.958386421203613
+        },
+        {
+          "step": 4,
+          "train_loss": 6.791104793548584
+        },
+        {
+          "step": 5,
+          "train_loss": 6.925465106964111
+        },
+        {
+          "step": 6,
+          "train_loss": 6.8848090171813965
+        },
+        {
+          "step": 7,
+          "train_loss": 6.704475402832031
+        },
+        {
+          "step": 8,
+          "train_loss": 6.789848804473877
+        },
+        {
+          "step": 9,
+          "train_loss": 6.676020622253418
+        },
+        {
+          "step": 10,
+          "train_loss": 6.670493125915527
+        },
+        {
+          "step": 11,
+          "train_loss": 6.608214855194092
+        },
+        {
+          "step": 12,
+          "train_loss": 6.611122131347656
+        },
+        {
+          "step": 13,
+          "train_loss": 6.590785503387451
+        },
+        {
+          "step": 14,
+          "train_loss": 6.4578704833984375
+        },
+        {
+          "step": 15,
+          "train_loss": 6.375136375427246
+        },
+        {
+          "step": 16,
+          "train_loss": 6.557305335998535
+        },
+        {
+          "step": 17,
+          "train_loss": 6.68534517288208
+        },
+        {
+          "step": 18,
+          "train_loss": 6.375239849090576
+        },
+        {
+          "step": 19,
+          "train_loss": 6.3881306648254395
+        },
+        {
+          "step": 20,
+          "train_loss": 6.472774505615234
+        },
+        {
+          "step": 21,
+          "train_loss": 6.24771785736084
+        },
+        {
+          "step": 22,
+          "train_loss": 6.219175338745117
+        },
+        {
+          "step": 23,
+          "train_loss": 6.235071659088135
+        },
+        {
+          "step": 24,
+          "train_loss": 5.996715068817139
+        },
+        {
+          "step": 25,
+          "train_loss": 6.092880725860596
+        },
+        {
+          "step": 26,
+          "train_loss": 6.197010040283203
+        },
+        {
+          "step": 27,
+          "train_loss": 6.327761173248291
+        },
+        {
+          "step": 28,
+          "train_loss": 6.222214221954346
+        },
+        {
+          "step": 29,
+          "train_loss": 6.087472915649414
+        },
+        {
+          "step": 30,
+          "train_loss": 6.185937881469727
+        },
+        {
+          "step": 31,
+          "train_loss": 6.071047782897949
+        },
+        {
+          "step": 32,
+          "train_loss": 5.9971795082092285
+        },
+        {
+          "step": 33,
+          "train_loss": 5.909627914428711
+        },
+        {
+          "step": 34,
+          "train_loss": 5.955831527709961
+        },
+        {
+          "step": 35,
+          "train_loss": 5.730086803436279
+        },
+        {
+          "step": 36,
+          "train_loss": 5.74891471862793
+        },
+        {
+          "step": 37,
+          "train_loss": 6.021937847137451
+        },
+        {
+          "step": 38,
+          "train_loss": 5.8051838874816895
+        },
+        {
+          "step": 39,
+          "train_loss": 5.528721809387207
+        },
+        {
+          "step": 40,
+          "train_loss": 5.7422194480896
+        },
+        {
+          "step": 41,
+          "train_loss": 5.5219879150390625
+        },
+        {
+          "step": 42,
+          "train_loss": 5.761782646179199
+        },
+        {
+          "step": 43,
+          "train_loss": 5.509196758270264
+        },
+        {
+          "step": 44,
+          "train_loss": 5.748468399047852
+        },
+        {
+          "step": 45,
+          "train_loss": 5.36695671081543
+        },
+        {
+          "step": 46,
+          "train_loss": 5.329986095428467
+        },
+        {
+          "step": 47,
+          "train_loss": 5.261960983276367
+        },
+        {
+          "step": 48,
+          "train_loss": 5.47426700592041
+        },
+        {
+          "step": 49,
+          "train_loss": 5.457428455352783
+        },
+        {
+          "step": 50,
+          "train_loss": 5.228371620178223
+        },
+        {
+          "step": 51,
+          "train_loss": 5.009565830230713
+        },
+        {
+          "step": 52,
+          "train_loss": 4.963448524475098
+        },
+        {
+          "step": 53,
+          "train_loss": 4.951120853424072
+        },
+        {
+          "step": 54,
+          "train_loss": 5.053780555725098
+        },
+        {
+          "step": 55,
+          "train_loss": 4.952550888061523
+        },
+        {
+          "step": 56,
+          "train_loss": 4.8606791496276855
+        },
+        {
+          "step": 57,
+          "train_loss": 4.753715991973877
+        },
+        {
+          "step": 58,
+          "train_loss": 4.8795881271362305
+        },
+        {
+          "step": 59,
+          "train_loss": 4.898886203765869
+        },
+        {
+          "step": 60,
+          "train_loss": 4.660604476928711
+        },
+        {
+          "step": 61,
+          "train_loss": 4.676592826843262
+        },
+        {
+          "step": 62,
+          "train_loss": 4.5245537757873535
+        },
+        {
+          "step": 63,
+          "train_loss": 4.780188083648682
+        },
+        {
+          "step": 64,
+          "train_loss": 4.570206642150879
+        },
+        {
+          "step": 65,
+          "train_loss": 4.7136101722717285
+        },
+        {
+          "step": 66,
+          "train_loss": 4.758666038513184
+        },
+        {
+          "step": 67,
+          "train_loss": 4.639545917510986
+        },
+        {
+          "step": 68,
+          "train_loss": 4.530795574188232
+        },
+        {
+          "step": 69,
+          "train_loss": 4.412369728088379
+        },
+        {
+          "step": 70,
+          "train_loss": 4.492576599121094
+        },
+        {
+          "step": 71,
+          "train_loss": 4.258961200714111
+        },
+        {
+          "step": 72,
+          "train_loss": 4.682529449462891
+        },
+        {
+          "step": 73,
+          "train_loss": 4.459035873413086
+        },
+        {
+          "step": 74,
+          "train_loss": 4.384917259216309
+        },
+        {
+          "step": 75,
+          "train_loss": 4.2291083335876465
+        },
+        {
+          "step": 76,
+          "train_loss": 4.515061855316162
+        },
+        {
+          "step": 77,
+          "train_loss": 4.237993240356445
+        },
+        {
+          "step": 78,
+          "train_loss": 4.199672698974609
+        },
+        {
+          "step": 79,
+          "train_loss": 4.242175579071045
+        },
+        {
+          "step": 80,
+          "train_loss": 4.023200988769531
+        },
+        {
+          "step": 81,
+          "train_loss": 4.247636318206787
+        },
+        {
+          "step": 82,
+          "train_loss": 4.091331958770752
+        },
+        {
+          "step": 83,
+          "train_loss": 4.311773300170898
+        },
+        {
+          "step": 84,
+          "train_loss": 4.2126641273498535
+        },
+        {
+          "step": 85,
+          "train_loss": 4.152063369750977
+        },
+        {
+          "step": 86,
+          "train_loss": 4.235614776611328
+        },
+        {
+          "step": 87,
+          "train_loss": 4.211480140686035
+        },
+        {
+          "step": 88,
+          "train_loss": 4.230818271636963
+        },
+        {
+          "step": 89,
+          "train_loss": 4.492861747741699
+        },
+        {
+          "step": 90,
+          "train_loss": 3.9853100776672363
+        },
+        {
+          "step": 91,
+          "train_loss": 3.8524441719055176
+        },
+        {
+          "step": 92,
+          "train_loss": 4.059403896331787
+        },
+        {
+          "step": 93,
+          "train_loss": 4.351142883300781
+        },
+        {
+          "step": 94,
+          "train_loss": 4.252386569976807
+        },
+        {
+          "step": 95,
+          "train_loss": 4.147639274597168
+        },
+        {
+          "step": 96,
+          "train_loss": 4.318558692932129
+        },
+        {
+          "step": 97,
+          "train_loss": 4.371360778808594
+        },
+        {
+          "step": 98,
+          "train_loss": 3.9800660610198975
+        },
+        {
+          "step": 99,
+          "train_loss": 4.008654594421387
+        },
+        {
+          "step": 100,
+          "train_loss": 4.30128288269043
+        }
+      ],
+      "inference_tokens_per_second": 2877.7578808491503,
+      "inference_latency_seconds_per_token": 0.0003474927500519698
+    },
+    {
+      "model": "prg",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 8,
+        "region_size": 64,
+        "max_cycles": 4,
+        "initial_regions": 2,
+        "d_model": 64,
+        "layers": 2,
+        "heads": 4,
+        "edge_type": "ternary",
+        "stochastic_recurrence": true,
+        "fixed_recurrence_probability": null,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "local_router": true,
+        "seed": 44
+      },
+      "seed": 44,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 6.13966178894043,
+      "validation": {
+        "sampled": {
+          "loss": 6.463183224201202,
+          "ppl": 641.0985724052324,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 679.1870107836592,
+      "serialized_bytes": 84594,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 2080,
+          "shared_router_network": 9360,
+          "region_specific_parameters": 2048,
+          "local_edges": 48,
+          "region_gateway_addresses": 0,
+          "transition_probabilities": 0,
+          "other_numerical": 768,
+          "other_static_metadata": 0
+        },
+        "dynamic": {
+          "node_state": 2048,
+          "fatigue_state": 32,
+          "accumulator": 0,
+          "event_state": 0,
+          "other_runtime_state": 256
+        },
+        "total_static_packed_bytes": 79840,
+        "peak_theoretical_inference_bytes": 82176,
+        "core_static_packed_bytes": 14304,
+        "trainable_numerical_parameters": 20140,
+        "structural_low_bit_parameters": 192
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 7.011015892028809
+        },
+        {
+          "step": 2,
+          "train_loss": 7.0308966636657715
+        },
+        {
+          "step": 3,
+          "train_loss": 6.953187942504883
+        },
+        {
+          "step": 4,
+          "train_loss": 7.107016086578369
+        },
+        {
+          "step": 5,
+          "train_loss": 6.847415924072266
+        },
+        {
+          "step": 6,
+          "train_loss": 6.885111331939697
+        },
+        {
+          "step": 7,
+          "train_loss": 6.982596397399902
+        },
+        {
+          "step": 8,
+          "train_loss": 6.966876029968262
+        },
+        {
+          "step": 9,
+          "train_loss": 7.130252838134766
+        },
+        {
+          "step": 10,
+          "train_loss": 7.204232692718506
+        },
+        {
+          "step": 11,
+          "train_loss": 7.056859493255615
+        },
+        {
+          "step": 12,
+          "train_loss": 7.008442401885986
+        },
+        {
+          "step": 13,
+          "train_loss": 6.944941520690918
+        },
+        {
+          "step": 14,
+          "train_loss": 6.89700174331665
+        },
+        {
+          "step": 15,
+          "train_loss": 6.971066474914551
+        },
+        {
+          "step": 16,
+          "train_loss": 6.884623050689697
+        },
+        {
+          "step": 17,
+          "train_loss": 6.966313362121582
+        },
+        {
+          "step": 18,
+          "train_loss": 6.784750461578369
+        },
+        {
+          "step": 19,
+          "train_loss": 6.881886959075928
+        },
+        {
+          "step": 20,
+          "train_loss": 7.073008060455322
+        },
+        {
+          "step": 21,
+          "train_loss": 7.058250904083252
+        },
+        {
+          "step": 22,
+          "train_loss": 6.594058990478516
+        },
+        {
+          "step": 23,
+          "train_loss": 6.832226753234863
+        },
+        {
+          "step": 24,
+          "train_loss": 6.8043036460876465
+        },
+        {
+          "step": 25,
+          "train_loss": 6.938316822052002
+        },
+        {
+          "step": 26,
+          "train_loss": 6.8046441078186035
+        },
+        {
+          "step": 27,
+          "train_loss": 7.042290687561035
+        },
+        {
+          "step": 28,
+          "train_loss": 6.999908447265625
+        },
+        {
+          "step": 29,
+          "train_loss": 6.874327182769775
+        },
+        {
+          "step": 30,
+          "train_loss": 6.585293292999268
+        },
+        {
+          "step": 31,
+          "train_loss": 7.104221343994141
+        },
+        {
+          "step": 32,
+          "train_loss": 6.731478691101074
+        },
+        {
+          "step": 33,
+          "train_loss": 6.625088691711426
+        },
+        {
+          "step": 34,
+          "train_loss": 6.79500675201416
+        },
+        {
+          "step": 35,
+          "train_loss": 6.89643669128418
+        },
+        {
+          "step": 36,
+          "train_loss": 6.8905510902404785
+        },
+        {
+          "step": 37,
+          "train_loss": 6.964142322540283
+        },
+        {
+          "step": 38,
+          "train_loss": 6.87996244430542
+        },
+        {
+          "step": 39,
+          "train_loss": 6.727616786956787
+        },
+        {
+          "step": 40,
+          "train_loss": 6.868903636932373
+        },
+        {
+          "step": 41,
+          "train_loss": 6.679259300231934
+        },
+        {
+          "step": 42,
+          "train_loss": 6.684277534484863
+        },
+        {
+          "step": 43,
+          "train_loss": 6.691231727600098
+        },
+        {
+          "step": 44,
+          "train_loss": 6.970456123352051
+        },
+        {
+          "step": 45,
+          "train_loss": 6.709746360778809
+        },
+        {
+          "step": 46,
+          "train_loss": 6.579880714416504
+        },
+        {
+          "step": 47,
+          "train_loss": 6.465560436248779
+        },
+        {
+          "step": 48,
+          "train_loss": 6.656161308288574
+        },
+        {
+          "step": 49,
+          "train_loss": 6.858637809753418
+        },
+        {
+          "step": 50,
+          "train_loss": 6.67514181137085
+        },
+        {
+          "step": 51,
+          "train_loss": 6.744781494140625
+        },
+        {
+          "step": 52,
+          "train_loss": 6.635692119598389
+        },
+        {
+          "step": 53,
+          "train_loss": 6.534277439117432
+        },
+        {
+          "step": 54,
+          "train_loss": 6.454081058502197
+        },
+        {
+          "step": 55,
+          "train_loss": 6.578845024108887
+        },
+        {
+          "step": 56,
+          "train_loss": 6.365458011627197
+        },
+        {
+          "step": 57,
+          "train_loss": 6.503087520599365
+        },
+        {
+          "step": 58,
+          "train_loss": 6.532561779022217
+        },
+        {
+          "step": 59,
+          "train_loss": 6.61899471282959
+        },
+        {
+          "step": 60,
+          "train_loss": 6.683169841766357
+        },
+        {
+          "step": 61,
+          "train_loss": 6.525980472564697
+        },
+        {
+          "step": 62,
+          "train_loss": 6.521124839782715
+        },
+        {
+          "step": 63,
+          "train_loss": 6.636251926422119
+        },
+        {
+          "step": 64,
+          "train_loss": 6.513166904449463
+        },
+        {
+          "step": 65,
+          "train_loss": 6.727747917175293
+        },
+        {
+          "step": 66,
+          "train_loss": 6.688669681549072
+        },
+        {
+          "step": 67,
+          "train_loss": 6.542740821838379
+        },
+        {
+          "step": 68,
+          "train_loss": 6.559948444366455
+        },
+        {
+          "step": 69,
+          "train_loss": 6.3990559577941895
+        },
+        {
+          "step": 70,
+          "train_loss": 6.4077372550964355
+        },
+        {
+          "step": 71,
+          "train_loss": 6.342294216156006
+        },
+        {
+          "step": 72,
+          "train_loss": 6.467081546783447
+        },
+        {
+          "step": 73,
+          "train_loss": 6.6992363929748535
+        },
+        {
+          "step": 74,
+          "train_loss": 6.356215476989746
+        },
+        {
+          "step": 75,
+          "train_loss": 6.323315620422363
+        },
+        {
+          "step": 76,
+          "train_loss": 6.53417444229126
+        },
+        {
+          "step": 77,
+          "train_loss": 6.406642913818359
+        },
+        {
+          "step": 78,
+          "train_loss": 6.400212287902832
+        },
+        {
+          "step": 79,
+          "train_loss": 6.447436332702637
+        },
+        {
+          "step": 80,
+          "train_loss": 6.051884651184082
+        },
+        {
+          "step": 81,
+          "train_loss": 6.247341632843018
+        },
+        {
+          "step": 82,
+          "train_loss": 6.285506725311279
+        },
+        {
+          "step": 83,
+          "train_loss": 6.150728702545166
+        },
+        {
+          "step": 84,
+          "train_loss": 6.315381050109863
+        },
+        {
+          "step": 85,
+          "train_loss": 6.396303653717041
+        },
+        {
+          "step": 86,
+          "train_loss": 6.217067718505859
+        },
+        {
+          "step": 87,
+          "train_loss": 6.2605390548706055
+        },
+        {
+          "step": 88,
+          "train_loss": 6.312036991119385
+        },
+        {
+          "step": 89,
+          "train_loss": 6.277852535247803
+        },
+        {
+          "step": 90,
+          "train_loss": 6.135195732116699
+        },
+        {
+          "step": 91,
+          "train_loss": 5.81079626083374
+        },
+        {
+          "step": 92,
+          "train_loss": 6.033848285675049
+        },
+        {
+          "step": 93,
+          "train_loss": 5.996744632720947
+        },
+        {
+          "step": 94,
+          "train_loss": 6.121365547180176
+        },
+        {
+          "step": 95,
+          "train_loss": 6.259647846221924
+        },
+        {
+          "step": 96,
+          "train_loss": 6.074054718017578
+        },
+        {
+          "step": 97,
+          "train_loss": 6.4267168045043945
+        },
+        {
+          "step": 98,
+          "train_loss": 5.967857837677002
+        },
+        {
+          "step": 99,
+          "train_loss": 5.93687629699707
+        },
+        {
+          "step": 100,
+          "train_loss": 6.13966178894043
+        }
+      ],
+      "inference_tokens_per_second": 70.07952308906825,
+      "inference_latency_seconds_per_token": 0.014269503500031533
+    },
+    {
+      "model": "prg_v1",
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 44
+      },
+      "seed": 44,
+      "steps": 100,
+      "training_tokens": 12800,
+      "train_loss": 5.196172714233398,
+      "validation": {
+        "expected": {
+          "loss": 5.062614619731903,
+          "ppl": 158.0030947296876,
+          "validation_tokens": 4096
+        },
+        "argmax": {
+          "loss": 5.086643427610397,
+          "ppl": 161.8457024925492,
+          "validation_tokens": 4096
+        },
+        "sampled": {
+          "loss": 5.147781789302826,
+          "ppl": 172.0494248480202,
+          "validation_tokens": 4096
+        }
+      },
+      "train_tokens_per_second": 488.1727494424864,
+      "serialized_bytes": 2193354,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128
+        },
+        "total_static_packed_bytes": 220860,
+        "peak_theoretical_inference_bytes": 483398,
+        "core_static_packed_bytes": 155324,
+        "trainable_numerical_parameters": 546711,
+        "structural_low_bit_parameters": 524288
+      },
+      "peak_cuda_bytes": null,
+      "history": [
+        {
+          "step": 1,
+          "train_loss": 5.693964004516602
+        },
+        {
+          "step": 2,
+          "train_loss": 5.680571556091309
+        },
+        {
+          "step": 3,
+          "train_loss": 5.715326309204102
+        },
+        {
+          "step": 4,
+          "train_loss": 5.623237609863281
+        },
+        {
+          "step": 5,
+          "train_loss": 5.786718845367432
+        },
+        {
+          "step": 6,
+          "train_loss": 5.788660049438477
+        },
+        {
+          "step": 7,
+          "train_loss": 5.738107681274414
+        },
+        {
+          "step": 8,
+          "train_loss": 5.691145420074463
+        },
+        {
+          "step": 9,
+          "train_loss": 5.71560525894165
+        },
+        {
+          "step": 10,
+          "train_loss": 5.803845405578613
+        },
+        {
+          "step": 11,
+          "train_loss": 5.7012128829956055
+        },
+        {
+          "step": 12,
+          "train_loss": 5.632469654083252
+        },
+        {
+          "step": 13,
+          "train_loss": 5.62506628036499
+        },
+        {
+          "step": 14,
+          "train_loss": 5.623001575469971
+        },
+        {
+          "step": 15,
+          "train_loss": 5.780354976654053
+        },
+        {
+          "step": 16,
+          "train_loss": 5.593587398529053
+        },
+        {
+          "step": 17,
+          "train_loss": 5.887126922607422
+        },
+        {
+          "step": 18,
+          "train_loss": 5.628202438354492
+        },
+        {
+          "step": 19,
+          "train_loss": 5.615992546081543
+        },
+        {
+          "step": 20,
+          "train_loss": 5.815624713897705
+        },
+        {
+          "step": 21,
+          "train_loss": 5.4985785484313965
+        },
+        {
+          "step": 22,
+          "train_loss": 5.405394077301025
+        },
+        {
+          "step": 23,
+          "train_loss": 5.509561061859131
+        },
+        {
+          "step": 24,
+          "train_loss": 5.700888633728027
+        },
+        {
+          "step": 25,
+          "train_loss": 5.686410427093506
+        },
+        {
+          "step": 26,
+          "train_loss": 5.566314697265625
+        },
+        {
+          "step": 27,
+          "train_loss": 5.534646511077881
+        },
+        {
+          "step": 28,
+          "train_loss": 5.589669227600098
+        },
+        {
+          "step": 29,
+          "train_loss": 5.635437488555908
+        },
+        {
+          "step": 30,
+          "train_loss": 5.6665472984313965
+        },
+        {
+          "step": 31,
+          "train_loss": 5.625638961791992
+        },
+        {
+          "step": 32,
+          "train_loss": 5.521758079528809
+        },
+        {
+          "step": 33,
+          "train_loss": 5.492030143737793
+        },
+        {
+          "step": 34,
+          "train_loss": 5.501918315887451
+        },
+        {
+          "step": 35,
+          "train_loss": 5.584147930145264
+        },
+        {
+          "step": 36,
+          "train_loss": 5.466947555541992
+        },
+        {
+          "step": 37,
+          "train_loss": 5.649109363555908
+        },
+        {
+          "step": 38,
+          "train_loss": 5.640990734100342
+        },
+        {
+          "step": 39,
+          "train_loss": 5.526305675506592
+        },
+        {
+          "step": 40,
+          "train_loss": 5.578240394592285
+        },
+        {
+          "step": 41,
+          "train_loss": 5.5550923347473145
+        },
+        {
+          "step": 42,
+          "train_loss": 5.545500755310059
+        },
+        {
+          "step": 43,
+          "train_loss": 5.461294651031494
+        },
+        {
+          "step": 44,
+          "train_loss": 5.616846084594727
+        },
+        {
+          "step": 45,
+          "train_loss": 5.536938667297363
+        },
+        {
+          "step": 46,
+          "train_loss": 5.575186729431152
+        },
+        {
+          "step": 47,
+          "train_loss": 5.442329406738281
+        },
+        {
+          "step": 48,
+          "train_loss": 5.382578372955322
+        },
+        {
+          "step": 49,
+          "train_loss": 5.569650173187256
+        },
+        {
+          "step": 50,
+          "train_loss": 5.564382553100586
+        },
+        {
+          "step": 51,
+          "train_loss": 5.55241060256958
+        },
+        {
+          "step": 52,
+          "train_loss": 5.427402973175049
+        },
+        {
+          "step": 53,
+          "train_loss": 5.451972961425781
+        },
+        {
+          "step": 54,
+          "train_loss": 5.303033351898193
+        },
+        {
+          "step": 55,
+          "train_loss": 5.347369194030762
+        },
+        {
+          "step": 56,
+          "train_loss": 5.501138210296631
+        },
+        {
+          "step": 57,
+          "train_loss": 5.505735397338867
+        },
+        {
+          "step": 58,
+          "train_loss": 5.5105180740356445
+        },
+        {
+          "step": 59,
+          "train_loss": 5.2637529373168945
+        },
+        {
+          "step": 60,
+          "train_loss": 5.468368053436279
+        },
+        {
+          "step": 61,
+          "train_loss": 5.376457214355469
+        },
+        {
+          "step": 62,
+          "train_loss": 5.328762531280518
+        },
+        {
+          "step": 63,
+          "train_loss": 5.4622273445129395
+        },
+        {
+          "step": 64,
+          "train_loss": 5.404109477996826
+        },
+        {
+          "step": 65,
+          "train_loss": 5.329106330871582
+        },
+        {
+          "step": 66,
+          "train_loss": 5.407013416290283
+        },
+        {
+          "step": 67,
+          "train_loss": 5.328108310699463
+        },
+        {
+          "step": 68,
+          "train_loss": 5.265949726104736
+        },
+        {
+          "step": 69,
+          "train_loss": 5.335057258605957
+        },
+        {
+          "step": 70,
+          "train_loss": 5.456114292144775
+        },
+        {
+          "step": 71,
+          "train_loss": 5.341329097747803
+        },
+        {
+          "step": 72,
+          "train_loss": 5.381209373474121
+        },
+        {
+          "step": 73,
+          "train_loss": 5.2898268699646
+        },
+        {
+          "step": 74,
+          "train_loss": 5.233682155609131
+        },
+        {
+          "step": 75,
+          "train_loss": 5.196055889129639
+        },
+        {
+          "step": 76,
+          "train_loss": 5.5193257331848145
+        },
+        {
+          "step": 77,
+          "train_loss": 5.109376907348633
+        },
+        {
+          "step": 78,
+          "train_loss": 5.381375789642334
+        },
+        {
+          "step": 79,
+          "train_loss": 5.226271629333496
+        },
+        {
+          "step": 80,
+          "train_loss": 5.219651699066162
+        },
+        {
+          "step": 81,
+          "train_loss": 5.259026050567627
+        },
+        {
+          "step": 82,
+          "train_loss": 5.23521089553833
+        },
+        {
+          "step": 83,
+          "train_loss": 5.308840751647949
+        },
+        {
+          "step": 84,
+          "train_loss": 5.292975425720215
+        },
+        {
+          "step": 85,
+          "train_loss": 5.343148708343506
+        },
+        {
+          "step": 86,
+          "train_loss": 5.239433765411377
+        },
+        {
+          "step": 87,
+          "train_loss": 5.314323902130127
+        },
+        {
+          "step": 88,
+          "train_loss": 5.153157711029053
+        },
+        {
+          "step": 89,
+          "train_loss": 5.471039295196533
+        },
+        {
+          "step": 90,
+          "train_loss": 5.150218486785889
+        },
+        {
+          "step": 91,
+          "train_loss": 5.1950225830078125
+        },
+        {
+          "step": 92,
+          "train_loss": 5.167759895324707
+        },
+        {
+          "step": 93,
+          "train_loss": 5.315860748291016
+        },
+        {
+          "step": 94,
+          "train_loss": 5.254215240478516
+        },
+        {
+          "step": 95,
+          "train_loss": 5.16193151473999
+        },
+        {
+          "step": 96,
+          "train_loss": 5.213674545288086
+        },
+        {
+          "step": 97,
+          "train_loss": 5.267635822296143
+        },
+        {
+          "step": 98,
+          "train_loss": 5.041648864746094
+        },
+        {
+          "step": 99,
+          "train_loss": 5.030882835388184
+        },
+        {
+          "step": 100,
+          "train_loss": 5.196172714233398
+        }
+      ],
+      "inference_tokens_per_second": 44.26419204756353,
+      "inference_latency_seconds_per_token": 0.022591624374967978,
+      "dynamics": {
+        "diagnostic_tokens": 32,
+        "total_nodes": 32768,
+        "total_local_edges": 524288,
+        "nonzero_ternary_local_edges": 319812,
+        "total_region_edges": 128,
+        "active_regions_per_token": 6.34375,
+        "active_nodes_per_token": 64.3125,
+        "node_visits_per_token": 101.5,
+        "traversed_local_edges_per_token": 1624.0,
+        "effective_nonzero_edges_per_token": 993.75,
+        "active_node_ratio_per_cycle": 0.000774383544921875,
+        "active_edge_ratio_per_cycle": 0.000774383544921875,
+        "region_utilization": [
+          18,
+          4,
+          2,
+          13,
+          8,
+          6,
+          4,
+          8,
+          4,
+          8,
+          3,
+          3,
+          2,
+          6,
+          2,
+          13,
+          7,
+          7,
+          6,
+          13,
+          4,
+          5,
+          3,
+          4,
+          7,
+          5,
+          5,
+          3,
+          9,
+          6,
+          7,
+          8
+        ],
+        "actual_traversal_count_per_token": 6.34375,
+        "monte_carlo_expected_traversal_count_per_token": 5.703125,
+        "monte_carlo_traversal_std": 0.46140072063229376,
+        "expected_traversal_count_per_walker": 2.4494475324106224,
+        "actual_traversal_count_per_walker": 3.171875,
+        "base_local_transition_probability": 0.16231582266062938,
+        "mean_accumulator_magnitude": 0.2307281980446994,
+        "mean_output_contribution_magnitude": 0.3017020812762782,
+        "probability_accumulator_correlation": 0.06367315993438966,
+        "visits_accumulator_correlation": 0.4368071097318596,
+        "expected_actual_traversal_correlation": 0.9946237476333202,
+        "accumulator_contribution_correlation": 0.23850484126484595,
+        "trajectory_example": [
+          {
+            "cycle": 0,
+            "events": [
+              {
+                "region": 18,
+                "previous_region": -1,
+                "destination": 20,
+                "action": 2,
+                "base_probability": [
+                  0.1707984209060669,
+                  0.1768711507320404,
+                  0.13771742582321167,
+                  0.15284545719623566,
+                  0.16527937352657318,
+                  1.5548665328359024e-14,
+                  0.1964881271123886
+                ],
+                "route_probability": [
+                  0.1707984209060669,
+                  0.1768711507320404,
+                  0.13771742582321167,
+                  0.15284545719623566,
+                  0.16527937352657318,
+                  1.5548665328359024e-14,
+                  0.1964881271123886
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.1149917021393776,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  729,
+                  736,
+                  743,
+                  750,
+                  757,
+                  764,
+                  771,
+                  778,
+                  785,
+                  792,
+                  799,
+                  806,
+                  813,
+                  820,
+                  827,
+                  834
+                ],
+                "nonzero_edges": 153
+              },
+              {
+                "region": 30,
+                "previous_region": -1,
+                "destination": 0,
+                "action": 2,
+                "base_probability": [
+                  0.16684392094612122,
+                  0.17652538418769836,
+                  0.1384740024805069,
+                  0.15424461662769318,
+                  0.1627407819032669,
+                  1.565387529073748e-14,
+                  0.20117135345935822
+                ],
+                "route_probability": [
+                  0.16684392094612122,
+                  0.17652538418769836,
+                  0.1384740024805069,
+                  0.15424461662769318,
+                  0.1627407819032669,
+                  1.565387529073748e-14,
+                  0.20117135345935822
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.11374098062515259,
+                "contribution_magnitude": 0.0,
+                "walker": 1,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  149,
+                  156,
+                  163,
+                  170,
+                  177,
+                  184,
+                  191,
+                  198,
+                  205,
+                  212,
+                  219,
+                  226,
+                  233,
+                  240,
+                  247,
+                  254
+                ],
+                "nonzero_edges": 152
+              }
+            ],
+            "active": [
+              18,
+              30
+            ],
+            "fatigue": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.005157063249498606,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.004989344626665115,
+              0.0
+            ],
+            "region_visits": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 1,
+            "events": [
+              {
+                "region": 20,
+                "previous_region": 18,
+                "destination": 5,
+                "action": 1,
+                "base_probability": [
+                  0.15013079345226288,
+                  0.1434619277715683,
+                  0.11107523739337921,
+                  0.1292256861925125,
+                  0.15303084254264832,
+                  0.1346222311258316,
+                  0.178453266620636
+                ],
+                "route_probability": [
+                  0.15013079345226288,
+                  0.1434619277715683,
+                  0.11107523739337921,
+                  0.1292256861925125,
+                  0.15303084254264832,
+                  0.1346222311258316,
+                  0.178453266620636
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.09400498867034912,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  721,
+                  732,
+                  751,
+                  752,
+                  764,
+                  756,
+                  764,
+                  774,
+                  793,
+                  794,
+                  794,
+                  800,
+                  807,
+                  818,
+                  826,
+                  826
+                ],
+                "nonzero_edges": 167
+              },
+              {
+                "region": 0,
+                "previous_region": 30,
+                "destination": -1,
+                "action": 6,
+                "base_probability": [
+                  0.15341125428676605,
+                  0.14064040780067444,
+                  0.10488270968198776,
+                  0.12974414229393005,
+                  0.1552618443965912,
+                  0.1369938999414444,
+                  0.1790657490491867
+                ],
+                "route_probability": [
+                  0.15341125428676605,
+                  0.14064040780067444,
+                  0.10488270968198776,
+                  0.12974414229393005,
+                  0.1552618443965912,
+                  0.1369938999414444,
+                  0.1790657490491867
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.07816337794065475,
+                "contribution_magnitude": 1.1158158779144287,
+                "walker": 1,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  151,
+                  151,
+                  170,
+                  173,
+                  173,
+                  190,
+                  195,
+                  195,
+                  211,
+                  211,
+                  211,
+                  220,
+                  227,
+                  239,
+                  239,
+                  247
+                ],
+                "nonzero_edges": 146
+              }
+            ],
+            "active": [
+              20,
+              0
+            ],
+            "fatigue": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.800000011920929,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.800000011920929,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0032712516840547323,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.005157063249498606,
+              0.0,
+              0.0031462155748158693,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.004989344626665115,
+              0.0
+            ],
+            "region_visits": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 2,
+            "events": [
+              {
+                "region": 5,
+                "previous_region": 20,
+                "destination": 24,
+                "action": 3,
+                "base_probability": [
+                  0.15799212455749512,
+                  0.13914115726947784,
+                  0.10988302528858185,
+                  0.12865696847438812,
+                  0.15361465513706207,
+                  0.13068139553070068,
+                  0.18003062903881073
+                ],
+                "route_probability": [
+                  0.15799212455749512,
+                  0.13914115726947784,
+                  0.10988302528858185,
+                  0.12865696847438812,
+                  0.15361465513706207,
+                  0.13068139553070068,
+                  0.18003062903881073
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.10943710058927536,
+                "contribution_magnitude": 0.0,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  724,
+                  724,
+                  756,
+                  756,
+                  766,
+                  754,
+                  766,
+                  766,
+                  797,
+                  802,
+                  802,
+                  802,
+                  802,
+                  811,
+                  821,
+                  821
+                ],
+                "nonzero_edges": 161
+              }
+            ],
+            "active": [
+              5
+            ],
+            "fatigue": [
+              0.800000011920929,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.64000004529953,
+              0.0,
+              0.800000011920929,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.64000004529953,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0032712516840547323,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.003007219173014164,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.005157063249498606,
+              0.0,
+              0.0031462155748158693,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.004989344626665115,
+              0.0
+            ],
+            "region_visits": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "cycle": 3,
+            "events": [
+              {
+                "region": 24,
+                "previous_region": 5,
+                "destination": -1,
+                "action": 6,
+                "base_probability": [
+                  0.16112864017486572,
+                  0.1367732286453247,
+                  0.1110536977648735,
+                  0.12476993352174759,
+                  0.14973784983158112,
+                  0.12419595569372177,
+                  0.1923407018184662
+                ],
+                "route_probability": [
+                  0.16112864017486572,
+                  0.1367732286453247,
+                  0.1110536977648735,
+                  0.12476993352174759,
+                  0.14973784983158112,
+                  0.12419595569372177,
+                  0.1923407018184662
+                ],
+                "accumulator_before": 0.0,
+                "accumulator_magnitude": 0.18662230670452118,
+                "contribution_magnitude": 1.628753423690796,
+                "walker": 0,
+                "fatigue": 0.0,
+                "active_nodes": 16,
+                "node_indices": [
+                  718,
+                  718,
+                  758,
+                  758,
+                  758,
+                  758,
+                  758,
+                  758,
+                  798,
+                  798,
+                  798,
+                  798,
+                  798,
+                  803,
+                  814,
+                  814
+                ],
+                "nonzero_edges": 176
+              }
+            ],
+            "active": [
+              24
+            ],
+            "fatigue": [
+              0.64000004529953,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.800000011920929,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.5120000243186951,
+              0.0,
+              0.64000004529953,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.5120000243186951,
+              0.0
+            ],
+            "accumulator_magnitude": [
+              0.0032712516840547323,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.003007219173014164,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.005157063249498606,
+              0.0,
+              0.0031462155748158693,
+              0.0,
+              0.0,
+              0.0,
+              0.004448988474905491,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.004989344626665115,
+              0.0
+            ],
+            "region_visits": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "ablations": {
+    "recurrence": [
+      {
+        "seed": 42,
+        "sampled_ppl": 253.26616326799783,
+        "expected_ppl": 229.71093840209923,
+        "argmax_ppl": 214.934291453102
+      },
+      {
+        "seed": 43,
+        "sampled_ppl": 219.1525698916153,
+        "expected_ppl": 209.34981898202676,
+        "argmax_ppl": 203.56794591794485
+      },
+      {
+        "seed": 44,
+        "sampled_ppl": 163.24934725842064,
+        "expected_ppl": 151.71903908863572,
+        "argmax_ppl": 151.859128004628
+      }
+    ],
+    "accumulation": [
+      {
+        "seed": 42,
+        "sampled_ppl": 285.85360769918583,
+        "expected_ppl": 258.37003837802683,
+        "argmax_ppl": 251.76458824592768
+      },
+      {
+        "seed": 43,
+        "sampled_ppl": 245.88637049533995,
+        "expected_ppl": 224.69354756388773,
+        "argmax_ppl": 228.87410142612302
+      },
+      {
+        "seed": 44,
+        "sampled_ppl": 181.75969282846188,
+        "expected_ppl": 159.79365947459422,
+        "argmax_ppl": 169.10546087638392
+      }
+    ],
+    "fatigue": [
+      {
+        "seed": 42,
+        "sampled_ppl": 277.3867556546584,
+        "expected_ppl": 248.8220982729431,
+        "argmax_ppl": 233.92140235344777
+      },
+      {
+        "seed": 43,
+        "sampled_ppl": 233.96819210476798,
+        "expected_ppl": 218.95570835270888,
+        "argmax_ppl": 217.10333065367047
+      },
+      {
+        "seed": 44,
+        "sampled_ppl": 174.4071710693717,
+        "expected_ppl": 158.87495396394795,
+        "argmax_ppl": 166.45890266858828
+      }
+    ]
+  }
+}

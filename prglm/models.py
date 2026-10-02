@@ -151,7 +151,10 @@ class PRGLM(nn.Module):
 
 
 def make_model(name,c):
-    if name=="transformer": return TransformerLM(c)
+    if name=="transformer" or name.startswith("transformer_"): return TransformerLM(c)
     if name=="looped": return TransformerLM(c,looped=True)
     if name=="prg": return PRGLM(c)
+    if name=="prg_v1":
+        from .v1_model import PRGLMv1
+        return PRGLMv1(c)
     raise ValueError(name)
