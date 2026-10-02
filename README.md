@@ -285,3 +285,44 @@ All33 Python tests and the dashboard DOM/live-API check pass. Canvas drawing was
 mocked in the DOM check; visual browser rendering has not been verified.
 Run `python scripts/verify_completed_study.py` to audit results, stream hashes,
 resume state, preserved legacy artifacts and bundled export hashes without training.
+
+## PRG-v2.1 Core Correction Study
+
+Completed36 new milestone results (three models × three seeds × four continuous milestones). Frozen v0/v1/v2 code/results/checkpoints were preserved; no baseline was retrained.
+The goal was to test temporal credit, valid cycle-cap semantics and gateway opportunity. A scalar-gated prefix-state pool reuses the existing readout projection; cap output uses a processed source. Clean accumulation changes only accumulator summation. The minimum-one-gateway variant is diagnostic, not the main architecture.
+
+| Model | Final loss (nats/byte) | Byte PPL |
+|---|---:|---:|
+| transformer_core | 2.3907 ± 0.0074 | 10.9212 ± 0.0809 |
+| transformer_total | 2.1793 ± 0.0102 | 8.8403 ± 0.0897 |
+| prg_v1 | 2.5755 ± 0.0094 | 13.1382 ± 0.1235 |
+| prg_v2_adaptive | 2.5919 ± 0.0097 | 13.3556 ± 0.1296 |
+| prg_v2_uniform | 2.5814 ± 0.0075 | 13.2165 ± 0.0993 |
+| prg_v21_core | 2.5276 ± 0.0128 | 12.5236 ± 0.1605 |
+| prg_v21_clean_no_accum | 2.5337 ± 0.0127 | 12.6010 ± 0.1611 |
+| prg_v21_gateway_probe | 2.6013 ± 0.0112 | 13.4825 ± 0.1508 |
+
+Three-seed means ± sample SD,4096 held-out target bytes. Full16384-byte checks, route metrics, gradient characterization, late slopes and all12 research answers are in [the v2.1 report](research/v2_1/REPORT.md). Canonical results are README, that REPORT and its machine-readable [results.json](research/v2_1/results.json).
+No dashboard, HTML, FastAPI or ZIP work was done for v2.1; old artifacts remain preserved and were not part of this research workflow.
+Limitations: the core correction is a bundle, global context pooling can bypass sparse routing, the gateway probe changes OUTPUT timing/compute, expected routing is a surrogate and expected probe is undefined. This study does not isolate numerical-precision replacement. No architecture novelty or successful hypothesis is assumed.
+
+Resume or reproduce using `OMP_NUM_THREADS=1 PYTHONPATH=.deps:. python scripts/run_core_correction.py --push`. Checkpoint/model exports stay in ignored `runs/v2_1/`; the runner resumes incomplete jobs and skips completed results. Install project research/test extras first on a fresh checkout.
+
+### AI-assisted development disclosure
+
+The human project author led the research hypotheses, architecture concepts, experimental questions, experiment direction and interpretation criteria. OpenAI ChatGPT and OpenAI coding models substantially assisted literature discovery during ideation, architecture discussion, implementation, test generation, experiment automation, result summarization and documentation. The author reviews the machine-produced analysis. We do not claim AI-generated implementation code itself as original source code. AI assistance and architecture novelty are separate questions.
+
+### Prior art and novelty
+
+Similar prior work exists for the individual components. PRG-LM is currently an **experimental research hypothesis**; novelty of the overall design is not established. It must be evaluated against published literature, patents and existing implementations.
+
+### Literature surfaced during ChatGPT-assisted ideation
+
+The following were surfaced in the project discussion by ChatGPT. This does not assert that they were OpenAI model training data, or that this implementation was directly derived from their source code. These are related discussion references, not a completed novelty search.
+
+- Alex Graves, *Adaptive Computation Time for Recurrent Neural Networks*, arXiv:1603.08983 (2016).
+- Simon Schug, Frederik Benzing, Angelika Steger, *Presynaptic stochasticity improves energy efficiency and helps alleviate the stability-plasticity dilemma*, eLife (2021).
+- Sizhong Lan, *On the Relation of Impulse Propagation to Synaptic Strength*, arXiv:1805.09001 (2018).
+- Jack C. Gartside et al., *Reconfigurable training and reservoir computing in an artificial spin-vortex ice via spin-wave fingerprinting*, Nature Nanotechnology (2022).
+
+No additional looped/recurrent-LM or equilibrium citation is added: the inspected repository history did not provide a precise citation previously surfaced in discussion.

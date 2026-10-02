@@ -279,3 +279,19 @@ Hard top-k/node selection remains nondifferentiable and training uses a straight
 10. These controls test contextual/readout and gateway mechanisms, not replacement of numerical precision. The original precision-for-recurrence hypothesis remains unestablished. Sparse-graph usefulness must be supported by consistent probe/natural traversal benefits rather than a context-only improvement.
 11. These controls do not yet justify another main mutation sweep. Separate contextual-bypass and OUTPUT-timing controls before claiming topology usefulness.
 12. Preserve negative results. Prioritize a factorial correction control and sparse contextual routing if the global context path dominates; reconsider this architecture before expensive scaling when gateway utility remains absent.
+
+![core loss 4096](core_loss_4096_log.svg)
+
+![controls loss 4096](controls_loss_4096_log.svg)
+
+![core ppl 4096](core_ppl_4096_log.svg)
+
+![controls ppl 4096](controls_ppl_4096_log.svg)
+
+![core loss 16384](core_loss_16384_log.svg)
+
+![controls loss 16384](controls_loss_16384_log.svg)
+
+![core ppl 16384](core_ppl_16384_log.svg)
+
+![controls ppl 16384](controls_ppl_16384_log.svg)
