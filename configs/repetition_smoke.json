@@ -1,0 +1,52 @@
+{
+  "base_commit": "dc2c8867abca93f80977bd83a6a8e24d0f867411",
+  "corpus": "data/raw/tinyshakespeare.txt",
+  "seeds": [
+    42
+  ],
+  "families": [
+    "float",
+    "ternary",
+    "repeat"
+  ],
+  "scales": {
+    "S0": 1024
+  },
+  "model": {
+    "slots": 32,
+    "active_sources": 16,
+    "hidden": 64,
+    "context": 32,
+    "max_repeat": 8,
+    "state_decay": 0.9
+  },
+  "milestones": [
+    128,
+    256
+  ],
+  "validation_bytes": [
+    128,
+    256
+  ],
+  "batch": 4,
+  "val_batch": 8,
+  "lr": 0.0003,
+  "checkpoint_interval": 100,
+  "workers": 2,
+  "threads": 1,
+  "diagnostic_scales": [
+    "S0"
+  ],
+  "fixed_repeats": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "diagnostic_validation_bytes": 128,
+  "optimizer": "SparseAdam edge latents (no decay) + AdamW neural blocks; both lr3e-4, global combined gradient clip1; identical families",
+  "resource_limits": {
+    "job_wall_seconds": 21600,
+    "minimum_free_disk_bytes": 2000000000
+  }
+}

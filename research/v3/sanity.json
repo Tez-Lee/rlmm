@@ -1,0 +1,141 @@
+{
+  "tests_passed": 52,
+  "test_seconds": 3.65,
+  "additive_tests": [
+    {
+      "sign": -1,
+      "repeats": 1,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": -1,
+      "repeats": 2,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": -1,
+      "repeats": 4,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": -1,
+      "repeats": 8,
+      "max_absolute_error": 9.5367431640625e-07
+    },
+    {
+      "sign": 0,
+      "repeats": 1,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": 0,
+      "repeats": 2,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": 0,
+      "repeats": 4,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": 0,
+      "repeats": 8,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": 1,
+      "repeats": 1,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": 1,
+      "repeats": 2,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": 1,
+      "repeats": 4,
+      "max_absolute_error": 0.0
+    },
+    {
+      "sign": 1,
+      "repeats": 8,
+      "max_absolute_error": 9.5367431640625e-07
+    }
+  ],
+  "initial_gradient": {
+    "prefix_embedding_gradient_L1": 0.9555343985557556,
+    "current_embedding_gradient_L1": 1.2184786796569824,
+    "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+  },
+  "smoke_results": [
+    {
+      "family": "repeat",
+      "training_tokens": 128,
+      "loss": 5.637669086456299,
+      "gradient": {
+        "prefix_embedding_gradient_L1": 1.110281452536583,
+        "current_embedding_gradient_L1": 1.2962788343429565,
+        "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+      },
+      "training_seconds": 0.13456985099765006
+    },
+    {
+      "family": "repeat",
+      "training_tokens": 256,
+      "loss": 5.636280536651611,
+      "gradient": {
+        "prefix_embedding_gradient_L1": 1.1085660010576248,
+        "current_embedding_gradient_L1": 1.28594172000885,
+        "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+      },
+      "training_seconds": 0.2553421559932758
+    },
+    {
+      "family": "ternary",
+      "training_tokens": 128,
+      "loss": 5.569493770599365,
+      "gradient": {
+        "prefix_embedding_gradient_L1": 1.112845167517662,
+        "current_embedding_gradient_L1": 1.2969969511032104,
+        "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+      },
+      "training_seconds": 0.021350789997086395
+    },
+    {
+      "family": "ternary",
+      "training_tokens": 256,
+      "loss": 5.568305969238281,
+      "gradient": {
+        "prefix_embedding_gradient_L1": 1.1127922385931015,
+        "current_embedding_gradient_L1": 1.297513723373413,
+        "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+      },
+      "training_seconds": 0.03936070899362676
+    },
+    {
+      "family": "float",
+      "training_tokens": 128,
+      "loss": 5.569250106811523,
+      "gradient": {
+        "prefix_embedding_gradient_L1": 1.1291770190000534,
+        "current_embedding_gradient_L1": 1.2214884757995605,
+        "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+      },
+      "training_seconds": 0.028350882996164728
+    },
+    {
+      "family": "float",
+      "training_tokens": 256,
+      "loss": 5.568474769592285,
+      "gradient": {
+        "prefix_embedding_gradient_L1": 1.128276377916336,
+        "current_embedding_gradient_L1": 1.2198349237442017,
+        "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+      },
+      "training_seconds": 0.04501693699421594
+    }
+  ],
+  "note": "Smoke-only protocol; no selection/tuning of primary hyperparameters. Main study remains untrained.",
+  "summary": "52 tests passed (including all previous tests). Three full-shape smoke families completed; additive maximum absolute error9.54e-7, nonzero prefix activation gradients, exact two-optimizer/RNG resume and causal-prefix invariance verified."
+}
