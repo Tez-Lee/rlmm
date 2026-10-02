@@ -89,6 +89,20 @@ All primary summaries require seeds 42/43/44. Incomplete groups are labelled and
 | 819,200 | 16384 | transformer_total | argmax | 0.4091 ± 0.0092 | 1.5056 ± 0.0139 | 3 |
 | 819,200 | 16384 | transformer_total | expected | 0.4366 ± 0.0154 | 1.5475 ± 0.0238 | 3 |
 
+## Phase A research questions
+
+- Against transformer_core, paired loss gaps by milestone: [0.6064, -0.214, -0.0352, 0.1848]; paired PPL ratios: [1.8613, 0.8076, 0.9661, 1.203].
+- Against transformer_total, paired loss gaps by milestone: [1.3544, 0.6171, 0.2489, 0.3962]; paired PPL ratios: [3.9845, 1.8558, 1.2827, 1.4862].
+- Overall v1 reduced the initial loss gap and PPL ratio, but the trajectory is nonmonotonic. It briefly beat the core-matched Transformer and then fell behind at819.2k; the peak-matched gap narrowed until204.8k, then widened.
+- Early catch-up supports slow initial optimization/sample efficiency. It does not support the stronger claim that this is only a slow-learning model: the final interval improves Transformer losses faster.
+- At819.2k, both baselines retain a finite-budget advantage. Structural/representation limitations are plausible, but fixed-optimizer curves cannot distinguish them from remaining optimization limitations or prove an asymptotic limit.
+
+![Loss, log training-byte axis](loss_4096_log.svg)
+
+![Paired PPL ratio, log training-byte axis](ppl_ratio_4096_log.svg)
+
+Linear-axis equivalents and16384-byte validation figures are in this directory.
+
 ## Interpretation limits
 
 Loss is cross-entropy in nats per target byte. PPL is byte perplexity, not BPE/token perplexity.

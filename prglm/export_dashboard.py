@@ -50,7 +50,7 @@ def main():
     curve=Path('research/phase_a/learning_curve.json')
     if curve.exists():shutil.copy2(curve,dest/'learning_curve.json')
     v2_report=Path('research/v2/results.json')
-    if v2_report.exists():shutil.copy2(v2_report,dest/'v2_results.json')
+    if v2_report.exists():(dest/'v2_results.json').write_text(json.dumps(json.loads(v2_report.read_text()),separators=(',',':')))
     with zipfile.ZipFile(a.archive,'w',compression=zipfile.ZIP_DEFLATED) as archive:
         for file in ('index.html','app.js','v1_dashboard.js','results.json','sample.json','README.md',
                      'v1_results.json','v1_sample.json','learning_curve.js','learning_curve.json','v2_dashboard.js','v2_results.json'):

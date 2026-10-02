@@ -52,7 +52,19 @@ def collect_v2(root,phase_a):
                             'validation_bytes':budget,'routing_mode':mode,'seeds':seeds,
                             'loss_delta':stats(deltas),'per_seed_loss_delta':dict(zip(seeds,deltas)),
                             'ppl_ratio':stats([left[s]['ppl']/right[s]['ppl'] for s in seeds])})
-    return {'complete':a['complete'] and not expected-present,'missing_checkpoints':sorted(expected-present),
+    import math
+    slopes=[]
+    milestones=protocol['spec']['milestones']
+    for name in ('transformer_core','transformer_total','prg_v1','prg_v2_adaptive'):
+        for budget in protocol['spec']['validation_bytes']:
+            for start,end in zip(milestones,milestones[1:]):
+                first={r['seed']:r['validation'][str(budget)]['sampled']['loss'] for r in rows if r['model']==name and r['training_tokens']==start}
+                last={r['seed']:r['validation'][str(budget)]['sampled']['loss'] for r in rows if r['model']==name and r['training_tokens']==end}
+                seeds=sorted(first.keys()&last.keys())
+                if seeds:
+                    slopes.append({'model':name,'validation_bytes':budget,'from_tokens':start,'to_tokens':end,
+                        'seeds':seeds,'loss_change_per_log_training_byte':stats([(last[seed]-first[seed])/math.log(end/start) for seed in seeds])})
+    return {'scaling_slopes':slopes,'complete':a['complete'] and not expected-present,'missing_checkpoints':sorted(expected-present),
         'protocol':protocol,'static_control':'Preserved Phase A PRG-v1; static-v2 neural/gradient equivalence tested.',
         'summaries':summaries,'paired_differences':differences,'results':rows}
 
@@ -81,6 +93,14 @@ def export(root,out,phase_a):
                 s=next((s for s in d['summaries'] if s['model']==name and s['training_tokens']==t and s['validation_bytes']==4096 and s['routing_mode']=='sampled'),None)
                 vals.append(fmt(s[metric]) if s else 'pending')
             lines.append(f"| {t:,} | {' | '.join(vals)} |")
+    lines+=['','## Scaling slopes (4096-byte sampled)','',
+        'Loss change per natural-log training-byte increment; more negative means faster improvement. These are finite-interval empirical slopes, not asymptotic scaling laws.',
+        '| Model | From tokens | To tokens | Loss slope | n |', '|---|---:|---:|---:|---:|']
+    for slope in d['scaling_slopes']:
+        if slope['validation_bytes']==4096:
+            lines.append(f"| {slope['model']} | {slope['from_tokens']:,} | {slope['to_tokens']:,} | {fmt(slope['loss_change_per_log_training_byte'])} | {len(slope['seeds'])} |")
+    lines+=['','![Four-model loss curve, log axis](loss_4096_log.svg)','',
+        '![Four-model PPL curve, log axis](ppl_4096_log.svg)','']
     lines+=['','## Topology evolution', '',
         '| Topology mode | Training tokens | Rewires | Reverts | Exploration % | Gateway entropy | Largest hub | PPL |',
         '|---|---:|---:|---:|---:|---:|---:|---:|']
@@ -99,6 +119,37 @@ def export(root,out,phase_a):
         '|---:|---:|---|---|---:|---:|---:|']
     for diff in d['paired_differences']:
         lines.append(f"| {diff['training_tokens']:,} | {diff['validation_bytes']} | {diff['routing_mode']} | {diff['treatment']} − {diff['control']} | {fmt(diff['loss_delta'])} | {fmt(diff['ppl_ratio'])} | {len(diff['seeds'])} |")
+    lines+=['','## Audit of inherited memory estimates','',
+        'The original Transformer estimate counts its learned position embedding in both other_numerical and other_static_metadata. To preserve Phase A matching conditions, model sizes were not retuned. Correcting this reporting duplication gives:',
+        '| Model | Original static / peak bytes | Corrected static / peak bytes |',
+        '|---|---:|---:|']
+    for name in ('transformer_core','transformer_total'):
+        row=next(r for r in d['results'] if r['model']==name)
+        mem=row['memory'];duplicate=mem['static']['other_static_metadata']
+        lines.append(f"| {name} | {mem['total_static_packed_bytes']:,} / {mem['peak_theoretical_inference_bytes']:,} | {mem['total_static_packed_bytes']-duplicate:,} / {mem['peak_theoretical_inference_bytes']-duplicate:,} |")
+    lines+=['PRG reported peak remains483398 bytes. These are modeled state estimates, not measured resident-memory peaks or allocator/workspace bounds. The current code uses FP32 edge latents and dense state operations; it does not implement packed inference.']
+    lines+=['','## Final serialization and training throughput','',
+        '| Model | Inference export bytes | Resume checkpoint bytes | Training-only metadata bytes | Training bytes/s |',
+        '|---|---:|---:|---:|---:|']
+    final=max(d['protocol']['spec']['milestones'])
+    for name in sorted({r['model'] for r in d['results']}):
+        rows=[r for r in d['results'] if r['model']==name and r['training_tokens']==final]
+        if not rows:continue
+        metadata=[r['memory'].get('training_only_metadata_tensor_bytes',0)+r['memory'].get('training_only_history_json_bytes',0) for r in rows]
+        lines.append(f"| {name} | {fmt(stats([r['serialized_model_bytes'] for r in rows]))} | {fmt(stats([r['serialized_checkpoint_bytes'] for r in rows]))} | {fmt(stats(metadata))} | {fmt(stats([r['train_tokens_per_second'] for r in rows]))} |")
+    lines+=['Training throughput includes the actual concurrent seed schedule; metadata excludes optimizer/neural gradients, whose serialized state is present in resume checkpoints.']
+    benchmark=out/'inference_benchmark.json'
+    if benchmark.exists():
+        measured=json.loads(benchmark.read_text())
+        lines+=['','## Final inference microbenchmark','',
+            measured['notes'],'Settings: '+json.dumps(measured['settings']), '',
+            '| Model | Generated bytes/s | Latency ms/byte |', '|---|---:|---:|']
+        for name,metrics in measured['summary'].items():
+            latency=metrics['latency_seconds_per_token'].copy()
+            latency['mean']*=1000
+            if latency['std'] is not None:latency['std']*=1000
+            lines.append(f"| {name} | {fmt(metrics['tokens_per_second'])} | {fmt(latency)} |")
+        lines+=['Full settings, per-seed samples and checkpoint hashes: [inference_benchmark.json](inference_benchmark.json).']
     lines+=['','## Inference and training metadata', '',
         'The local-edge/gateway/router/embedding/runtime breakdown is recorded in every result.memory.',
         'EMA, mutation RNG, counters, ever-edge table, probation and histories are training-only.',
@@ -107,6 +158,11 @@ def export(root,out,phase_a):
         'Active edges/token counts processed edge slots; effective nonzero edges are separately recorded.',
         'Region hotness/output credit is a proxy, not a causal usefulness measurement. Gradient credit is optional and disabled in the main experiment.',
         'RecurrenceOFF inherits the v1 ascending-region-ID mask; it additionally alters the usable gateway graph.',
+        'The inherited expected surrogate reads accumulator values even for accumulationOFF, while the hard engine reads persistent-state messages. Thus its OFF readout is a different definition, not simply a mathematical expectation; sampled/argmax results are primary.',
+        'The forced diagnostic bypasses RouterNet credit: actual straight-through training may retain an indirect prefix-gradient path via routing probabilities. The observed limitation is the absence of a direct temporal-state readout path under the default accumulator, not proof of zero total training gradient.',
+        'A forced direct-OUTPUT, one-cycle characterization test shows ON has zero gradient from the last-token logit to prefix embedding activations, whereas OFF retains a nonzero temporal-state path. This does not mean inference is exactly stateless: hard node selection still depends on prior state. Late diagnostic trajectories overwhelmingly choose direct OUTPUT, making this gradient limitation relevant to investigate.',
+        'A characterization test also shows that a last-cycle gateway to an unvisited destination can leave ON readout gathering a zero accumulator (bias-only), while OFF retains the source message. The frozen v1 semantics are preserved, not repaired in this experiment; this is a horizon/readout confound requiring a separate future control.',
+        'AccumulationOFF also switches readout from the per-token accumulator to tanh of persistent node state. This inherited source/nonlinearity difference prevents attributing the entire ablation delta to summation alone.',
         'Three seeds describe this dataset/configuration; no unobserved asymptotic claim is warranted.']
     if d['complete']:
         lines+=['','## Answers to the ten research questions','']
@@ -118,22 +174,25 @@ def export(root,out,phase_a):
         off=lookup['prg_v2_no_recurrence',final];noacc=lookup['prg_v2_no_accumulation',final]
         lines.append(f"1. v1 reduced its overall peak-matched loss gap from {lookup['prg_v1',first]['loss']['mean']-lookup['transformer_total',first]['loss']['mean']:.3f} to {v1['loss']['mean']-peak['loss']['mean']:.3f} nats/byte. The gap is nonmonotonic: it narrowed at204.8k then widened at819.2k. Final core gap={v1['loss']['mean']-core['loss']['mean']:.3f}.")
         lines.append('2. There is strong evidence of initial slow optimization/sample efficiency, but eventual finite-budget inferiority persists. These curves cannot isolate intrinsic representation efficiency from residual optimizer limitations.')
-        lines.append(f"3. Adaptive − static final loss delta={adaptive['loss']['mean']-v1['loss']['mean']:.4f}; lower is better. See paired seed deltas and16384-byte checks above.")
-        lines.append(f"4. Adaptive − uniform final loss delta={adaptive['loss']['mean']-uniform['loss']['mean']:.4f}; small/inconsistent differences do not establish a hotness benefit.")
-        lines.append('5. Rewiring and nonuniform topology are measured, but useful self-organization requires a reproducible language-model improvement over uniform/static; graph shape alone is insufficient.')
+        lines.append(f"3. No improvement in this run: adaptive − static final loss delta={adaptive['loss']['mean']-v1['loss']['mean']:.4f}; lower is better. See paired seed deltas and16384-byte checks above.")
+        lines.append(f"4. No hotness-guided advantage in this run: adaptive − uniform final loss delta={adaptive['loss']['mean']-uniform['loss']['mean']:.4f}; small/inconsistent differences do not establish a hotness benefit.")
+        lines.append('5. Useful self-organization is not established. Rewiring and nonuniform topology are measured, but useful self-organization requires a reproducible language-model improvement over uniform/static; graph shape alone is insufficient.')
         latest=[r for r in d['results'] if r['model']=='prg_v2_adaptive' and r['training_tokens']==final]
-        lines.append('6. Adaptive largest indegrees='+str([r['topology']['largest_hub'] for r in latest])+', Gini='+str([round(r['topology']['indegree_gini'],3) for r in latest])+', isolated regions='+str([r['topology']['isolated_regions'] for r in latest])+'. Maximum possible indegree is31; report concentration without treating diversity as proof of utility.')
+        lines.append('6. No severe hub collapse is observed. Adaptive largest indegrees='+str([r['topology']['largest_hub'] for r in latest])+', Gini='+str([round(r['topology']['indegree_gini'],3) for r in latest])+', isolated regions='+str([r['topology']['isolated_regions'] for r in latest])+'. Maximum possible indegree is31; report concentration without treating diversity as proof of utility.')
         cases=[]
         for r in latest:
             top=r['topology']
-            for h in top['history']:
+            for index,h in enumerate(top['history']):
                 if h['kind']!='exploration':continue
                 src,slot,dest=h['source'],h['slot'],h['new']
-                if top['gateway_table'][src][slot]==dest and top['components']['in_degree'][dest]>=6 and top['gateway_downstream_credit'][src][slot]>0:
-                    cases.append({'seed':r['seed'],'source':src,'destination':dest,'mutation_step':h['step'],'indegree':top['components']['in_degree'][dest],'credit_proxy':top['gateway_downstream_credit'][src][slot]})
-        lines.append('7. Exploratory edges still present at final checkpoint with indegree≥6 and positive downstream-credit EMA: '+json.dumps(cases[:6])+'. This is retrospective proxy evidence, not causal discovery of useful hubs. No qualifying case is reported when the list is empty.')
-        lines.append(f"8. RecurrenceOFF − ON final loss delta={off['loss']['mean']-adaptive['loss']['mean']:.4f}. The destination-ID masking confound prevents attributing the entire delta to revisits alone.")
-        lines.append(f"9. AccumulationOFF − ON final loss delta={noacc['loss']['mean']-adaptive['loss']['mean']:.4f}. Positive deltas favor accumulation; compare consistency across seeds/milestones.")
+                later_replacement=any(e['source']==src and e['slot']==slot and e['kind'] in ('exploration','exploitation','revert') for e in top['history'][index+1:])
+                if not later_replacement and top['gateway_table'][src][slot]==dest and top['components']['in_degree'][dest]>=6 and top['gateway_downstream_credit'][src][slot]>0:
+                    cases.append({'seed':r['seed'],'source':src,'destination':dest,'mutation_step':h['step'],'indegree':top['components']['in_degree'][dest],'credit_proxy':top['gateway_downstream_credit'][src][slot],'birth_hot_score':h['hot_score'],'current_age':top['gateway_age'][src][slot]})
+        lines.append('7. Exploratory edges still present at final checkpoint with indegree≥6 and positive downstream-credit EMA: '+json.dumps(cases[:6])+'. This is retrospective proxy evidence, not causal discovery of useful hubs. Numerically tiny credit is not meaningful usefulness. No causally useful hub is confirmed; no qualifying case is reported when the list is empty.')
+        lines.append(f"8. Recurrence has no measured advantage: OFF − ON final loss delta={off['loss']['mean']-adaptive['loss']['mean']:.4f}. The destination-ID masking confound prevents attributing the entire delta to revisits alone.")
+        lines.append(f"9. Accumulation retains a small measured advantage: OFF − ON final loss delta={noacc['loss']['mean']-adaptive['loss']['mean']:.4f}. Positive deltas favor accumulation; compare consistency across seeds/milestones.")
+        rates=[sum(x*y for x,y in zip(r['topology']['components']['visit_activity'],r['topology']['components']['route_selection_frequency'])) for r in latest]
+        lines.append('Adaptive final training-EMA gateway selection fraction by seed: '+str(rates)+'. Sampled diagnostic visits/token: '+str([r['dynamics']['actual_traversal_count_per_token'] for r in latest])+'. The two initial walkers can terminate without using a gateway; weak road usage limits the topology experiment.')
         lines.append('10. The original precision-for-recurrence hypothesis is not established by these experiments. Improvement from training volume or changing topology cannot by itself show that traversal replaced numerical weight precision. Favorable adaptive results would justify a narrower sparse-topology hypothesis; unfavorable or inconsistent controls do not rescue it. The goal is finding working mechanisms, not defending a hypothesis.')
     else:
         lines+=['','Ten-question final assessment is pending until all three-seed controls complete.']
@@ -142,7 +201,7 @@ def export(root,out,phase_a):
         for metric in ('loss','ppl'):
             series=[]
             for name in names:
-                points=[(s['training_tokens'],s[metric]['mean']) for s in d['summaries'] if s['model']==name and s['routing_mode']=='sampled' and s['validation_bytes']==budget and s[metric]['n']==3]
+                points=[(s['training_tokens'],s[metric]['mean'],s[metric]['std']) for s in d['summaries'] if s['model']==name and s['routing_mode']=='sampled' and s['validation_bytes']==budget and s[metric]['n']==3]
                 if points:series.append((name,points))
             for log in (False,True):svg_plot(out/f'{metric}_{budget}_{"log" if log else "linear"}.svg',series,f'{metric.upper()} / training bytes; validation={budget}',metric,log)
     return d

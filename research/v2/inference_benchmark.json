@@ -1,0 +1,270 @@
+{
+  "settings": {
+    "prompt": "To be, or not to be, that is the question.",
+    "max_tokens": 16,
+    "temperature": 1.0,
+    "record_trace": false,
+    "training_tokens": 819200,
+    "context": 32,
+    "backend": "cpu"
+  },
+  "checkpoint_sha256": {
+    "runs/phase_a/seed42/transformer_core/model_tokens_819200.pt": "a198d7434cc0bbf39612c3758910fe5961df7031240c86b7b07a985e75574aa6",
+    "runs/phase_a/seed42/transformer_total/model_tokens_819200.pt": "69f7a5495dd96af81662b57e67194f80eb073af8785c49386042b9880eda2aad",
+    "runs/phase_a/seed42/prg_v1/model_tokens_819200.pt": "cdd3836d492eaf2ec6cf96476171edf61f1d6bcaa88a88f3480e5697367901fe",
+    "runs/mutable_v2/seed42/prg_v2_adaptive/model_tokens_819200.pt": "6a0590a4ac9ab96615d31c1458efdfe6f6c4c04283b69053bc36a9c1b22290c4",
+    "runs/mutable_v2/seed42/prg_v2_uniform/model_tokens_819200.pt": "d5003e9df801c942011f1e2de53987622bf833c179914773870ea9b0a3da4a81",
+    "runs/mutable_v2/seed42/prg_v2_no_recurrence/model_tokens_819200.pt": "e65a10e0645ef12bb0c1f2442707fa666109f6482775f5774243c26d54544a11",
+    "runs/mutable_v2/seed42/prg_v2_no_accumulation/model_tokens_819200.pt": "958f840d90a81aec0658043200008c0017f8bfc1230f3e744934622f99db8ae7",
+    "runs/phase_a/seed43/transformer_core/model_tokens_819200.pt": "ec7a9a1a06f32fedea7e1c1cbd7923dcfcdb021df8c0707823545d62cc0e8df5",
+    "runs/phase_a/seed43/transformer_total/model_tokens_819200.pt": "dd479852a90e6162050d4df6a8d0ee5e38eea2b19b583b1cd9057f7ea3602009",
+    "runs/phase_a/seed43/prg_v1/model_tokens_819200.pt": "1f40e2c81ff10a75eefc41ec4e47a8a6782776695aa65b6cca646c52281b9f93",
+    "runs/mutable_v2/seed43/prg_v2_adaptive/model_tokens_819200.pt": "5adf3f71e41eed6009fe02ffc3017465eba8314d46e3f327a7a5c95862ff3055",
+    "runs/mutable_v2/seed43/prg_v2_uniform/model_tokens_819200.pt": "05f793e05b7b36bdfebf0152944c512b82530bd25f567e2166d82a900491b279",
+    "runs/mutable_v2/seed43/prg_v2_no_recurrence/model_tokens_819200.pt": "56e1ca0105452a113f3390368120e9e454272b1c9944417123a1b186773f871a",
+    "runs/mutable_v2/seed43/prg_v2_no_accumulation/model_tokens_819200.pt": "62b197e529c13baea7643870b8c87f950b903333daaf1a63496a6edd9b3578e1",
+    "runs/phase_a/seed44/transformer_core/model_tokens_819200.pt": "e033b90bdb1d84a373339958a5c9bf67df6810fbefc6615e5925cbd1953e4f69",
+    "runs/phase_a/seed44/transformer_total/model_tokens_819200.pt": "e0b74ff17037222a69a21d2851b69a00e29608882b46f3e35464dfe4e898c1fa",
+    "runs/phase_a/seed44/prg_v1/model_tokens_819200.pt": "e6f2150f258b1db38e6f28df10622f34413a548cd8070b612028f0ec9fd61270",
+    "runs/mutable_v2/seed44/prg_v2_adaptive/model_tokens_819200.pt": "b4e6c8c86e393e3bca3f6149b41c14cb02b28ddb8a1d1c655fdf616936e7b436",
+    "runs/mutable_v2/seed44/prg_v2_uniform/model_tokens_819200.pt": "8365051b96686bc25b97a60c9eba2afd691741a0bee6fa154e444792842249e2",
+    "runs/mutable_v2/seed44/prg_v2_no_recurrence/model_tokens_819200.pt": "0fc174b98095a6f488aa2e7b73cd588296824c82d6278bc98a87bd40d9a74488",
+    "runs/mutable_v2/seed44/prg_v2_no_accumulation/model_tokens_819200.pt": "63c61364a15180491b4480913bf2b1c3447218554c0321928e928bf12de7471b"
+  },
+  "notes": "One16-byte sample after2-byte warmup per seed. Context recomputed, no KV cache. Prototype timing, not hardware efficiency.",
+  "results": [
+    {
+      "model": "transformer_core",
+      "seed": 42,
+      "tokens_per_second": 1371.9773622797602,
+      "latency_seconds_per_token": 0.0007288750000498112,
+      "completion": "\nAN\n\nALERENt bea"
+    },
+    {
+      "model": "transformer_total",
+      "seed": 42,
+      "tokens_per_second": 2145.5066516198285,
+      "latency_seconds_per_token": 0.0004660903750846046,
+      "completion": "\nAs noth; Cow my"
+    },
+    {
+      "model": "prg_v1",
+      "seed": 42,
+      "tokens_per_second": 30.99845894851299,
+      "latency_seconds_per_token": 0.03225966818740744,
+      "completion": "\nATon tham thomy"
+    },
+    {
+      "model": "prg_v2_adaptive",
+      "seed": 42,
+      "tokens_per_second": 30.388270379689565,
+      "latency_seconds_per_token": 0.03290743393768025,
+      "completion": "\nANIndit; ath ma"
+    },
+    {
+      "model": "prg_v2_uniform",
+      "seed": 42,
+      "tokens_per_second": 31.563396166145505,
+      "latency_seconds_per_token": 0.031682268750046205,
+      "completion": "\nANI\nALERENthoma"
+    },
+    {
+      "model": "prg_v2_no_recurrence",
+      "seed": 42,
+      "tokens_per_second": 28.91378262780002,
+      "latency_seconds_per_token": 0.03458558199986328,
+      "completion": "\nANIneshamathoma"
+    },
+    {
+      "model": "prg_v2_no_accumulation",
+      "seed": 42,
+      "tokens_per_second": 31.433962229539617,
+      "latency_seconds_per_token": 0.03181272512506439,
+      "completion": "\nATond ham thoma"
+    },
+    {
+      "model": "transformer_core",
+      "seed": 43,
+      "tokens_per_second": 1508.4238874708722,
+      "latency_seconds_per_token": 0.0006629436250022991,
+      "completion": "\n\nRI he hamom:\nN"
+    },
+    {
+      "model": "transformer_total",
+      "seed": 43,
+      "tokens_per_second": 2332.2010497334845,
+      "latency_seconds_per_token": 0.00042877949999819975,
+      "completion": "\n\nRY IOHEH:\nI:\nN"
+    },
+    {
+      "model": "prg_v1",
+      "seed": 43,
+      "tokens_per_second": 31.73799095120349,
+      "latency_seconds_per_token": 0.03150798050000958,
+      "completion": "\nTh y me g:\n\n:\nN"
+    },
+    {
+      "model": "prg_v2_adaptive",
+      "seed": 43,
+      "tokens_per_second": 34.16400003287421,
+      "latency_seconds_per_token": 0.029270577187617164,
+      "completion": "\nT:\nHel hamom:\nN"
+    },
+    {
+      "model": "prg_v2_uniform",
+      "seed": 43,
+      "tokens_per_second": 32.64130289449869,
+      "latency_seconds_per_token": 0.03063603200007492,
+      "completion": "\nTh y me g:\nI:\nN"
+    },
+    {
+      "model": "prg_v2_no_recurrence",
+      "seed": 43,
+      "tokens_per_second": 29.474654733312782,
+      "latency_seconds_per_token": 0.033927454250033406,
+      "completion": "\nTh y me g:\n\n:\nN"
+    },
+    {
+      "model": "prg_v2_no_accumulation",
+      "seed": 43,
+      "tokens_per_second": 35.134812197437284,
+      "latency_seconds_per_token": 0.028461800062586917,
+      "completion": "\nThe he ha:\n\n:\nN"
+    },
+    {
+      "model": "transformer_core",
+      "seed": 44,
+      "tokens_per_second": 1579.8872450722715,
+      "latency_seconds_per_token": 0.0006329565626401745,
+      "completion": "\nABu INICf wofo "
+    },
+    {
+      "model": "transformer_total",
+      "seed": 44,
+      "tokens_per_second": 2366.6983067084457,
+      "latency_seconds_per_token": 0.0004225295624564751,
+      "completion": "\nAnd INICCICATHE"
+    },
+    {
+      "model": "prg_v1",
+      "seed": 44,
+      "tokens_per_second": 33.53124072360302,
+      "latency_seconds_per_token": 0.029822934625144626,
+      "completion": "\nAme otoufowono "
+    },
+    {
+      "model": "prg_v2_adaptive",
+      "seed": 44,
+      "tokens_per_second": 34.56096218263271,
+      "latency_seconds_per_token": 0.028934379625070505,
+      "completion": "\nAme ond f\nTofo "
+    },
+    {
+      "model": "prg_v2_uniform",
+      "seed": 44,
+      "tokens_per_second": 33.49518668094568,
+      "latency_seconds_per_token": 0.029855035875016256,
+      "completion": "\nAme oout mpofo "
+    },
+    {
+      "model": "prg_v2_no_recurrence",
+      "seed": 44,
+      "tokens_per_second": 29.70867759873049,
+      "latency_seconds_per_token": 0.03366019899999628,
+      "completion": "\nAng oo t memen "
+    },
+    {
+      "model": "prg_v2_no_accumulation",
+      "seed": 44,
+      "tokens_per_second": 32.11784164574769,
+      "latency_seconds_per_token": 0.03113534249996519,
+      "completion": "\nARI Cid f\nThee "
+    }
+  ],
+  "summary": {
+    "transformer_core": {
+      "tokens_per_second": {
+        "mean": 1486.7628316076346,
+        "std": 105.63394741526832,
+        "n": 3
+      },
+      "latency_seconds_per_token": {
+        "mean": 0.0006749250625640949,
+        "std": 4.906885767278475e-05,
+        "n": 3
+      }
+    },
+    "transformer_total": {
+      "tokens_per_second": {
+        "mean": 2281.4686693539197,
+        "std": 119.00322636148607,
+        "n": 3
+      },
+      "latency_seconds_per_token": {
+        "mean": 0.0004391331458464265,
+        "std": 2.3553865626869585e-05,
+        "n": 3
+      }
+    },
+    "prg_v1": {
+      "tokens_per_second": {
+        "mean": 32.08923020777317,
+        "std": 1.3024103199736115,
+        "n": 3
+      },
+      "latency_seconds_per_token": {
+        "mean": 0.031196861104187217,
+        "std": 0.0012478036993883144,
+        "n": 3
+      }
+    },
+    "prg_v2_adaptive": {
+      "tokens_per_second": {
+        "mean": 33.037744198398826,
+        "std": 2.303080192721175,
+        "n": 3
+      },
+      "latency_seconds_per_token": {
+        "mean": 0.030370796916789306,
+        "std": 0.0022032141820716037,
+        "n": 3
+      }
+    },
+    "prg_v2_uniform": {
+      "tokens_per_second": {
+        "mean": 32.56662858052996,
+        "std": 0.9680577659122444,
+        "n": 3
+      },
+      "latency_seconds_per_token": {
+        "mean": 0.03072444554171246,
+        "std": 0.0009168193446127887,
+        "n": 3
+      }
+    },
+    "prg_v2_no_recurrence": {
+      "tokens_per_second": {
+        "mean": 29.365704986614432,
+        "std": 0.4084936219598337,
+        "n": 3
+      },
+      "latency_seconds_per_token": {
+        "mean": 0.034057745083297654,
+        "std": 0.00047625119426121136,
+        "n": 3
+      }
+    },
+    "prg_v2_no_accumulation": {
+      "tokens_per_second": {
+        "mean": 32.8955386909082,
+        "std": 1.9691831153451882,
+        "n": 3
+      },
+      "latency_seconds_per_token": {
+        "mean": 0.030469955895872165,
+        "std": 0.0017717870056145994,
+        "n": 3
+      }
+    }
+  }
+}

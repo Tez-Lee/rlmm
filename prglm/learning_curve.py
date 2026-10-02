@@ -45,7 +45,7 @@ def restore_rng(state):
     np.random.set_state(state['numpy'])
     torch.set_rng_state(state['torch'].cpu())
     if state['cuda'] is not None:
-        torch.cuda.set_rng_state_all(state['cuda'])
+        torch.cuda.set_rng_state_all([value.cpu() for value in state['cuda']])
     if state['mps'] is not None:
         torch.mps.set_rng_state(state['mps'].cpu())
 

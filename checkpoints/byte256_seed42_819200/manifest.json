@@ -1,0 +1,57 @@
+{
+  "seed": 42,
+  "training_tokens": 819200,
+  "corpus": "TinyShakespeare byte256",
+  "models": [
+    {
+      "name": "transformer_core",
+      "file": "transformer_core.pt",
+      "bytes": 204494,
+      "sha256": "a198d7434cc0bbf39612c3758910fe5961df7031240c86b7b07a985e75574aa6",
+      "source": "runs/phase_a/seed42/transformer_core/model_tokens_819200.pt"
+    },
+    {
+      "name": "transformer_total",
+      "file": "transformer_total.pt",
+      "bytes": 447030,
+      "sha256": "69f7a5495dd96af81662b57e67194f80eb073af8785c49386042b9880eda2aad",
+      "source": "runs/phase_a/seed42/transformer_total/model_tokens_819200.pt"
+    },
+    {
+      "name": "prg_v1",
+      "file": "prg_v1.pt",
+      "bytes": 2194968,
+      "sha256": "cdd3836d492eaf2ec6cf96476171edf61f1d6bcaa88a88f3480e5697367901fe",
+      "source": "runs/phase_a/seed42/prg_v1/model_tokens_819200.pt"
+    },
+    {
+      "name": "prg_v2_adaptive",
+      "file": "prg_v2_adaptive.pt",
+      "bytes": 2195160,
+      "sha256": "6a0590a4ac9ab96615d31c1458efdfe6f6c4c04283b69053bc36a9c1b22290c4",
+      "source": "runs/mutable_v2/seed42/prg_v2_adaptive/model_tokens_819200.pt"
+    },
+    {
+      "name": "prg_v2_uniform",
+      "file": "prg_v2_uniform.pt",
+      "bytes": 2195160,
+      "sha256": "d5003e9df801c942011f1e2de53987622bf833c179914773870ea9b0a3da4a81",
+      "source": "runs/mutable_v2/seed42/prg_v2_uniform/model_tokens_819200.pt"
+    },
+    {
+      "name": "prg_v2_no_recurrence",
+      "file": "prg_v2_no_recurrence.pt",
+      "bytes": 2195160,
+      "sha256": "e65a10e0645ef12bb0c1f2442707fa666109f6482775f5774243c26d54544a11",
+      "source": "runs/mutable_v2/seed42/prg_v2_no_recurrence/model_tokens_819200.pt"
+    },
+    {
+      "name": "prg_v2_no_accumulation",
+      "file": "prg_v2_no_accumulation.pt",
+      "bytes": 2195160,
+      "sha256": "958f840d90a81aec0658043200008c0017f8bfc1230f3e744934622f99db8ae7",
+      "source": "runs/mutable_v2/seed42/prg_v2_no_accumulation/model_tokens_819200.pt"
+    }
+  ],
+  "format": "Inference-only exports. Full optimizer/mutation/RNG checkpoints remain under runs/."
+}

@@ -2,10 +2,21 @@
 name = "prg-lm"
 version = "0.1.0"
 requires-python = ">=3.10"
-dependencies = ["torch>=2.2", "fastapi>=0.100", "uvicorn>=0.20", "tokenizers>=0.15"]
+dependencies = ["numpy>=1.24", "torch>=2.2", "fastapi>=0.100", "uvicorn>=0.20", "tokenizers>=0.15"]
 
 [project.optional-dependencies]
 test = ["pytest"]
+research = ["matplotlib>=3.7"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["prglm*", "web*"]
+
+[tool.setuptools.package-data]
+web = ["static/*"]

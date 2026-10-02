@@ -191,7 +191,8 @@ serialization are reported separately. No physical or packed execution backend
 is implemented. CPU timings under concurrent training are not hardware claims.
 
 `research/v2/REPORT.md` contains complete measured tables, paired controls,
-learning curves and the ten-question assessment when the study finishes.
+learning curves and the ten-question assessment. All 84 milestone results are
+complete: 36 Phase A and 48 mutable-v2 results. No completed run was retrained.
 The dashboard preserves v0/v1 and adds v2 graph snapshots, topology diffs,
 hotness/indegree, probation history, actual validation-token trajectories and a
 live same-prompt comparison. Repository ZIP replay needs no external libraries.
@@ -202,7 +203,85 @@ OMP_NUM_THREADS=1 uvicorn web.app:app --host 127.0.0.1 --port 8000
 # Visit http://127.0.0.1:8000 and use the separate PRG-v2 section.
 ```
 
-Select a completed checkpoint seed/milestone. Generation never changes topology.
+Seed42 final (819,200-byte) inference exports for all seven models are bundled
+under `checkpoints/byte256_seed42_819200/` (11.6 MB total, SHA256 manifest).
+A fresh checkout can use the live v2 section without training. Select seed42 and
+819200; other seeds/milestones require the local `runs/` checkpoints.
+Generation never changes topology.
 Repeats vary the generation seed and show output/trajectory variations. Static
 repository replay uses saved held-out trajectories; generating new text requires
-the local backend and the local checkpoints (not included in the ZIP).
+the local backend and model checkpoints (bundled in the repository, not the ZIP).
+
+Memory audit: the inherited Transformer reporting helper double-counts its
+learned position embedding. Matching configurations remain unchanged to honor
+Phase A. Corrected core-model static/peak estimates are189568/214144 bytes;
+peak-matched model440496/462000 bytes, versus PRG220860/483398. Both original
+and corrected reporting are retained in the final report. These are modeled
+state estimates, not true allocator/workspace bounds or measured RAM peaks.
+
+Ablation interpretation: v1-compatible accumulationOFF also switches readout
+from the per-token accumulator to `tanh(persistent node state)`. Thus the toggle
+changes the readout source/nonlinearity as well as summation. Report its effect,
+but do not interpret the entire difference as isolated evidence for/against
+message accumulation. The default accumulator resets each token; persistent
+state influences node selection and feedback traversal.
+
+A cycle-cap characterization test exposes another inherited limitation: a final
+gateway to an unvisited destination can make accumulationON read a zero
+destination accumulator (bias-only); OFF retains the source message. The frozen
+v1 behavior is preserved in this study. This horizon/readout confound should be
+isolated before making stronger recurrence/accumulation claims.
+
+Under a forced one-cycle direct-OUTPUT path, a characterization test finds zero
+prefix-embedding gradient with the default per-token accumulator readout, and
+nonzero prefix gradient with accumulationOFF's persistent-state readout. Hard
+node selection still depends on prior state, so this is a temporal-credit
+limitation rather than proof that inference is stateless. It is particularly
+relevant when late learned trajectories terminate immediately.
+
+For a fresh checkout, use your preferred PyTorch backend and install the
+research/test extras with `python -m pip install -e '.[research,test]'`.
+Matplotlib generates standalone SVG/PNG figures with sample-SD error bars.
+The dashboard itself requires no Matplotlib or npm dependencies. Optional
+DOM/API checking uses `npm install --prefix .deps/jsdom jsdom`, then
+`node tests/dashboard_smoke.cjs` against the running local API.
+
+### Completed Phase A/v2 findings
+
+Final results below are mean ± sample SD across seeds42/43/44, with4096 fixed
+held-out target bytes. Loss is nats/byte; PPL is byte-level, not word-level.
+The report also includes16384-byte validation and all three PRG routing modes.
+
+| Model | Loss | PPL |
+|---|---:|---:|
+| Transformer core | 2.3907 ± 0.0074 | 10.9212 ± 0.0809 |
+| Transformer peak | 2.1793 ± 0.0102 | 8.8403 ± 0.0897 |
+| PRG-v1 static | 2.5755 ± 0.0094 | 13.1382 ± 0.1235 |
+| PRG-v2 adaptive | 2.5919 ± 0.0097 | 13.3556 ± 0.1296 |
+| PRG-v2 uniform | 2.5814 ± 0.0075 | 13.2165 ± 0.0993 |
+| PRG-v2 adaptive recurrenceOFF | 2.5853 ± 0.0084 | 13.2680 ± 0.1119 |
+| PRG-v2 adaptive accumulationOFF | 2.6081 ± 0.0123 | 13.5743 ± 0.1678 |
+
+v1 initially catches up, but its peak-matched loss gap decreases from1.354 to
+0.249 at204.8k, then widens to0.396 at819.2k. Slow initial optimization is evident;
+the finite-budget final gap does not establish an intrinsic capacity limit.
+Adaptive mutation improves neither static nor uniform at the final milestone.
+No severe hub collapse is observed, but useful self-organization is not established.
+RecurrenceOFF is slightly better; accumulationON is slightly better, subject to
+the mask/readout confounds documented above. Adaptive training gateway-selection
+EMA is only0.04–0.07%; held-out trajectories typically take two initial walkers
+straight to OUTPUT. Changing roads has little opportunity to help when bypassed.
+The original precision-for-recurrence hypothesis remains unsupported here.
+
+The next diagnostics should isolate temporal credit, cap/readout behavior and
+actual gateway usage before another topology sweep. Keep these as new controlled
+experiments; the completed models/protocol are preserved without favorable tuning.
+
+`research/v2/inference_benchmark.json` separately records final-checkpoint CPU
+generation timing (three seeds,16 generated bytes after warmup, context recomputed).
+Core/peak Transformers measured1487/2281 bytes/s; adaptive PRG measured33 bytes/s.
+These short prototype measurements do not demonstrate packed/event-driven speed.
+All33 Python tests and the dashboard DOM/live-API check pass. Canvas drawing was
+mocked in the DOM check; visual browser rendering has not been verified.
+Run `python scripts/verify_completed_study.py` to audit results, stream hashes,
+resume state, preserved legacy artifacts and bundled export hashes without training.

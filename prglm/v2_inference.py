@@ -15,6 +15,7 @@ def load_checkpoint(path):
         incompatible=model.load_state_dict(checkpoint['state'],strict=False)
         if incompatible.unexpected_keys or any(not k.startswith('topology.') for k in incompatible.missing_keys):
             raise ValueError('invalid inference state keys')
+        model.topology=None  # Inference retains no EMA, probation or mutation RNG buffers.
     elif name=='prg_v1':
         from .v1_model import PRGLMv1
         from .v1_config import V1Config

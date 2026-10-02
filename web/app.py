@@ -75,6 +75,7 @@ def benchmarks_v2():
 
 
 class V2Request(Request):
+    forced_region: int | None = Field(None,ge=0,le=31)
     checkpoint_seed: int = Field(42,ge=42,le=44)
     training_tokens: int = Field(819200,ge=12800,le=819200)
     topology_model: str = Field('prg_v2_adaptive',pattern='^prg_v2_(adaptive|uniform|no_recurrence|no_accumulation)$')
@@ -83,11 +84,15 @@ class V2Request(Request):
 @app.post('/api/v2/generate')
 def generate_v2(req:V2Request):
     from prglm.v2_inference import load_checkpoint
-    roots={'transformer_core':ROOT/'runs/phase_a','prg_v1':ROOT/'runs/phase_a',
+    roots={'transformer_core':ROOT/'runs/phase_a','transformer_total':ROOT/'runs/phase_a','prg_v1':ROOT/'runs/phase_a',
            req.topology_model:ROOT/'runs/mutable_v2'}
     paths={name:root/f'seed{req.checkpoint_seed}'/name/f'model_tokens_{req.training_tokens}.pt'
            for name,root in roots.items()}
-    if not all(p.exists() for p in paths.values()):raise HTTPException(503,'Selected milestone has not completed yet')
+    if req.checkpoint_seed==42 and req.training_tokens==819200:
+        for name,path in list(paths.items()):
+            bundled=ROOT/'checkpoints/byte256_seed42_819200'/f'{name}.pt'
+            if bundled.exists():paths[name]=bundled
+    if not all(p.exists() for p in paths.values()):raise HTTPException(503,'Selected checkpoint is unavailable. The bundled seed42 final models work without training; other choices need local runs.')
     result=[]
     for repeat in range(req.repeats):
         outputs={}

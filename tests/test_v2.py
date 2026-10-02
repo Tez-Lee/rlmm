@@ -122,6 +122,7 @@ def test_inference_export_removes_training_metadata_and_is_seeded(tmp_path):
     assert memory['peak_theoretical_inference_bytes']==memory_breakdown(a,'prg_v1')['peak_theoretical_inference_bytes']
     path=tmp_path/'model.pt';torch.save({'name':'prg_v2_adaptive','config':a.c.dict(),'state':state},path)
     b,tok=load_checkpoint(path)
+    assert b.topology is None
     assert torch.equal(a.gateway_table,b.gateway_table)
     first=generate(b,tok,'a',max_tokens=2,seed=4)
     second=generate(b,tok,'a',max_tokens=2,seed=4)
@@ -146,3 +147,49 @@ def test_recurrence_off_masks_are_strict_even_with_low_output_logits():
     for step in trace[0]:
         for e in step['events']:paths.setdefault(e['walker'],[]).append(e['region'])
     assert all(len(path)==len(set(path)) for path in paths.values())
+
+
+def test_characterize_inherited_cycle_cap_readout_source():
+    # Preserve the frozen v1 engine, but expose a confound in the experiment.
+    import types
+    a=PRGLMv2(cfg(initial_regions=1,max_cycles=1)).eval()
+    with torch.no_grad():
+        a.global_router.weight.zero_();a.global_router.bias.fill_(-50);a.global_router.bias[0]=50
+    def gateway(self,regions,previous,message,fatigue,acc,cycle,fatigue_strength=None):
+        logits=torch.full((regions.numel(),self.c.gateways+3),-100.)
+        logits[:,1]=100.
+        return logits.softmax(-1),logits.softmax(-1),logits
+    a._router_logits=types.MethodType(gateway,a)
+    first,_=a(torch.tensor([[65]]),routing_mode='argmax')
+    second,_=a(torch.tensor([[66]]),routing_mode='argmax')
+    # Cap readout gathers an unvisited destination accumulator (zero): bias-only.
+    assert torch.equal(first,second)
+    off_first,_=a(torch.tensor([[65]]),routing_mode='argmax',accumulation=False)
+    off_second,_=a(torch.tensor([[66]]),routing_mode='argmax',accumulation=False)
+    assert not torch.equal(off_first,off_second)
+
+
+def test_characterize_prefix_gradient_under_direct_output():
+    import types
+    gradients=[]
+    for enabled,mode in ((True,'argmax'),(False,'argmax'),(False,'expected')):
+        torch.manual_seed(42)
+        a=PRGLMv2(cfg(initial_regions=1,max_cycles=1,accumulation=enabled)).eval()
+        with torch.no_grad():
+            a.local_edge.fill_(1.)
+            a.global_router.weight.zero_();a.global_router.bias.fill_(-50);a.global_router.bias[0]=50
+        def output(self,regions,previous,message,fatigue,acc,cycle,fatigue_strength=None):
+            logits=torch.full((regions.numel(),self.c.gateways+3),-100.)
+            logits[:,-1]=100.
+            return logits.softmax(-1),logits.softmax(-1),logits
+        a._router_logits=types.MethodType(output,a)
+        embeddings=[]
+        def retain(module,args,result):
+            result.retain_grad();embeddings.append(result)
+        handle=a.emb.register_forward_hook(retain)
+        logits,_=a(torch.tensor([[65,65]]),routing_mode=mode)
+        logits[0,-1,66].backward();handle.remove()
+        gradients.append(0. if embeddings[0].grad is None else float(embeddings[0].grad.abs().sum()))
+    # ON reads only current-token delta: hard node selection gives no prefix gradient.
+    # OFF directly reads persistent state, enabling temporal credit assignment.
+    assert gradients[0]==0. and gradients[1]>0. and gradients[2]==0.

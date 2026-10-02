@@ -57,36 +57,44 @@ def collect(root):
 
 
 def svg_plot(path,series,title,ylabel,log=False):
-    width,height=900,450
-    left,top,right,bottom=85,45,25,65
-    pts=[(x,y) for _,points in series for x,y in points]
-    if not pts:return
-    tx=lambda x:math.log10(x) if log else x
-    xs=[tx(x) for x,_ in pts];ys=[y for _,y in pts]
-    xmin,xmax=min(xs),max(xs);ymin,ymax=min(ys),max(ys)
-    if xmin==xmax:xmax=xmin+1
-    spread=max(ymax-ymin,.1);ymin-=.1*spread;ymax+=.1*spread
-    X=lambda x:left+(tx(x)-xmin)/(xmax-xmin)*(width-left-right)
-    Y=lambda y:height-bottom-(y-ymin)/(ymax-ymin)*(height-top-bottom)
-    parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
-           '<rect width="100%" height="100%" fill="white"/>',
-           f'<text x="85" y="25" font-size="18">{title}</text>']
-    for i in range(6):
-        y=ymin+(ymax-ymin)*i/5
-        parts.append(f'<line x1="{left}" x2="{width-right}" y1="{Y(y)}" y2="{Y(y)}" stroke="#ddd"/>')
-        parts.append(f'<text x="10" y="{Y(y)+5}" font-size="12">{y:.3g}</text>')
-    for x in sorted({x for x,_ in pts}):
-        parts.append(f'<text x="{X(x)}" y="{height-bottom+20}" text-anchor="middle" font-size="12">{x:,}</text>')
-    colors=['#2563eb','#0891b2','#e11d48','#a855f7','#16a34a','#d97706']
+    """Standalone research figures: Matplotlib, mean ± sample SD when supplied."""
+    if not any(points for _,points in series):return
+    import os
+    os.environ.setdefault('MPLCONFIGDIR','/tmp/rlmm-matplotlib')
+    font_config=Path('/tmp/rlmm-fontconfig.conf')
+    if not font_config.exists():
+        Path('/tmp/rlmm-font-cache').mkdir(exist_ok=True)
+        font_config.write_text('<?xml version="1.0"?><!DOCTYPE fontconfig SYSTEM "fonts.dtd"><fontconfig><dir>/usr/share/fonts</dir><dir>/usr/local/share/fonts</dir><cachedir>/tmp/rlmm-font-cache</cachedir></fontconfig>')
+    os.environ.setdefault('FONTCONFIG_FILE',str(font_config))
+    import matplotlib
+    matplotlib.use('Agg')
+    from matplotlib import pyplot as plt
+    from matplotlib.ticker import FuncFormatter
+    matplotlib.rcParams.update({'svg.fonttype':'none','svg.hashsalt':'prglm'})
+    fig,ax=plt.subplots(figsize=(9,4.8))
+    colors=['#2563eb','#0891b2','#e11d48','#a855f7','#16a34a']
     for i,(name,points) in enumerate(series):
-        color=colors[i%len(colors)]
-        poly=' '.join(f'{X(x):.2f},{Y(y):.2f}' for x,y in points)
-        parts.append(f'<polyline points="{poly}" fill="none" stroke="{color}" stroke-width="2"/>')
-        for x,y in points:parts.append(f'<circle cx="{X(x)}" cy="{Y(y)}" r="4" fill="{color}"/>')
-        parts.append(f'<text x="{left+i*190}" y="{height-12}" fill="{color}" font-size="12">{name}</text>')
-    parts.append(f'<text x="450" y="{height-35}" text-anchor="middle" font-size="12">Training target bytes {"(log scale)" if log else "(linear scale)"}</text>')
-    parts.append(f'<text x="15" y="40" font-size="12">{ylabel}</text></svg>')
-    path.write_text('\n'.join(parts))
+        if not points:continue
+        x=[p[0] for p in points];y=[p[1] for p in points]
+        deviation=[p[2] or 0. for p in points] if len(points[0])>2 else None
+        label=name.replace('transformer_core','Transformer core').replace('transformer_total','Transformer peak').replace('prg_v2_adaptive','PRG-v2 adaptive').replace('prg_v1','PRG-v1')
+        ax.errorbar(x,y,yerr=deviation,marker='o',markersize=4,linewidth=1.5,
+                    capsize=3,color=colors[i%len(colors)],label=label)
+    if log:ax.set_xscale('log')
+    ticks=sorted({p[0] for _,points in series for p in points})
+    ax.set_xticks(ticks)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda value,position:f'{value/1000:g}k'))
+    labels={'loss':'Cross-entropy (nats/byte)','ppl':'Byte perplexity',
+            'loss_gap':'PRG − Transformer loss (nats/byte)','ppl_ratio':'PRG / Transformer PPL ratio'}
+    ax.set_ylabel(labels.get(ylabel,ylabel))
+    ax.set_xlabel('Cumulative training target bytes'+(' (log scale)' if log else ''))
+    ax.set_title(title+'; error bars: seed SD',fontsize=11)
+    ax.grid(alpha=.2);ax.legend(fontsize=8,ncol=2)
+    fig.tight_layout()
+    fig.savefig(path,metadata={'Date':None})
+    path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines())+'\n')
+    fig.savefig(path.with_suffix('.png'),dpi=150)
+    plt.close(fig)
 
 
 def export(root,out):
@@ -120,6 +128,19 @@ def export(root,out):
         '|---:|---:|---|---|---:|---:|---:|'])
     for g in payload['paired_gaps']:
         lines.append(f"| {g['training_tokens']:,} | {g['validation_bytes']} | {g['baseline']} | {g['routing_mode']} | {fmt(g['loss_gap'])} | {fmt(g['ppl_ratio'])} | {len(g['seeds'])} |")
+    if payload['complete']:
+        lines.extend(['','## Phase A research questions',''])
+        milestones=payload['protocol']['spec']['milestones']
+        for baseline in ('transformer_core','transformer_total'):
+            group=sorted([g for g in payload['paired_gaps'] if g['baseline']==baseline and g['validation_bytes']==4096 and g['routing_mode']=='sampled'],key=lambda g:g['training_tokens'])
+            lines.append(f"- Against {baseline}, paired loss gaps by milestone: "+str([round(g['loss_gap']['mean'],4) for g in group])+"; paired PPL ratios: "+str([round(g['ppl_ratio']['mean'],4) for g in group])+'.')
+        lines.extend([
+            '- Overall v1 reduced the initial loss gap and PPL ratio, but the trajectory is nonmonotonic. It briefly beat the core-matched Transformer and then fell behind at819.2k; the peak-matched gap narrowed until204.8k, then widened.',
+            '- Early catch-up supports slow initial optimization/sample efficiency. It does not support the stronger claim that this is only a slow-learning model: the final interval improves Transformer losses faster.',
+            '- At819.2k, both baselines retain a finite-budget advantage. Structural/representation limitations are plausible, but fixed-optimizer curves cannot distinguish them from remaining optimization limitations or prove an asymptotic limit.',
+            '', '![Loss, log training-byte axis](loss_4096_log.svg)', '',
+            '![Paired PPL ratio, log training-byte axis](ppl_ratio_4096_log.svg)', '',
+            'Linear-axis equivalents and16384-byte validation figures are in this directory.'])
     lines.extend(['','## Interpretation limits','',
         'Loss is cross-entropy in nats per target byte. PPL is byte perplexity, not BPE/token perplexity.',
         '4096-byte validation is the original prefix; 16384-byte validation contains that prefix.',
@@ -134,7 +155,7 @@ def export(root,out):
             series=[]
             for name,mode in [('transformer_core','sampled'),('transformer_total','sampled'),
                               ('prg_v1','sampled'),('prg_v1','argmax'),('prg_v1','expected')]:
-                points=[(s['training_tokens'],s[metric]['mean']) for s in payload['summaries']
+                points=[(s['training_tokens'],s[metric]['mean'],s[metric]['std']) for s in payload['summaries']
                         if s['model']==name and s['routing_mode']==mode and s['validation_bytes']==budget and s[metric]['n']==3]
                 if points:series.append((f'{name}/{mode}',points))
             for log in (False,True):
@@ -143,7 +164,7 @@ def export(root,out):
         for metric in ('loss_gap','ppl_ratio'):
             series=[]
             for baseline in ('transformer_core','transformer_total'):
-                points=[(g['training_tokens'],g[metric]['mean']) for g in payload['paired_gaps']
+                points=[(g['training_tokens'],g[metric]['mean'],g[metric]['std']) for g in payload['paired_gaps']
                     if g['baseline']==baseline and g['validation_bytes']==budget and g['routing_mode']=='sampled' and len(g['seeds'])==3]
                 if points:series.append((f'PRG-v1/{baseline}',points))
             for log in (False,True):
