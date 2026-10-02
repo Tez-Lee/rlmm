@@ -1,6 +1,6 @@
 # PRG-LM v3 — Same-Edge Repetition Scaling Study
 
-Complete: False; 0/180 primary milestone results; 0 recorded failed/resource-limited jobs.
+Complete: False; 36/180 primary milestone results; 0 recorded failed/resource-limited jobs.
 Hypothesis: Can additive temporal reuse of the SAME low-bit source/destination/slot replace part of stored numerical magnitude, and become more favorable with graph scale? No conclusion is presumed.
 
 ## Exact architecture
@@ -36,9 +36,9 @@ Modeled dynamic state assumes streaming controllers: persistent16-channel state,
 
 | Family | Scale | Seed42 | Seed43 | Seed44 | Final complete |
 |---|---|---:|---:|---:|---|
-| float | S0 | pending | pending | pending | False |
-| ternary | S0 | pending | pending | pending | False |
-| repeat | S0 | pending | pending | pending | False |
+| float | S0 | 819200 | 819200 | 819200 | True |
+| ternary | S0 | 819200 | 819200 | 819200 | True |
+| repeat | S0 | 819200 | 819200 | 819200 | True |
 | float | S1 | pending | pending | pending | False |
 | ternary | S1 | pending | pending | pending | False |
 | repeat | S1 | pending | pending | pending | False |
@@ -61,11 +61,38 @@ Signed additive1/2/4/8 equality, locked edge identities, frozen messages, prefix
 
 | Family | Scale | Training bytes | Validation bytes | Loss | Byte PPL | n |
 |---|---|---:|---:|---:|---:|---:|
+| float | S0 | 12,800 | 4096 | 5.47274 ± 0.01814 | 238.13702 ± 4.30568 | 3 |
+| float | S0 | 12,800 | 16384 | 5.47555 ± 0.02026 | 238.81522 ± 4.81976 | 3 |
+| float | S0 | 51,200 | 4096 | 5.16368 ± 0.03683 | 174.88440 ± 6.37769 | 3 |
+| float | S0 | 51,200 | 16384 | 5.17035 ± 0.03843 | 176.06316 ± 6.69575 | 3 |
+| float | S0 | 204,800 | 4096 | 3.30587 ± 0.00623 | 27.27252 ± 0.17030 | 3 |
+| float | S0 | 204,800 | 16384 | 3.35969 ± 0.00602 | 28.78049 ± 0.17340 | 3 |
+| float | S0 | 819,200 | 4096 | 3.08353 ± 0.01534 | 21.83711 ± 0.33618 | 3 |
+| float | S0 | 819,200 | 16384 | 3.10628 ± 0.01940 | 22.34068 ± 0.43583 | 3 |
+| ternary | S0 | 12,800 | 4096 | 5.47929 ± 0.01728 | 239.69913 ± 4.12456 | 3 |
+| ternary | S0 | 12,800 | 16384 | 5.48194 ± 0.01930 | 240.34264 ± 4.61983 | 3 |
+| ternary | S0 | 51,200 | 4096 | 5.17522 ± 0.03569 | 176.90963 ± 6.25091 | 3 |
+| ternary | S0 | 51,200 | 16384 | 5.18158 ± 0.03701 | 178.04528 ± 6.52272 | 3 |
+| ternary | S0 | 204,800 | 4096 | 3.36362 ± 0.02898 | 28.90165 ± 0.83111 | 3 |
+| ternary | S0 | 204,800 | 16384 | 3.41444 ± 0.02688 | 30.40706 ± 0.81081 | 3 |
+| ternary | S0 | 819,200 | 4096 | 3.07744 ± 0.02638 | 21.70792 ± 0.57565 | 3 |
+| ternary | S0 | 819,200 | 16384 | 3.09430 ± 0.03415 | 22.08045 ± 0.75919 | 3 |
+| repeat | S0 | 12,800 | 4096 | 5.52413 ± 0.01691 | 250.69308 ± 4.22878 | 3 |
+| repeat | S0 | 12,800 | 16384 | 5.52864 ± 0.02084 | 251.83833 ± 5.22105 | 3 |
+| repeat | S0 | 51,200 | 4096 | 5.19844 ± 0.06085 | 181.21241 ± 11.02236 | 3 |
+| repeat | S0 | 51,200 | 16384 | 5.20382 ± 0.05938 | 182.18006 ± 10.85428 | 3 |
+| repeat | S0 | 204,800 | 4096 | 3.29717 ± 0.00448 | 27.03633 ± 0.12125 | 3 |
+| repeat | S0 | 204,800 | 16384 | 3.35439 ± 0.00474 | 28.62825 ± 0.13558 | 3 |
+| repeat | S0 | 819,200 | 4096 | 3.17739 ± 0.01477 | 23.98572 ± 0.35572 | 3 |
+| repeat | S0 | 819,200 | 16384 | 3.21050 ± 0.01616 | 24.79366 ± 0.40238 | 3 |
 
 ## Final compute/repetition
 
 | Family | Scale | Repeats/edge | ≥2 fraction | ≥4 fraction | Edge additions/token | Repetition compute fraction | Active fraction |
 |---|---|---:|---:|---:|---:|---:|---:|
+| float | S0 | 1.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.00000 ± 0.00000 | 512.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.01562 ± 0.00000 |
+| ternary | S0 | 1.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.00000 ± 0.00000 | 512.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.01562 ± 0.00000 |
+| repeat | S0 | 1.59473 ± 0.09133 | 0.24618 ± 0.05751 | 0.08265 ± 0.01337 | 816.50106 ± 46.76219 | 0.37160 ± 0.03506 | 0.02492 ± 0.00143 |
 All modeled active counts include zero ternary edges; nonzero operations are separately in JSON. Unique activated edges/token is512 by design. Consecutive revisits are counted within locked per-edge episodes, not different edges or new tokens. Repeated edges are interleaved parallel lanes; every lane retains identity/reference. Controller probabilities, full histograms, median, bound fraction, projected output contribution by count and correlations are in machine results.
 Output contribution is a PRE-NONLINEARITY readout-column magnitude proxy; count increases its magnitude by construction. Positive correlation is not causal evidence of useful language-model computation.
 
@@ -73,11 +100,17 @@ Output contribution is a PRE-NONLINEARITY readout-column magnitude proxy; count 
 
 | Control | Scale | Validation bytes | Repeat − control loss | Per-seed deltas |
 |---|---|---:|---:|---|
+| float | S0 | 4096 | 0.09385 ± 0.02574 | {'42': 0.11668145656585693, '43': 0.09892170131206512, '44': 0.06595687568187714} |
+| ternary | S0 | 4096 | 0.09994 ± 0.03927 | {'42': 0.13865698873996735, '43': 0.10102854669094086, '44': 0.060138776898384094} |
+| float | S0 | 16384 | 0.10422 ± 0.03034 | {'42': 0.13417574018239975, '43': 0.1049601174890995, '44': 0.07351652160286903} |
+| ternary | S0 | 16384 | 0.11620 ± 0.04650 | {'42': 0.16284942254424095, '43': 0.11588728427886963, '44': 0.06985913217067719} |
 
 ## Nearest measured same-memory comparison
 
 | Float scale | Repeat scale | Validation bytes | Static byte ratio | Edge ratio | Loss delta | Within1% budget |
 |---|---|---:|---:|---:|---:|---|
+| S0 | S0 | 4096 | 0.402625 | 1.00 | 0.09385 | False |
+| S0 | S0 | 16384 | 0.402625 | 1.00 | 0.10422 | False |
 Only within1% measured matches support a same-memory claim; unmatched nearest rows are explicitly not budget matched. No interpolation/extrapolation. FP16 float models were not trained and are not substituted into the measured table.
 
 ## Empirical scaling slopes
@@ -89,9 +122,15 @@ Only within1% measured matches support a same-memory claim; unmatched nearest ro
 
 | Family | Scale | Trainable FP params | Low-bit slots | Packed structure | Controller bytes | Embedding/head bytes | Static packed | Dynamic | Modeled peak | Export bytes | Resume bytes | Optimizer bytes |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| float | S0 | 51280 | 0 | 131072 | 516 | 65536 | 205700 | 5218 | 210918 | 210416.00000 ± 0.00000 | 812739.33333 ± 36.95042 | 410260 |
+| ternary | S0 | 51280 | 32768 | 8192 | 516 | 65536 | 82820 | 5218 | 88038 | 87536.00000 ± 0.00000 | 812760.66667 ± 36.95042 | 410260 |
+| repeat | S0 | 51409 | 32768 | 8192 | 516 | 65536 | 82820 | 5218 | 88038 | 87536.00000 ± 0.00000 | 817107.33333 ± 36.95042 | 411308 |
 
 | Family | Scale | Train tok/s | Inference tok/s | Latency ms/token | Peak process RSS bytes |
 |---|---|---:|---:|---:|---:|
+| float | S0 | 9315.94308 ± 313.54531 | 722.32423 ± 96.16907 | 1.40217 ± 0.20014 | 294100992.00000 ± 90576.25861 |
+| ternary | S0 | 8892.18892 ± 179.88945 | 603.20354 ± 58.68037 | 1.66894 ± 0.17152 | 294638933.33333 ± 59403.76895 |
+| repeat | S0 | 1170.90495 ± 26.27557 | 135.90620 ± 3.66701 | 7.36165 ± 0.20177 | 398875306.66667 ± 1486217.85729 |
 Timings are prototype measurements under the actual worker schedule. Peak process RSS includes interpreter/Torch and is cumulative per job process. CUDA stats are null on CPU. No GPU or custom-accelerator advantage is inferred from packed bytes or Python wall time.
 
 ## Representative repetition ablations
@@ -99,5 +138,9 @@ Timings are prototype measurements under the actual worker schedule. Peak proces
 Ternary single-pass is the trained repetitionOFF control, proven equivalent to repeat architecture with max_repeat1 and an unused controller. S0/S2/S4 additionally evaluate the SAME learned checkpoint with fixed1/2/4/8 on4096 bytes: inference interventions, not retraining or hyperparameter selection.
 | Scale | Fixed count | Loss | PPL | n |
 |---|---:|---:|---:|---:|
+| S0 | 1 | 4.20108 ± 0.23711 | 67.98118 ± 15.34929 | 3 |
+| S0 | 2 | 4.30517 ± 0.27935 | 75.93172 ± 19.53363 | 3 |
+| S0 | 4 | 4.43755 ± 0.30872 | 87.12972 ± 24.41241 | 3 |
+| S0 | 8 | 4.53524 ± 0.31800 | 96.24189 ± 27.71511 | 3 |
 
 Final17-question analysis pending until the planned jobs finish or documented resource limits are reached.
