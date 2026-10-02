@@ -4,22 +4,12 @@
     [
       "prg_v21_clean_no_accum",
       42,
-      51200
-    ],
-    [
-      "prg_v21_clean_no_accum",
-      42,
       204800
     ],
     [
       "prg_v21_clean_no_accum",
       42,
       819200
-    ],
-    [
-      "prg_v21_clean_no_accum",
-      43,
-      51200
     ],
     [
       "prg_v21_clean_no_accum",
@@ -34,11 +24,6 @@
     [
       "prg_v21_clean_no_accum",
       44,
-      51200
-    ],
-    [
-      "prg_v21_clean_no_accum",
-      44,
       204800
     ],
     [
@@ -49,22 +34,12 @@
     [
       "prg_v21_core",
       42,
-      51200
-    ],
-    [
-      "prg_v21_core",
-      42,
       204800
     ],
     [
       "prg_v21_core",
       42,
       819200
-    ],
-    [
-      "prg_v21_core",
-      43,
-      51200
     ],
     [
       "prg_v21_core",
@@ -79,11 +54,6 @@
     [
       "prg_v21_core",
       44,
-      51200
-    ],
-    [
-      "prg_v21_core",
-      44,
       204800
     ],
     [
@@ -94,11 +64,6 @@
     [
       "prg_v21_gateway_probe",
       42,
-      51200
-    ],
-    [
-      "prg_v21_gateway_probe",
-      42,
       204800
     ],
     [
@@ -109,22 +74,12 @@
     [
       "prg_v21_gateway_probe",
       43,
-      51200
-    ],
-    [
-      "prg_v21_gateway_probe",
-      43,
       204800
     ],
     [
       "prg_v21_gateway_probe",
       43,
       819200
-    ],
-    [
-      "prg_v21_gateway_probe",
-      44,
-      51200
     ],
     [
       "prg_v21_gateway_probe",
@@ -433,6 +388,248 @@
     },
     {
       "seed": 42,
+      "model": "prg_v21_clean_no_accum",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": false,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 42,
+        "minimum_gateway_hops": 0
+      },
+      "train_loss": 3.866258382797241,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 3.823969617486,
+            "ppl": 45.78559937198401,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.021271929824561404,
+              "gateway_action_fraction": 0.07467105263157894,
+              "RETURN_action_fraction": 0.006030701754385965,
+              "OUTPUT_action_fraction": 0.8980263157894737,
+              "mean_gateway_hops_per_token": 0.166259765625,
+              "fraction_tokens_using_gateway": 0.141845703125,
+              "mean_trajectory_length_per_walker": 1.11328125,
+              "mean_cycles_per_token": 1.219482421875,
+              "gateway_slot_action_fraction": [
+                0.019736842105263157,
+                0.016666666666666666,
+                0.018969298245614035,
+                0.01929824561403509
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.90771484375,
+              "direct_OUTPUT_fraction_tokens": 0.822265625,
+              "unique_regions_visited_per_token": 2.161865234375,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 3.799374744296074,
+            "ppl": 44.673243558748766,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 4096.0
+            }
+          },
+          "expected": {
+            "loss": 3.794747233390808,
+            "ppl": 44.46699521328855,
+            "validation_tokens": 4096,
+            "routing": null
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 3.862018596380949,
+            "ppl": 47.561261524726596,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.023015179643988207,
+              "gateway_action_fraction": 0.07565250627934914,
+              "RETURN_action_fraction": 0.007207600742601288,
+              "OUTPUT_action_fraction": 0.8941247133340614,
+              "mean_gateway_hops_per_token": 0.16912841796875,
+              "fraction_tokens_using_gateway": 0.1441650390625,
+              "mean_trajectory_length_per_walker": 1.1177978515625,
+              "mean_cycles_per_token": 1.22967529296875,
+              "gateway_slot_action_fraction": [
+                0.019384077754723162,
+                0.01807360489243202,
+                0.019356776236758765,
+                0.018838047395435185
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.905609130859375,
+              "direct_OUTPUT_fraction_tokens": 0.81707763671875,
+              "unique_regions_visited_per_token": 2.16552734375,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 3.8311208114027977,
+            "ppl": 46.114194595420884,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 16384.0
+            }
+          },
+          "expected": {
+            "loss": 3.8245686665177345,
+            "ppl": 45.81303540790009,
+            "validation_tokens": 16384,
+            "routing": null
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.021845318967785375,
+        "gateway_action_fraction": 0.07599219172697166,
+        "RETURN_action_fraction": 0.00868638744163901,
+        "OUTPUT_action_fraction": 0.893476101863604,
+        "mean_gateway_hops_per_token": 0.1699287370681946,
+        "fraction_tokens_using_gateway": 0.13780269147042118,
+        "mean_trajectory_length_per_walker": 1.1180670882524522,
+        "mean_cycles_per_token": 1.2261589685235024,
+        "gateway_slot_action_fraction": [
+          0.018262574018554186,
+          0.01735009150199886,
+          0.021413887575712037,
+          0.018965638630706574
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.9079033937461312,
+        "direct_OUTPUT_fraction_tokens": 0.825503078937514,
+        "unique_regions_visited_per_token": 2.1634698445384206,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.11788564699725239,
+        "gateway_action_fraction": 0.4485555861347097,
+        "RETURN_action_fraction": 0.0665382342192766,
+        "OUTPUT_action_fraction": 0.36702053264876133,
+        "mean_gateway_hops_per_token": 1.94181640625,
+        "fraction_tokens_using_gateway": 0.65427734375,
+        "mean_trajectory_length_per_walker": 2.164521484375,
+        "mean_cycles_per_token": 2.65177734375,
+        "gateway_slot_action_fraction": [
+          0.11031956218672033,
+          0.11067147310814042,
+          0.10841563386826801,
+          0.11914891697158093
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.474423828125,
+        "direct_OUTPUT_fraction_tokens": 0.298203125,
+        "unique_regions_visited_per_token": 3.53771484375,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.14973318204283714,
+        "per_token_gradient_L1": [
+          0.043959543108940125,
+          0.0561414398252964,
+          0.049632199108600616,
+          0.5736877918243408
+        ],
+        "current_embedding_gradient_L1": 0.5736877918243408,
+        "prefix_change_last_logits_L2": 0.2112593799829483,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.5309804677963257,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed42/prg_v21_clean_no_accum/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608859,
+      "token_stream_sha256": "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838",
+      "training_seconds": 145.62982696700055,
+      "training_tokens_per_second": 351.57632928865473,
+      "backend": "cpu"
+    },
+    {
+      "seed": 42,
       "model": "prg_v21_core",
       "milestone": 12800,
       "training_tokens": 12800,
@@ -675,6 +872,248 @@
     },
     {
       "seed": 42,
+      "model": "prg_v21_core",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 42,
+        "minimum_gateway_hops": 0
+      },
+      "train_loss": 3.836500883102417,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 3.824352517724037,
+            "ppl": 45.80313404568335,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.01697201303810273,
+              "gateway_action_fraction": 0.0572102956052602,
+              "RETURN_action_fraction": 0.005057884680229291,
+              "OUTPUT_action_fraction": 0.9207598066764078,
+              "mean_gateway_hops_per_token": 0.124267578125,
+              "fraction_tokens_using_gateway": 0.108154296875,
+              "mean_trajectory_length_per_walker": 1.0860595703125,
+              "mean_cycles_per_token": 1.167236328125,
+              "gateway_slot_action_fraction": [
+                0.013824884792626729,
+                0.013038102731257727,
+                0.016859615600764304,
+                0.013487692480611442
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.9296875,
+              "direct_OUTPUT_fraction_tokens": 0.864013671875,
+              "unique_regions_visited_per_token": 2.1220703125,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 3.795973926782608,
+            "ppl": 44.52157605260302,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 4096.0
+            }
+          },
+          "expected": {
+            "loss": 3.795274019241333,
+            "ppl": 44.49042596813549,
+            "validation_tokens": 4096,
+            "routing": null
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 3.8572652712464333,
+            "ppl": 47.33572383652449,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.017516543402101986,
+              "gateway_action_fraction": 0.06417171773341489,
+              "RETURN_action_fraction": 0.007757326363788022,
+              "OUTPUT_action_fraction": 0.9105544125006951,
+              "mean_gateway_hops_per_token": 0.140869140625,
+              "fraction_tokens_using_gateway": 0.11968994140625,
+              "mean_trajectory_length_per_walker": 1.09759521484375,
+              "mean_cycles_per_token": 1.19012451171875,
+              "gateway_slot_action_fraction": [
+                0.015320024467552689,
+                0.015431240616137463,
+                0.017877995885002503,
+                0.015542456764722238
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.922821044921875,
+              "direct_OUTPUT_fraction_tokens": 0.8504638671875,
+              "unique_regions_visited_per_token": 2.1376953125,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 3.8230876363813877,
+            "ppl": 45.74523514133552,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 16384.0
+            }
+          },
+          "expected": {
+            "loss": 3.8283625580370426,
+            "ppl": 45.987175219309684,
+            "validation_tokens": 16384,
+            "routing": null
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.022155959559576312,
+        "gateway_action_fraction": 0.07523054830677255,
+        "RETURN_action_fraction": 0.009091550446049423,
+        "OUTPUT_action_fraction": 0.8935219416876017,
+        "mean_gateway_hops_per_token": 0.16821286747013606,
+        "fraction_tokens_using_gateway": 0.13820108645951532,
+        "mean_trajectory_length_per_walker": 1.117982463614404,
+        "mean_cycles_per_token": 1.2264788096378978,
+        "gateway_slot_action_fraction": [
+          0.017935610937675307,
+          0.017951923330134362,
+          0.0200904203496306,
+          0.019252593689332277
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.9080327390668006,
+        "direct_OUTPUT_fraction_tokens": 0.825158946767883,
+        "unique_regions_visited_per_token": 2.1617744487577175,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.11576644946509719,
+        "gateway_action_fraction": 0.43824887539722207,
+        "RETURN_action_fraction": 0.06918657171549498,
+        "OUTPUT_action_fraction": 0.3767981034221857,
+        "mean_gateway_hops_per_token": 1.866640625,
+        "fraction_tokens_using_gateway": 0.63841796875,
+        "mean_trajectory_length_per_walker": 2.129658203125,
+        "mean_cycles_per_token": 2.61072265625,
+        "gateway_slot_action_fraction": [
+          0.10684758135887783,
+          0.10546733493215699,
+          0.10676962724175405,
+          0.1191643318644332
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.489013671875,
+        "direct_OUTPUT_fraction_tokens": 0.3136328125,
+        "unique_regions_visited_per_token": 3.48509765625,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.15080231428146362,
+        "per_token_gradient_L1": [
+          0.04418442025780678,
+          0.05247405916452408,
+          0.05414383485913277,
+          0.7553377151489258
+        ],
+        "current_embedding_gradient_L1": 0.7553377151489258,
+        "prefix_change_last_logits_L2": 4.934725761413574,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.5317707657814026,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed42/prg_v21_core/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608859,
+      "token_stream_sha256": "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838",
+      "training_seconds": 158.34897266799817,
+      "training_tokens_per_second": 323.336483573836,
+      "backend": "cpu"
+    },
+    {
+      "seed": 42,
       "model": "prg_v21_gateway_probe",
       "milestone": 12800,
       "training_tokens": 12800,
@@ -901,6 +1340,236 @@
       "token_stream_sha256": "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838",
       "training_seconds": 51.14323316299851,
       "training_tokens_per_second": 250.27748948145577,
+      "backend": "cpu"
+    },
+    {
+      "seed": 42,
+      "model": "prg_v21_gateway_probe",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 42,
+        "minimum_gateway_hops": 1
+      },
+      "train_loss": 4.07057523727417,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 4.188758060336113,
+            "ppl": 65.94084553376629,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.12267641013930121,
+              "gateway_action_fraction": 0.4916647636446677,
+              "RETURN_action_fraction": 0.028408312400091344,
+              "OUTPUT_action_fraction": 0.3572505138159397,
+              "mean_gateway_hops_per_token": 2.628173828125,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.6727294921875,
+              "mean_cycles_per_token": 3.062255859375,
+              "gateway_slot_action_fraction": [
+                0.12728933546471796,
+                0.12295044530714776,
+                0.11705868919844713,
+                0.12436629367435488
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.38720703125,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 4.165808632969856,
+            "ppl": 64.44477354795745,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.24840589017844855,
+              "gateway_action_fraction": 0.3757970549107757,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.3757970549107757,
+              "mean_gateway_hops_per_token": 2.0,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.6610107421875,
+              "mean_cycles_per_token": 2.843505859375,
+              "gateway_slot_action_fraction": [
+                0.24198357722831323,
+                0.10839946786549842,
+                0.0,
+                0.02541400981696408
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 3.827880859375,
+              "tokens_observed": 4096.0
+            }
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 4.2079265378415585,
+            "ppl": 67.21702326481997,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.12401503074470507,
+              "gateway_action_fraction": 0.49150535185606925,
+              "RETURN_action_fraction": 0.029606012297882033,
+              "OUTPUT_action_fraction": 0.35487360510134364,
+              "mean_gateway_hops_per_token": 2.634521484375,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.6800537109375,
+              "mean_cycles_per_token": 3.0743408203125,
+              "gateway_slot_action_fraction": [
+                0.12443634707355955,
+                0.12382145297198816,
+                0.1203826007743111,
+                0.12286495103621042
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.38739013671875,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 4.201548129320145,
+            "ppl": 66.7896500602286,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.24939583786693545,
+              "gateway_action_fraction": 0.3753020810665323,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.3753020810665323,
+              "mean_gateway_hops_per_token": 2.0,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.664520263671875,
+              "mean_cycles_per_token": 2.8428955078125,
+              "gateway_slot_action_fraction": [
+                0.23829757991547457,
+                0.11323888169875503,
+                0.0,
+                0.023765619452302687
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 3.8238525390625,
+              "tokens_observed": 16384.0
+            }
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.1276099382149442,
+        "gateway_action_fraction": 0.4958068582009039,
+        "RETURN_action_fraction": 0.033920723060336826,
+        "OUTPUT_action_fraction": 0.34266248052381504,
+        "mean_gateway_hops_per_token": 2.709041056090039,
+        "fraction_tokens_using_gateway": 1.0,
+        "mean_trajectory_length_per_walker": 2.731951980172407,
+        "mean_cycles_per_token": 3.140081825205472,
+        "gateway_slot_action_fraction": [
+          0.12552414906699189,
+          0.12435608278198833,
+          0.11683317388302943,
+          0.12909345246889428
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.0,
+        "direct_OUTPUT_fraction_tokens": 0.0,
+        "unique_regions_visited_per_token": 4.4815802116346735,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.15304962822370927,
+        "gateway_action_fraction": 0.5847292777887649,
+        "RETURN_action_fraction": 0.07596692829248566,
+        "OUTPUT_action_fraction": 0.18625416569504014,
+        "mean_gateway_hops_per_token": 3.8690234375,
+        "fraction_tokens_using_gateway": 1.0,
+        "mean_trajectory_length_per_walker": 3.308388671875,
+        "mean_cycles_per_token": 3.68470703125,
+        "gateway_slot_action_fraction": [
+          0.14636385372174782,
+          0.1454635617910201,
+          0.1368679876851871,
+          0.15603387459080995
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.0,
+        "direct_OUTPUT_fraction_tokens": 0.0,
+        "unique_regions_visited_per_token": 5.1181640625,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.1266275830566883,
+        "per_token_gradient_L1": [
+          0.03632194921374321,
+          0.04465582221746445,
+          0.04564981162548065,
+          1.0042520761489868
+        ],
+        "current_embedding_gradient_L1": 1.0042520761489868,
+        "prefix_change_last_logits_L2": 0.31100860238075256,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.514934241771698,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed42/prg_v21_gateway_probe/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608859,
+      "token_stream_sha256": "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838",
+      "training_seconds": 200.78811045799375,
+      "training_tokens_per_second": 254.99517816674404,
       "backend": "cpu"
     },
     {
@@ -1147,6 +1816,248 @@
     },
     {
       "seed": 43,
+      "model": "prg_v21_clean_no_accum",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": false,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 43,
+        "minimum_gateway_hops": 0
+      },
+      "train_loss": 3.8017654418945312,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 3.8283185213804245,
+            "ppl": 45.98515014245485,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.013894967177242888,
+              "gateway_action_fraction": 0.08446389496717724,
+              "RETURN_action_fraction": 0.005579868708971553,
+              "OUTPUT_action_fraction": 0.8960612691466083,
+              "mean_gateway_hops_per_token": 0.1884765625,
+              "fraction_tokens_using_gateway": 0.1611328125,
+              "mean_trajectory_length_per_walker": 1.11572265625,
+              "mean_cycles_per_token": 1.221435546875,
+              "gateway_slot_action_fraction": [
+                0.02035010940919037,
+                0.02461706783369803,
+                0.023522975929978117,
+                0.01597374179431072
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.904052734375,
+              "direct_OUTPUT_fraction_tokens": 0.817626953125,
+              "unique_regions_visited_per_token": 2.182373046875,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 3.798928216099739,
+            "ppl": 44.65330014885684,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 4096.0
+            }
+          },
+          "expected": {
+            "loss": 3.8033915907144547,
+            "ppl": 44.85305000280507,
+            "validation_tokens": 4096,
+            "routing": null
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 3.85421708971262,
+            "ppl": 47.19165564179141,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.016094449721807572,
+              "gateway_action_fraction": 0.09013434658705387,
+              "RETURN_action_fraction": 0.004749626815035961,
+              "OUTPUT_action_fraction": 0.8890215768761026,
+              "mean_gateway_hops_per_token": 0.20269775390625,
+              "fraction_tokens_using_gateway": 0.1712646484375,
+              "mean_trajectory_length_per_walker": 1.124420166015625,
+              "mean_cycles_per_token": 1.23675537109375,
+              "gateway_slot_action_fraction": [
+                0.02135975030533315,
+                0.027222146831320397,
+                0.02418238566969738,
+                0.017370063780702945
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.89617919921875,
+              "direct_OUTPUT_fraction_tokens": 0.8040771484375,
+              "unique_regions_visited_per_token": 2.1966552734375,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 3.825393833220005,
+            "ppl": 45.85085440058945,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 16384.0
+            }
+          },
+          "expected": {
+            "loss": 3.828838624060154,
+            "ppl": 46.009073362997974,
+            "validation_tokens": 16384,
+            "routing": null
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.0192123420609241,
+        "gateway_action_fraction": 0.10114303083417607,
+        "RETURN_action_fraction": 0.006058567737260578,
+        "OUTPUT_action_fraction": 0.8735860593676392,
+        "mean_gateway_hops_per_token": 0.23139220964245083,
+        "fraction_tokens_using_gateway": 0.19062732595222778,
+        "mean_trajectory_length_per_walker": 1.1438860776370159,
+        "mean_cycles_per_token": 1.2708545491564511,
+        "gateway_slot_action_fraction": [
+          0.023801757003081243,
+          0.03005109178019999,
+          0.027906077302532164,
+          0.01938410474836266
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.8817337597291247,
+        "direct_OUTPUT_fraction_tokens": 0.7798735531183263,
+        "unique_regions_visited_per_token": 2.2219613090753465,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.08453289712831698,
+        "gateway_action_fraction": 0.4896901126862959,
+        "RETURN_action_fraction": 0.048400581606688475,
+        "OUTPUT_action_fraction": 0.37737640857869864,
+        "mean_gateway_hops_per_token": 2.10490234375,
+        "fraction_tokens_using_gateway": 0.68787109375,
+        "mean_trajectory_length_per_walker": 2.14921875,
+        "mean_cycles_per_token": 2.64423828125,
+        "gateway_slot_action_fraction": [
+          0.11767539076699382,
+          0.1369592875318066,
+          0.12068338785896038,
+          0.11437204652853508
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.465625,
+        "direct_OUTPUT_fraction_tokens": 0.28228515625,
+        "unique_regions_visited_per_token": 3.71625,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.19684699550271034,
+        "per_token_gradient_L1": [
+          0.05503791943192482,
+          0.06633218377828598,
+          0.07547689229249954,
+          0.7230885028839111
+        ],
+        "current_embedding_gradient_L1": 0.7230885028839111,
+        "prefix_change_last_logits_L2": 4.358689785003662,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.5333089232444763,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed43/prg_v21_clean_no_accum/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608795,
+      "token_stream_sha256": "465a1a7d0d624937669bf51b924d37fde610730d1ed7caf229d7e615043574f6",
+      "training_seconds": 147.4725305790016,
+      "training_tokens_per_second": 347.1833011814492,
+      "backend": "cpu"
+    },
+    {
+      "seed": 43,
       "model": "prg_v21_core",
       "milestone": 12800,
       "training_tokens": 12800,
@@ -1389,6 +2300,248 @@
     },
     {
       "seed": 43,
+      "model": "prg_v21_core",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 43,
+        "minimum_gateway_hops": 0
+      },
+      "train_loss": 3.784327507019043,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 3.8386724442243576,
+            "ppl": 46.46375025769463,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.014373716632443531,
+              "gateway_action_fraction": 0.09618502107424619,
+              "RETURN_action_fraction": 0.004106776180698152,
+              "OUTPUT_action_fraction": 0.8853344861126121,
+              "mean_gateway_hops_per_token": 0.21728515625,
+              "fraction_tokens_using_gateway": 0.185546875,
+              "mean_trajectory_length_per_walker": 1.1295166015625,
+              "mean_cycles_per_token": 1.24755859375,
+              "gateway_slot_action_fraction": [
+                0.024424510969415326,
+                0.029828163838754997,
+                0.02550524154328326,
+                0.01642710472279261
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.8892822265625,
+              "direct_OUTPUT_fraction_tokens": 0.7900390625,
+              "unique_regions_visited_per_token": 2.2109375,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 3.8117305636405945,
+            "ppl": 45.22864222260285,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 4096.0
+            }
+          },
+          "expected": {
+            "loss": 3.821468010544777,
+            "ppl": 45.67120494339234,
+            "validation_tokens": 4096,
+            "routing": null
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 3.862311139702797,
+            "ppl": 47.575177289547106,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.015185722732892544,
+              "gateway_action_fraction": 0.09990324141267537,
+              "RETURN_action_fraction": 0.004327259044240177,
+              "OUTPUT_action_fraction": 0.880583776810192,
+              "mean_gateway_hops_per_token": 0.22686767578125,
+              "fraction_tokens_using_gateway": 0.1923828125,
+              "mean_trajectory_length_per_walker": 1.13543701171875,
+              "mean_cycles_per_token": 1.25701904296875,
+              "gateway_slot_action_fraction": [
+                0.02367897650916519,
+                0.0315809278073429,
+                0.025506638714185886,
+                0.019136698381981402
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.88458251953125,
+              "direct_OUTPUT_fraction_tokens": 0.78289794921875,
+              "unique_regions_visited_per_token": 2.2181396484375,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 3.8366418927907944,
+            "ppl": 46.36949894645199,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 16384.0
+            }
+          },
+          "expected": {
+            "loss": 3.8425045758485794,
+            "ppl": 46.642147066146244,
+            "validation_tokens": 16384,
+            "routing": null
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.01793624235987626,
+        "gateway_action_fraction": 0.1096590385067285,
+        "RETURN_action_fraction": 0.00466931623643458,
+        "OUTPUT_action_fraction": 0.8677354028969607,
+        "mean_gateway_hops_per_token": 0.2526313972799559,
+        "fraction_tokens_using_gateway": 0.20633040969895916,
+        "mean_trajectory_length_per_walker": 1.151895004370546,
+        "mean_cycles_per_token": 1.2854739075463357,
+        "gateway_slot_action_fraction": [
+          0.02628877567056184,
+          0.032731431386171635,
+          0.030404661929901506,
+          0.020234169520093534
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.8738049646060851,
+        "direct_OUTPUT_fraction_tokens": 0.7654161324039216,
+        "unique_regions_visited_per_token": 2.2407650846069,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.08398797840464545,
+        "gateway_action_fraction": 0.49202413385130755,
+        "RETURN_action_fraction": 0.047152577254162456,
+        "OUTPUT_action_fraction": 0.37683531048988456,
+        "mean_gateway_hops_per_token": 2.1199609375,
+        "fraction_tokens_using_gateway": 0.69529296875,
+        "mean_trajectory_length_per_walker": 2.154326171875,
+        "mean_cycles_per_token": 2.65083984375,
+        "gateway_slot_action_fraction": [
+          0.1191234933341795,
+          0.13873791380896905,
+          0.11959946147604521,
+          0.1145632652321138
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.46076171875,
+        "direct_OUTPUT_fraction_tokens": 0.27537109375,
+        "unique_regions_visited_per_token": 3.73220703125,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.267538920044899,
+        "per_token_gradient_L1": [
+          0.07017533481121063,
+          0.09281345456838608,
+          0.10455013066530228,
+          1.0143797397613525
+        ],
+        "current_embedding_gradient_L1": 1.0143797397613525,
+        "prefix_change_last_logits_L2": 0.17976146936416626,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.531209409236908,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed43/prg_v21_core/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608795,
+      "token_stream_sha256": "465a1a7d0d624937669bf51b924d37fde610730d1ed7caf229d7e615043574f6",
+      "training_seconds": 161.54199776099995,
+      "training_tokens_per_second": 316.945442730936,
+      "backend": "cpu"
+    },
+    {
+      "seed": 43,
       "model": "prg_v21_gateway_probe",
       "milestone": 12800,
       "training_tokens": 12800,
@@ -1615,6 +2768,236 @@
       "token_stream_sha256": "465a1a7d0d624937669bf51b924d37fde610730d1ed7caf229d7e615043574f6",
       "training_seconds": 52.41456431400002,
       "training_tokens_per_second": 244.20693308293127,
+      "backend": "cpu"
+    },
+    {
+      "seed": 43,
+      "model": "prg_v21_gateway_probe",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 43,
+        "minimum_gateway_hops": 1
+      },
+      "train_loss": 4.015953540802002,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 4.046123147010803,
+            "ppl": 57.17536632722802,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.07653584868774742,
+              "gateway_action_fraction": 0.5140022481794634,
+              "RETURN_action_fraction": 0.01749670104100484,
+              "OUTPUT_action_fraction": 0.39196520209178437,
+              "mean_gateway_hops_per_token": 2.567626953125,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.4976806640625,
+              "mean_cycles_per_token": 2.82763671875,
+              "gateway_slot_action_fraction": [
+                0.12868383754459703,
+                0.13977811446165878,
+                0.13274033527198084,
+                0.11279996090122672
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.423095703125,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 4.0468889772892,
+            "ppl": 57.21916972478302,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.5,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.5,
+              "mean_gateway_hops_per_token": 2.0,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.0,
+              "mean_cycles_per_token": 2.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.5,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 3.954345703125,
+              "tokens_observed": 4096.0
+            }
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 4.07277075946331,
+            "ppl": 58.71943483194181,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.07720794935099856,
+              "gateway_action_fraction": 0.5142633650297,
+              "RETURN_action_fraction": 0.017135593634652523,
+              "OUTPUT_action_fraction": 0.39139309198464883,
+              "mean_gateway_hops_per_token": 2.568115234375,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.49688720703125,
+              "mean_cycles_per_token": 2.83184814453125,
+              "gateway_slot_action_fraction": [
+                0.12761250580556846,
+                0.14135031411180915,
+                0.1323547385660857,
+                0.11294580654623677
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.416015625,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 4.067977458238602,
+            "ppl": 58.43864837768131,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.5,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.5,
+              "mean_gateway_hops_per_token": 2.0,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.0,
+              "mean_cycles_per_token": 2.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.5,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 3.95111083984375,
+              "tokens_observed": 16384.0
+            }
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.08051396485264392,
+        "gateway_action_fraction": 0.518821006781552,
+        "RETURN_action_fraction": 0.01952481335154464,
+        "OUTPUT_action_fraction": 0.3811402150142595,
+        "mean_gateway_hops_per_token": 2.6389944170532975,
+        "fraction_tokens_using_gateway": 1.0,
+        "mean_trajectory_length_per_walker": 2.543260953738174,
+        "mean_cycles_per_token": 2.8883169746863437,
+        "gateway_slot_action_fraction": [
+          0.13468346041087348,
+          0.14142916066449804,
+          0.1271164974750871,
+          0.11559188823109336
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.0,
+        "direct_OUTPUT_fraction_tokens": 0.0,
+        "unique_regions_visited_per_token": 4.478869142040958,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.10455381099075822,
+        "gateway_action_fraction": 0.6263415482460499,
+        "RETURN_action_fraction": 0.05025837225479479,
+        "OUTPUT_action_fraction": 0.21884626850839708,
+        "mean_gateway_hops_per_token": 3.939296875,
+        "fraction_tokens_using_gateway": 1.0,
+        "mean_trajectory_length_per_walker": 3.1446875,
+        "mean_cycles_per_token": 3.5386328125,
+        "gateway_slot_action_fraction": [
+          0.15205455629533937,
+          0.1750999950313028,
+          0.15080617112193184,
+          0.1483808257974759
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.0,
+        "direct_OUTPUT_fraction_tokens": 0.0,
+        "unique_regions_visited_per_token": 5.2385546875,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.1790948249399662,
+        "per_token_gradient_L1": [
+          0.04726671427488327,
+          0.06162628158926964,
+          0.0702018290758133,
+          0.8855923414230347
+        ],
+        "current_embedding_gradient_L1": 0.8855923414230347,
+        "prefix_change_last_logits_L2": 0.2202366143465042,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.5196423530578613,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed43/prg_v21_gateway_probe/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608795,
+      "token_stream_sha256": "465a1a7d0d624937669bf51b924d37fde610730d1ed7caf229d7e615043574f6",
+      "training_seconds": 197.85865495999678,
+      "training_tokens_per_second": 258.77058554932387,
       "backend": "cpu"
     },
     {
@@ -1861,6 +3244,248 @@
     },
     {
       "seed": 44,
+      "model": "prg_v21_clean_no_accum",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": false,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 44,
+        "minimum_gateway_hops": 0
+      },
+      "train_loss": 3.901841878890991,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 3.775697812438011,
+            "ppl": 43.62794181649524,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.030229007633587785,
+              "gateway_action_fraction": 0.12804071246819337,
+              "RETURN_action_fraction": 0.008651399491094147,
+              "OUTPUT_action_fraction": 0.8330788804071246,
+              "mean_gateway_hops_per_token": 0.30712890625,
+              "fraction_tokens_using_gateway": 0.24755859375,
+              "mean_trajectory_length_per_walker": 1.1993408203125,
+              "mean_cycles_per_token": 1.37451171875,
+              "gateway_slot_action_fraction": [
+                0.039287531806615775,
+                0.024325699745547075,
+                0.03389312977099237,
+                0.030534351145038167
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.8411865234375,
+              "direct_OUTPUT_fraction_tokens": 0.705810546875,
+              "unique_regions_visited_per_token": 2.29833984375,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 3.754007712006569,
+            "ppl": 42.691836189182744,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 4096.0
+            }
+          },
+          "expected": {
+            "loss": 3.762265846133232,
+            "ppl": 43.04585083688236,
+            "validation_tokens": 4096,
+            "routing": null
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 3.820142976939678,
+            "ppl": 45.61072913714297,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.03288978157167964,
+              "gateway_action_fraction": 0.13605322621139845,
+              "RETURN_action_fraction": 0.009590760733115742,
+              "OUTPUT_action_fraction": 0.8214662314838062,
+              "mean_gateway_hops_per_token": 0.33074951171875,
+              "fraction_tokens_using_gateway": 0.25762939453125,
+              "mean_trajectory_length_per_walker": 1.21551513671875,
+              "mean_cycles_per_token": 1.40167236328125,
+              "gateway_slot_action_fraction": [
+                0.03868943007783078,
+                0.02799397439116244,
+                0.03590258599045945,
+                0.03346723575194577
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.831695556640625,
+              "direct_OUTPUT_fraction_tokens": 0.69140625,
+              "unique_regions_visited_per_token": 2.3214111328125,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 3.7947760559618473,
+            "ppl": 44.46827688488743,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 16384.0
+            }
+          },
+          "expected": {
+            "loss": 3.8016887828707695,
+            "ppl": 44.77673886748601,
+            "validation_tokens": 16384,
+            "routing": null
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.037617734712333456,
+        "gateway_action_fraction": 0.16452906619075053,
+        "RETURN_action_fraction": 0.011629503943452234,
+        "OUTPUT_action_fraction": 0.7862236951534637,
+        "mean_gateway_hops_per_token": 0.4172478299452166,
+        "fraction_tokens_using_gateway": 0.31111697583963793,
+        "mean_trajectory_length_per_walker": 1.268006436812419,
+        "mean_cycles_per_token": 1.4897151115951934,
+        "gateway_slot_action_fraction": [
+          0.046647128866591205,
+          0.03425329151503884,
+          0.04301948029251967,
+          0.04060916551660082
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.7973933302414724,
+        "direct_OUTPUT_fraction_tokens": 0.6371769279490909,
+        "unique_regions_visited_per_token": 2.3989926741416436,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.11254870249209734,
+        "gateway_action_fraction": 0.4803049500326485,
+        "RETURN_action_fraction": 0.05281706889916152,
+        "OUTPUT_action_fraction": 0.35432927857609264,
+        "mean_gateway_hops_per_token": 2.16935546875,
+        "fraction_tokens_using_gateway": 0.7434375,
+        "mean_trajectory_length_per_walker": 2.258310546875,
+        "mean_cycles_per_token": 2.80234375,
+        "gateway_slot_action_fraction": [
+          0.13061565139177778,
+          0.10607954127765934,
+          0.1163454428305175,
+          0.1272643145326939
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.412802734375,
+        "direct_OUTPUT_fraction_tokens": 0.2144921875,
+        "unique_regions_visited_per_token": 3.77529296875,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.23031394556164742,
+        "per_token_gradient_L1": [
+          0.0516011007130146,
+          0.09822288900613785,
+          0.08048995584249496,
+          1.5402395725250244
+        ],
+        "current_embedding_gradient_L1": 1.5402395725250244,
+        "prefix_change_last_logits_L2": 0.27430498600006104,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.49959734082221985,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed44/prg_v21_clean_no_accum/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608795,
+      "token_stream_sha256": "13080e43d19ff3d856e79a000ab00411df04baf8eb81b433e909f5de72d09d03",
+      "training_seconds": 157.84706547099995,
+      "training_tokens_per_second": 324.36459839924356,
+      "backend": "cpu"
+    },
+    {
+      "seed": 44,
       "model": "prg_v21_core",
       "milestone": 12800,
       "training_tokens": 12800,
@@ -2103,6 +3728,248 @@
     },
     {
       "seed": 44,
+      "model": "prg_v21_core",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 44,
+        "minimum_gateway_hops": 0
+      },
+      "train_loss": 3.960583209991455,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 3.789447098970413,
+            "ppl": 44.23193763003922,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.031993680260689245,
+              "gateway_action_fraction": 0.14989631677693296,
+              "RETURN_action_fraction": 0.009874592673052237,
+              "OUTPUT_action_fraction": 0.8082354102893256,
+              "mean_gateway_hops_per_token": 0.37060546875,
+              "fraction_tokens_using_gateway": 0.29541015625,
+              "mean_trajectory_length_per_walker": 1.2362060546875,
+              "mean_cycles_per_token": 1.43896484375,
+              "gateway_slot_action_fraction": [
+                0.043053224054507754,
+                0.0309074750666535,
+                0.040288338106053125,
+                0.03564727954971857
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.8131103515625,
+              "direct_OUTPUT_fraction_tokens": 0.65869140625,
+              "unique_regions_visited_per_token": 2.34716796875,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 3.7618695199489594,
+            "ppl": 43.02879401932638,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 4096.0
+            }
+          },
+          "expected": {
+            "loss": 3.7752283811569214,
+            "ppl": 43.607466302176476,
+            "validation_tokens": 4096,
+            "routing": null
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 3.834641717374325,
+            "ppl": 46.27684450804048,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.034342002346499804,
+              "gateway_action_fraction": 0.15616445052796246,
+              "RETURN_action_fraction": 0.009728197105983575,
+              "OUTPUT_action_fraction": 0.7997653500195542,
+              "mean_gateway_hops_per_token": 0.38995361328125,
+              "fraction_tokens_using_gateway": 0.30078125,
+              "mean_trajectory_length_per_walker": 1.24853515625,
+              "mean_cycles_per_token": 1.45697021484375,
+              "gateway_slot_action_fraction": [
+                0.04328803285099726,
+                0.035001955416503715,
+                0.04018380915134924,
+                0.03769065310911224
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.805572509765625,
+              "direct_OUTPUT_fraction_tokens": 0.64898681640625,
+              "unique_regions_visited_per_token": 2.36480712890625,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 3.803878765553236,
+            "ppl": 44.87490660376978,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 1.0,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.0,
+              "mean_cycles_per_token": 1.0,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 1.0,
+              "direct_OUTPUT_fraction_tokens": 1.0,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 16384.0
+            }
+          },
+          "expected": {
+            "loss": 3.8162417076528072,
+            "ppl": 45.43313604489235,
+            "validation_tokens": 16384,
+            "routing": null
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.042733678580817606,
+        "gateway_action_fraction": 0.1803932928312117,
+        "RETURN_action_fraction": 0.012289788204931922,
+        "OUTPUT_action_fraction": 0.7645832403830387,
+        "mean_gateway_hops_per_token": 0.47043623434927295,
+        "fraction_tokens_using_gateway": 0.33971734499254835,
+        "mean_trajectory_length_per_walker": 1.3039183080643837,
+        "mean_cycles_per_token": 1.5454743932079755,
+        "gateway_slot_action_fraction": [
+          0.05073474085237553,
+          0.03933722570856128,
+          0.0487977014202496,
+          0.04152362485002529
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.7750385377853065,
+        "direct_OUTPUT_fraction_tokens": 0.6056366442509903,
+        "unique_regions_visited_per_token": 2.4438538443982027,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.11136752099953932,
+        "gateway_action_fraction": 0.48292267089168933,
+        "RETURN_action_fraction": 0.05266352947254668,
+        "OUTPUT_action_fraction": 0.3530462786362247,
+        "mean_gateway_hops_per_token": 2.19076171875,
+        "fraction_tokens_using_gateway": 0.75236328125,
+        "mean_trajectory_length_per_walker": 2.268232421875,
+        "mean_cycles_per_token": 2.81630859375,
+        "gateway_slot_action_fraction": [
+          0.13175784764947238,
+          0.10745822695432412,
+          0.11694300094288039,
+          0.12676359534501241
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.4062890625,
+        "direct_OUTPUT_fraction_tokens": 0.20578125,
+        "unique_regions_visited_per_token": 3.799765625,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.24245716631412506,
+        "per_token_gradient_L1": [
+          0.05912519991397858,
+          0.09695382416248322,
+          0.08637814223766327,
+          1.7546000480651855
+        ],
+        "current_embedding_gradient_L1": 1.7546000480651855,
+        "prefix_change_last_logits_L2": 0.24884049594402313,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.4991486370563507,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed44/prg_v21_core/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608795,
+      "token_stream_sha256": "13080e43d19ff3d856e79a000ab00411df04baf8eb81b433e909f5de72d09d03",
+      "training_seconds": 172.71594795099736,
+      "training_tokens_per_second": 296.4404886022822,
+      "backend": "cpu"
+    },
+    {
+      "seed": 44,
       "model": "prg_v21_gateway_probe",
       "milestone": 12800,
       "training_tokens": 12800,
@@ -2329,6 +4196,236 @@
       "token_stream_sha256": "13080e43d19ff3d856e79a000ab00411df04baf8eb81b433e909f5de72d09d03",
       "training_seconds": 51.498981136999646,
       "training_tokens_per_second": 248.5486065432815,
+      "backend": "cpu"
+    },
+    {
+      "seed": 44,
+      "model": "prg_v21_gateway_probe",
+      "milestone": 51200,
+      "training_tokens": 51200,
+      "config": {
+        "vocab_size": 256,
+        "context": 32,
+        "regions": 32,
+        "region_size": 1024,
+        "edges_per_node": 16,
+        "gateways": 4,
+        "active_nodes": 16,
+        "initial_regions": 2,
+        "max_cycles": 4,
+        "d_model": 64,
+        "edge_type": "ternary",
+        "recurrence": true,
+        "accumulation": true,
+        "fatigue": true,
+        "fatigue_strength": 0.5,
+        "recovery": 0.8,
+        "state_decay": 0.9,
+        "accumulator_decay": 1.0,
+        "seed": 44,
+        "minimum_gateway_hops": 1
+      },
+      "train_loss": 4.08722448348999,
+      "validation": {
+        "4096": {
+          "sampled": {
+            "loss": 3.9232925474643707,
+            "ppl": 50.56666412710729,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.10420786387675328,
+              "gateway_action_fraction": 0.5120257530466774,
+              "RETURN_action_fraction": 0.026672798344447,
+              "OUTPUT_action_fraction": 0.3570935847321223,
+              "mean_gateway_hops_per_token": 2.71826171875,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.6544189453125,
+              "mean_cycles_per_token": 3.045654296875,
+              "gateway_slot_action_fraction": [
+                0.1459645895608186,
+                0.11404920671418717,
+                0.13051276155438032,
+                0.12149919521729133
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.4765625,
+              "tokens_observed": 4096.0
+            }
+          },
+          "argmax": {
+            "loss": 3.9062208980321884,
+            "ppl": 49.710734616109974,
+            "validation_tokens": 4096,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.5,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.5,
+              "mean_gateway_hops_per_token": 2.0,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.0,
+              "mean_cycles_per_token": 2.0,
+              "gateway_slot_action_fraction": [
+                0.49603271484375,
+                0.00396728515625,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 3.966552734375,
+              "tokens_observed": 4096.0
+            }
+          }
+        },
+        "16384": {
+          "sampled": {
+            "loss": 3.9702466540038586,
+            "ppl": 52.99760129822454,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.10627704141199093,
+              "gateway_action_fraction": 0.5107593342948058,
+              "RETURN_action_fraction": 0.027573655655518167,
+              "OUTPUT_action_fraction": 0.3553899686376851,
+              "mean_gateway_hops_per_token": 2.72357177734375,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.66619873046875,
+              "mean_cycles_per_token": 3.060546875,
+              "gateway_slot_action_fraction": [
+                0.14213767369457225,
+                0.11557127486665293,
+                0.1338964814687636,
+                0.11915390426481698
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.47906494140625,
+              "tokens_observed": 16384.0
+            }
+          },
+          "argmax": {
+            "loss": 3.957398619502783,
+            "ppl": 52.32104182472544,
+            "validation_tokens": 16384,
+            "routing": {
+              "LOCAL_action_fraction": 0.0,
+              "gateway_action_fraction": 0.5,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.5,
+              "mean_gateway_hops_per_token": 2.0,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 2.0,
+              "mean_cycles_per_token": 2.0,
+              "gateway_slot_action_fraction": [
+                0.4953460693359375,
+                0.0046539306640625,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 3.96112060546875,
+              "tokens_observed": 16384.0
+            }
+          }
+        }
+      },
+      "routing_training_ema": {
+        "LOCAL_action_fraction": 0.1081657628620983,
+        "gateway_action_fraction": 0.5176238285908014,
+        "RETURN_action_fraction": 0.02909674553921535,
+        "OUTPUT_action_fraction": 0.345113663007885,
+        "mean_gateway_hops_per_token": 2.8097005931745302,
+        "fraction_tokens_using_gateway": 1.0,
+        "mean_trajectory_length_per_walker": 2.7140371424010405,
+        "mean_cycles_per_token": 3.1264593580382587,
+        "gateway_slot_action_fraction": [
+          0.14213041545207555,
+          0.11939999582007971,
+          0.13717881865076756,
+          0.11891459866787855
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.0,
+        "direct_OUTPUT_fraction_tokens": 0.0,
+        "unique_regions_visited_per_token": 4.5701471543325995,
+        "tokens_observed": 127.99999984272775
+      },
+      "routing_training_cumulative": {
+        "LOCAL_action_fraction": 0.13850319755718155,
+        "gateway_action_fraction": 0.5988574304921721,
+        "RETURN_action_fraction": 0.055321226382196775,
+        "OUTPUT_action_fraction": 0.20731814556844955,
+        "mean_gateway_hops_per_token": 3.85728515625,
+        "fraction_tokens_using_gateway": 1.0,
+        "mean_trajectory_length_per_walker": 3.220537109375,
+        "mean_cycles_per_token": 3.61640625,
+        "gateway_slot_action_fraction": [
+          0.16288286539936866,
+          0.13616226427681233,
+          0.14625374867716043,
+          0.15355855213883068
+        ],
+        "output_at_first_cycle_fraction_walkers": 0.0,
+        "direct_OUTPUT_fraction_tokens": 0.0,
+        "unique_regions_visited_per_token": 5.17234375,
+        "tokens_observed": 51200.0
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.21760588511824608,
+        "per_token_gradient_L1": [
+          0.05584326013922691,
+          0.07857068628072739,
+          0.08319193869829178,
+          1.5085794925689697
+        ],
+        "current_embedding_gradient_L1": 1.5085794925689697,
+        "prefix_change_last_logits_L2": 0.24718794226646423,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      },
+      "context_gate": 0.4954586327075958,
+      "memory": {
+        "static": {
+          "embedding_output_head": 65536,
+          "global_router": 8320,
+          "shared_router_network": 3868,
+          "region_specific_parameters": 2048,
+          "local_edges": 131072,
+          "region_gateway_addresses": 80,
+          "transition_probabilities": 896,
+          "other_numerical": 9024,
+          "other_static_metadata": 16,
+          "context_gate": 4
+        },
+        "dynamic": {
+          "node_state": 131072,
+          "fatigue_state": 128,
+          "accumulator": 131072,
+          "event_state": 138,
+          "other_runtime_state": 128,
+          "prefix_context": 64,
+          "last_valid_processed_message": 128,
+          "probe_hop_counters": 8
+        },
+        "total_static_packed_bytes": 220864,
+        "peak_theoretical_inference_bytes": 483602,
+        "core_static_packed_bytes": 155328,
+        "trainable_numerical_parameters": 546712,
+        "structural_low_bit_parameters": 524288,
+        "training_only_state": "AdamW, gradients, RNG, stream cursor, EMA routing counts; no topology mutation state",
+        "added_static_bytes_vs_v2": 4,
+        "added_peak_bytes_vs_v2": 204,
+        "limitations": "Modeled inference state, not allocator/workspace bound; FP32 latents serialized, no packed backend.",
+        "training_only_routing_statistics_bytes": 240,
+        "training_only_optimizer_tensor_bytes": 4373764
+      },
+      "checkpoint_identifier": "runs/v2_1/seed44/prg_v21_gateway_probe/tokens_51200.pt",
+      "serialized_model_bytes": 2195305,
+      "serialized_resume_bytes": 6608795,
+      "token_stream_sha256": "13080e43d19ff3d856e79a000ab00411df04baf8eb81b433e909f5de72d09d03",
+      "training_seconds": 203.36360261299342,
+      "training_tokens_per_second": 251.76579949478483,
       "backend": "cpu"
     }
   ],
@@ -33709,6 +35806,132 @@
       }
     },
     {
+      "model": "prg_v21_core",
+      "training_tokens": 51200,
+      "validation_bytes": 4096,
+      "mode": "sampled",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.817490686972936,
+        "std": 0.025319897211186992,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 45.499607311139066,
+        "std": 1.146448106186177,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_core",
+      "training_tokens": 51200,
+      "validation_bytes": 4096,
+      "mode": "argmax",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.7898580034573874,
+        "std": 0.025486943875144608,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 44.25967076484408,
+        "std": 1.1230667006824442,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_core",
+      "training_tokens": 51200,
+      "validation_bytes": 4096,
+      "mode": "expected",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.797323470314344,
+        "std": 0.023187842046146875,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 44.58969907123477,
+        "std": 1.0354446661029717,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_core",
+      "training_tokens": 51200,
+      "validation_bytes": 16384,
+      "mode": "sampled",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.8514060427745185,
+        "std": 0.014735913670770876,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 47.062581878037356,
+        "std": 0.6909210519287419,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_core",
+      "training_tokens": 51200,
+      "validation_bytes": 16384,
+      "mode": "argmax",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.8212027649084725,
+        "std": 0.016462690604763436,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 45.66321356385243,
+        "std": 0.7506645203289453,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_core",
+      "training_tokens": 51200,
+      "validation_bytes": 16384,
+      "mode": "expected",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.8290362805128098,
+        "std": 0.01314438998005958,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 46.020819443449426,
+        "std": 0.6052072890686457,
+        "n": 3
+      }
+    },
+    {
       "model": "prg_v21_clean_no_accum",
       "training_tokens": 12800,
       "validation_bytes": 4096,
@@ -33835,6 +36058,132 @@
       }
     },
     {
+      "model": "prg_v21_clean_no_accum",
+      "training_tokens": 51200,
+      "validation_bytes": 4096,
+      "mode": "sampled",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.809328650434812,
+        "std": 0.029206218336957412,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 45.13289711031137,
+        "std": 1.3071430506213806,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_clean_no_accum",
+      "training_tokens": 51200,
+      "validation_bytes": 4096,
+      "mode": "argmax",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.7841035574674606,
+        "std": 0.026064722948113954,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 44.006126632262784,
+        "std": 1.1382525912459742,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_clean_no_accum",
+      "training_tokens": 51200,
+      "validation_bytes": 4096,
+      "mode": "expected",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.786801556746165,
+        "std": 0.021683681648786243,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 44.12196535099199,
+        "std": 0.9517228644596183,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_clean_no_accum",
+      "training_tokens": 51200,
+      "validation_bytes": 16384,
+      "mode": "sampled",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.8454595543444157,
+        "std": 0.022269097314250176,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 46.787882101220326,
+        "std": 1.0360593384561299,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_clean_no_accum",
+      "training_tokens": 51200,
+      "validation_bytes": 16384,
+      "mode": "argmax",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.8170969001948833,
+        "std": 0.019541357046867023,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 45.47777529363259,
+        "std": 0.8841110181972157,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_clean_no_accum",
+      "training_tokens": 51200,
+      "validation_bytes": 16384,
+      "mode": "expected",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 3.8183653578162193,
+        "std": 0.01459928930759713,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 45.53294921279469,
+        "std": 0.6621920300967429,
+        "n": 3
+      }
+    },
+    {
       "model": "prg_v21_gateway_probe",
       "training_tokens": 12800,
       "validation_bytes": 4096,
@@ -33915,6 +36264,90 @@
       "ppl": {
         "mean": 234.08282083464215,
         "std": 61.42506956036745,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_gateway_probe",
+      "training_tokens": 51200,
+      "validation_bytes": 4096,
+      "mode": "sampled",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 4.052724584937096,
+        "std": 0.13285581985026212,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 57.894291996033864,
+        "std": 7.712263226133158,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_gateway_probe",
+      "training_tokens": 51200,
+      "validation_bytes": 4096,
+      "mode": "argmax",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 4.039639502763748,
+        "std": 0.12994562013853567,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 57.12489262961682,
+        "std": 7.36747188249158,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_gateway_probe",
+      "training_tokens": 51200,
+      "validation_bytes": 16384,
+      "mode": "sampled",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 4.083647983769576,
+        "std": 0.11921269773699544,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 59.64468646499544,
+        "std": 7.154722790183802,
+        "n": 3
+      }
+    },
+    {
+      "model": "prg_v21_gateway_probe",
+      "training_tokens": 51200,
+      "validation_bytes": 16384,
+      "mode": "argmax",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "loss": {
+        "mean": 4.075641402353843,
+        "std": 0.12225505231100134,
+        "n": 3
+      },
+      "ppl": {
+        "mean": 59.18311342087845,
+        "std": 7.2629764710154685,
         "n": 3
       }
     }

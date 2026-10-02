@@ -2,7 +2,7 @@
 
 ## Executive summary
 
-Complete: False. New milestones complete: 9/36. No frozen baseline was retrained.
+Complete: False. New milestones complete: 18/36. No frozen baseline was retrained.
 Objective: separate temporal-credit, cap/readout and gateway-opportunity limitations with minimal new mechanisms.
 Main runs: core, clean_no_accum, diagnostic gateway_probe; seeds42/43/44, continuous12.8k→51.2k→204.8k→819.2k.
 No final conclusions are drawn until all primary experiments finish. No dashboard/UI artifacts are modified.
@@ -26,15 +26,15 @@ Start commit67ac23b. TinyShakespeare bytes256/context32, R32/N1024/E16/G4/K16/W2
 
 | Model | Seed | 12.8k | 51.2k | 204.8k | 819.2k |
 |---|---:|---|---|---|---|
-| prg_v21_core | 42 | done | pending | pending | pending |
-| prg_v21_core | 43 | done | pending | pending | pending |
-| prg_v21_core | 44 | done | pending | pending | pending |
-| prg_v21_clean_no_accum | 42 | done | pending | pending | pending |
-| prg_v21_clean_no_accum | 43 | done | pending | pending | pending |
-| prg_v21_clean_no_accum | 44 | done | pending | pending | pending |
-| prg_v21_gateway_probe | 42 | done | pending | pending | pending |
-| prg_v21_gateway_probe | 43 | done | pending | pending | pending |
-| prg_v21_gateway_probe | 44 | done | pending | pending | pending |
+| prg_v21_core | 42 | done | done | pending | pending |
+| prg_v21_core | 43 | done | done | pending | pending |
+| prg_v21_core | 44 | done | done | pending | pending |
+| prg_v21_clean_no_accum | 42 | done | done | pending | pending |
+| prg_v21_clean_no_accum | 43 | done | done | pending | pending |
+| prg_v21_clean_no_accum | 44 | done | done | pending | pending |
+| prg_v21_gateway_probe | 42 | done | done | pending | pending |
+| prg_v21_gateway_probe | 43 | done | done | pending | pending |
+| prg_v21_gateway_probe | 44 | done | done | pending | pending |
 
 ## Sanity tests
 
@@ -79,8 +79,11 @@ Loss is nats/byte. PPL is byte-level. Mean ± sample SD; only n=3 groups support
 | prg_v2_no_accumulation | 204,800 | 2.82134 ± 0.01598 | 16.80082 ± 0.26931 | 3 |
 | prg_v2_no_accumulation | 819,200 | 2.60812 ± 0.01233 | 13.57426 ± 0.16775 | 3 |
 | prg_v21_core | 12,800 | 5.44826 ± 0.23346 | 236.50901 ± 53.18715 | 3 |
+| prg_v21_core | 51,200 | 3.81749 ± 0.02532 | 45.49961 ± 1.14645 | 3 |
 | prg_v21_clean_no_accum | 12,800 | 5.43290 ± 0.23403 | 232.93607 ± 52.75215 | 3 |
+| prg_v21_clean_no_accum | 51,200 | 3.80933 ± 0.02921 | 45.13290 ± 1.30714 | 3 |
 | prg_v21_gateway_probe | 12,800 | 5.48781 ± 0.22353 | 245.73583 ± 53.90377 | 3 |
+| prg_v21_gateway_probe | 51,200 | 4.05272 ± 0.13286 | 57.89429 ± 7.71226 | 3 |
 
 ### Sampled validation: 16384 bytes
 
@@ -115,8 +118,11 @@ Loss is nats/byte. PPL is byte-level. Mean ± sample SD; only n=3 groups support
 | prg_v2_no_accumulation | 204,800 | 2.84727 ± 0.02078 | 17.24311 ± 0.35975 | 3 |
 | prg_v2_no_accumulation | 819,200 | 2.59548 ± 0.00967 | 13.40350 ± 0.12932 | 3 |
 | prg_v21_core | 12,800 | 5.44952 ± 0.22539 | 236.53638 ± 51.63108 | 3 |
+| prg_v21_core | 51,200 | 3.85141 ± 0.01474 | 47.06258 ± 0.69092 | 3 |
 | prg_v21_clean_no_accum | 12,800 | 5.44067 ± 0.22983 | 234.61647 ± 52.44732 | 3 |
+| prg_v21_clean_no_accum | 51,200 | 3.84546 ± 0.02227 | 46.78788 ± 1.03606 | 3 |
 | prg_v21_gateway_probe | 12,800 | 5.49086 ± 0.22363 | 246.48009 ± 53.90929 | 3 |
+| prg_v21_gateway_probe | 51,200 | 4.08365 ± 0.11921 | 59.64469 ± 7.15472 | 3 |
 
 ## Supplementary argmax / expected
 
@@ -126,12 +132,22 @@ Loss is nats/byte. PPL is byte-level. Mean ± sample SD; only n=3 groups support
 | prg_v21_core | 12,800 | 4096 | expected | 5.32850 ± 0.23757 | 209.91665 ± 47.45858 | 3 |
 | prg_v21_core | 12,800 | 16384 | argmax | 5.29292 ± 0.19015 | 201.28437 ± 37.07818 | 3 |
 | prg_v21_core | 12,800 | 16384 | expected | 5.33086 ± 0.22849 | 210.13181 ± 45.82310 | 3 |
+| prg_v21_core | 51,200 | 4096 | argmax | 3.78986 ± 0.02549 | 44.25967 ± 1.12307 | 3 |
+| prg_v21_core | 51,200 | 4096 | expected | 3.79732 ± 0.02319 | 44.58970 ± 1.03544 | 3 |
+| prg_v21_core | 51,200 | 16384 | argmax | 3.82120 ± 0.01646 | 45.66321 ± 0.75066 | 3 |
+| prg_v21_core | 51,200 | 16384 | expected | 3.82904 ± 0.01314 | 46.02082 ± 0.60521 | 3 |
 | prg_v21_clean_no_accum | 12,800 | 4096 | argmax | 5.31635 ± 0.19007 | 206.04090 ± 37.57842 | 3 |
 | prg_v21_clean_no_accum | 12,800 | 4096 | expected | 5.33647 ± 0.23945 | 211.65271 ± 48.14782 | 3 |
 | prg_v21_clean_no_accum | 12,800 | 16384 | argmax | 5.31762 ± 0.18083 | 206.08014 ± 35.93447 | 3 |
 | prg_v21_clean_no_accum | 12,800 | 16384 | expected | 5.33814 ± 0.22971 | 211.70260 ± 46.35406 | 3 |
+| prg_v21_clean_no_accum | 51,200 | 4096 | argmax | 3.78410 ± 0.02606 | 44.00613 ± 1.13825 | 3 |
+| prg_v21_clean_no_accum | 51,200 | 4096 | expected | 3.78680 ± 0.02168 | 44.12197 ± 0.95172 | 3 |
+| prg_v21_clean_no_accum | 51,200 | 16384 | argmax | 3.81710 ± 0.01954 | 45.47778 ± 0.88411 | 3 |
+| prg_v21_clean_no_accum | 51,200 | 16384 | expected | 3.81837 ± 0.01460 | 45.53295 ± 0.66219 | 3 |
 | prg_v21_gateway_probe | 12,800 | 4096 | argmax | 5.42978 ± 0.28059 | 234.03291 ± 63.57321 | 3 |
 | prg_v21_gateway_probe | 12,800 | 16384 | argmax | 5.43148 ± 0.27292 | 234.08282 ± 61.42507 | 3 |
+| prg_v21_gateway_probe | 51,200 | 4096 | argmax | 4.03964 ± 0.12995 | 57.12489 ± 7.36747 | 3 |
+| prg_v21_gateway_probe | 51,200 | 16384 | argmax | 4.07564 ± 0.12226 | 59.18311 ± 7.26298 | 3 |
 
 ## Late scaling slope
 
@@ -159,8 +175,11 @@ New held-out routing metrics cover ALL4096 primary validation bytes with sampled
 | Model | Training bytes | Train EMA gateway % | Held-out gateway % | Gateway tokens % | Hops/token | Direct OUTPUT % | Actions/walker | Unique Regions/token |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | prg_v21_core (n=3) | 12,800 | 59.85594 ± 2.96646 | 58.63952 ± 2.95078 | 92.29329 ± 0.72190 | 3.36125 ± 0.17205 | 5.28971 ± 0.16256 | 2.86597 ± 0.01190 | 4.62394 ± 0.15959 |
+| prg_v21_core (n=3) | 51,200 | 12.17610 ± 5.36157 | 10.10972 ± 4.65379 | 19.63704 ± 9.40960 | 0.23739 ± 0.12439 | 77.09147 ± 10.39885 | 1.15059 ± 0.07726 | 2.22673 ± 0.11338 |
 | prg_v21_clean_no_accum (n=3) | 12,800 | 60.07457 ± 2.67241 | 59.01321 ± 2.63328 | 92.52116 ± 0.55797 | 3.39299 ± 0.14682 | 5.17578 ± 0.06459 | 2.87496 ± 0.02564 | 4.64551 ± 0.14706 |
+| prg_v21_clean_no_accum (n=3) | 51,200 | 11.38881 ± 4.56237 | 9.57252 ± 2.84111 | 18.35124 ± 5.62978 | 0.22062 ± 0.07574 | 78.19010 ± 6.59371 | 1.14278 ± 0.04900 | 2.21419 ± 0.07359 |
 | prg_v21_gateway_probe (n=3) | 12,800 | 66.13807 ± 3.26182 | 65.55909 ± 3.03297 | 100.00000 ± 0.00000 | 4.64657 ± 0.17355 | 0.00000 ± 0.00000 | 3.54488 ± 0.04817 | 5.59945 ± 0.16892 |
+| prg_v21_gateway_probe (n=3) | 51,200 | 51.07506 ± 1.29555 | 50.58976 ± 1.23655 | 100.00000 ± 0.00000 | 2.63802 ± 0.07580 | 0.00000 ± 0.00000 | 2.60828 ± 0.09622 | 4.42896 ± 0.04496 |
 Frozen v2 reported adaptive training-EMA gateway fractions0.04–0.07% at final. Its saved held-out trace covers32 bytes, unlike the new4096-byte accounting; do not equate different sample sizes. Existing route traces/visit statistics and frozen source references remain in results.json.
 
 ## Clean accumulation and gateway probe
@@ -170,8 +189,12 @@ Paired per-seed sampled loss deltas relative to core; positive is worse. Clean O
 |---|---:|---:|---:|---|
 | prg_v21_clean_no_accum − core | 12,800 | 4096 | -0.01536 ± 0.00572 | {42: -0.01077684760093689, 43: -0.021776467561721802, 44: -0.013532370328903198} |
 | prg_v21_clean_no_accum − core | 12,800 | 16384 | -0.00886 ± 0.00748 | {42: -0.0005825906991958618, 43: -0.015139378607273102, 44: -0.0108523890376091} |
+| prg_v21_clean_no_accum − core | 51,200 | 4096 | -0.00816 ± 0.00695 | {42: -0.0003829002380371094, 43: -0.010353922843933105, 44: -0.013749286532402039} |
+| prg_v21_clean_no_accum − core | 51,200 | 16384 | -0.00595 ± 0.00980 | {42: 0.004753325134515762, 43: -0.008094049990177155, 44: -0.014498740434646606} |
 | prg_v21_gateway_probe − core | 12,800 | 4096 | 0.03955 ± 0.02268 | {42: 0.04427310824394226, 43: 0.01487642526626587, 44: 0.05949470400810242} |
 | prg_v21_gateway_probe − core | 12,800 | 16384 | 0.04133 ± 0.01148 | {42: 0.0474463626742363, 43: 0.02808558940887451, 44: 0.04846075177192688} |
+| prg_v21_gateway_probe − core | 51,200 | 4096 | 0.23523 ± 0.11776 | {42: 0.3644055426120758, 43: 0.20745070278644562, 44: 0.13384544849395752} |
+| prg_v21_gateway_probe − core | 51,200 | 16384 | 0.23224 ± 0.10917 | {42: 0.3506612665951252, 43: 0.2104596197605133, 44: 0.13560493662953377} |
 
 ## Memory
 
