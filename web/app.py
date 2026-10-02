@@ -32,13 +32,13 @@ class Request(BaseModel):
 
 @app.get('/api/benchmarks')
 def benchmarks():
-    file=ROOT/'docs/results.json' if (ROOT/'docs/results.json').exists() else RUN/'results.json'
+    file=ROOT/'dashboard/results.json' if (ROOT/'dashboard/results.json').exists() else RUN/'results.json'
     return json.loads(file.read_text()) if file.exists() else {'results':[]}
 
 
 @app.get('/sample.json')
 def sample():
-    file=ROOT/'docs/sample.json'
+    file=ROOT/'dashboard/sample.json'
     if not file.exists(): raise HTTPException(404,'Export dashboard first')
     return FileResponse(file)
 

@@ -23,7 +23,7 @@ python -m prglm.experiment --steps 8 --batch 4 --context 16 --regions 4 --region
 PRGLM_RUN=runs/smoke uvicorn web.app:app --host 127.0.0.1 --port 8000
 ```
 
-Open `http://127.0.0.1:8000`. The dashboard exposes paired generation, sampled token-level trajectories, region activation/fatigue/probabilities, benchmarks, repeats, and temporary intervention controls. `docs/` contains the GitHub Pages frontend, a benchmark export, and a saved generation replay. Export it with `python -m prglm.export_dashboard --run runs/final_seed42 --dest docs`. The workflow in `.github/workflows/pages.yml` deploys `docs/` from `main` after GitHub Pages is enabled for GitHub Actions. **Live PyTorch generation requires the local API** because GitHub Pages cannot execute Python or PyTorch server code. Set `localStorage.prglmApi` in the browser to an accessible FastAPI origin when using a remotely hosted static page; the default is the page origin.
+Open `http://127.0.0.1:8000`. The dashboard exposes paired generation, sampled token-level trajectories, region activation/fatigue/probabilities, benchmarks, repeats, and temporary intervention controls. The repository also includes [dashboard-bundle.zip](dashboard-bundle.zip), containing a standalone benchmark and saved trajectory replay. Unzip it and run `python -m http.server 8001` from the directory containing `dashboard/`, then open `http://127.0.0.1:8001/dashboard/`. **Generating new text requires the local FastAPI server** and trained checkpoints. Refresh the attached bundle after new experiments with `python -m prglm.export_dashboard --run runs/final_seed42 --dest dashboard --archive dashboard-bundle.zip`. No GitHub Pages deployment is used.
 
 ## Comparability and limits
 

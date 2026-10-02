@@ -46,8 +46,8 @@
             "steps": []
           }
         ],
-        "latency_seconds": 0.008833387999857223,
-        "tokens_per_second": 905.6547725662347
+        "latency_seconds": 0.008168061000105808,
+        "tokens_per_second": 979.4246149601929
       },
       "prg": {
         "text": "Once upon a timeother Duke lies3halhalirtirt",
@@ -3505,8 +3505,8 @@
             ]
           }
         ],
-        "latency_seconds": 0.13299586900006943,
-        "tokens_per_second": 60.15224427757093
+        "latency_seconds": 0.13999380399991423,
+        "tokens_per_second": 57.14538623441435
       }
     }
   ]
