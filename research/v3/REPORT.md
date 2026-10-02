@@ -1,6 +1,6 @@
 # PRG-LM v3 — Same-Edge Repetition Scaling Study
 
-Complete: False; 36/180 primary milestone results; 0 recorded failed/resource-limited jobs.
+Complete: False; 72/180 primary milestone results; 0 recorded failed/resource-limited jobs.
 Hypothesis: Can additive temporal reuse of the SAME low-bit source/destination/slot replace part of stored numerical magnitude, and become more favorable with graph scale? No conclusion is presumed.
 
 ## Exact architecture
@@ -39,9 +39,9 @@ Modeled dynamic state assumes streaming controllers: persistent16-channel state,
 | float | S0 | 819200 | 819200 | 819200 | True |
 | ternary | S0 | 819200 | 819200 | 819200 | True |
 | repeat | S0 | 819200 | 819200 | 819200 | True |
-| float | S1 | pending | pending | pending | False |
-| ternary | S1 | pending | pending | pending | False |
-| repeat | S1 | pending | pending | pending | False |
+| float | S1 | 819200 | 819200 | 819200 | True |
+| ternary | S1 | 819200 | 819200 | 819200 | True |
+| repeat | S1 | 819200 | 819200 | 819200 | True |
 | float | S2 | pending | pending | pending | False |
 | ternary | S2 | pending | pending | pending | False |
 | repeat | S2 | pending | pending | pending | False |
@@ -69,6 +69,14 @@ Signed additive1/2/4/8 equality, locked edge identities, frozen messages, prefix
 | float | S0 | 204,800 | 16384 | 3.35969 ± 0.00602 | 28.78049 ± 0.17340 | 3 |
 | float | S0 | 819,200 | 4096 | 3.08353 ± 0.01534 | 21.83711 ± 0.33618 | 3 |
 | float | S0 | 819,200 | 16384 | 3.10628 ± 0.01940 | 22.34068 ± 0.43583 | 3 |
+| float | S1 | 12,800 | 4096 | 5.47249 ± 0.01807 | 238.07720 ± 4.29264 | 3 |
+| float | S1 | 12,800 | 16384 | 5.47499 ± 0.01930 | 238.67717 ± 4.59847 | 3 |
+| float | S1 | 51,200 | 4096 | 5.16432 ± 0.03606 | 174.99339 ± 6.25297 | 3 |
+| float | S1 | 51,200 | 16384 | 5.17032 ± 0.03724 | 176.05277 ± 6.49326 | 3 |
+| float | S1 | 204,800 | 4096 | 3.41607 ± 0.08305 | 30.52062 ± 2.59231 | 3 |
+| float | S1 | 204,800 | 16384 | 3.46567 ± 0.08206 | 32.07082 ± 2.69020 | 3 |
+| float | S1 | 819,200 | 4096 | 3.08262 ± 0.01217 | 21.81651 ± 0.26452 | 3 |
+| float | S1 | 819,200 | 16384 | 3.09970 ± 0.00876 | 22.19181 ± 0.19399 | 3 |
 | ternary | S0 | 12,800 | 4096 | 5.47929 ± 0.01728 | 239.69913 ± 4.12456 | 3 |
 | ternary | S0 | 12,800 | 16384 | 5.48194 ± 0.01930 | 240.34264 ± 4.61983 | 3 |
 | ternary | S0 | 51,200 | 4096 | 5.17522 ± 0.03569 | 176.90963 ± 6.25091 | 3 |
@@ -77,6 +85,14 @@ Signed additive1/2/4/8 equality, locked edge identities, frozen messages, prefix
 | ternary | S0 | 204,800 | 16384 | 3.41444 ± 0.02688 | 30.40706 ± 0.81081 | 3 |
 | ternary | S0 | 819,200 | 4096 | 3.07744 ± 0.02638 | 21.70792 ± 0.57565 | 3 |
 | ternary | S0 | 819,200 | 16384 | 3.09430 ± 0.03415 | 22.08045 ± 0.75919 | 3 |
+| ternary | S1 | 12,800 | 4096 | 5.47777 ± 0.01816 | 239.33898 ± 4.33542 | 3 |
+| ternary | S1 | 12,800 | 16384 | 5.48134 ± 0.01982 | 240.20019 ± 4.74647 | 3 |
+| ternary | S1 | 51,200 | 4096 | 5.17497 ± 0.03600 | 176.86774 ± 6.30747 | 3 |
+| ternary | S1 | 51,200 | 16384 | 5.18107 ± 0.03710 | 177.95419 ± 6.53710 | 3 |
+| ternary | S1 | 204,800 | 4096 | 3.43531 ± 0.07421 | 31.09879 ± 2.35162 | 3 |
+| ternary | S1 | 204,800 | 16384 | 3.48298 ± 0.07346 | 32.61608 ± 2.44031 | 3 |
+| ternary | S1 | 819,200 | 4096 | 3.10743 ± 0.02721 | 22.36916 ± 0.61346 | 3 |
+| ternary | S1 | 819,200 | 16384 | 3.12994 ± 0.04392 | 22.88755 ± 1.01733 | 3 |
 | repeat | S0 | 12,800 | 4096 | 5.52413 ± 0.01691 | 250.69308 ± 4.22878 | 3 |
 | repeat | S0 | 12,800 | 16384 | 5.52864 ± 0.02084 | 251.83833 ± 5.22105 | 3 |
 | repeat | S0 | 51,200 | 4096 | 5.19844 ± 0.06085 | 181.21241 ± 11.02236 | 3 |
@@ -85,14 +101,25 @@ Signed additive1/2/4/8 equality, locked edge identities, frozen messages, prefix
 | repeat | S0 | 204,800 | 16384 | 3.35439 ± 0.00474 | 28.62825 ± 0.13558 | 3 |
 | repeat | S0 | 819,200 | 4096 | 3.17739 ± 0.01477 | 23.98572 ± 0.35572 | 3 |
 | repeat | S0 | 819,200 | 16384 | 3.21050 ± 0.01616 | 24.79366 ± 0.40238 | 3 |
+| repeat | S1 | 12,800 | 4096 | 5.52316 ± 0.01677 | 250.44884 ± 4.19630 | 3 |
+| repeat | S1 | 12,800 | 16384 | 5.52665 ± 0.01888 | 251.33007 ± 4.73286 | 3 |
+| repeat | S1 | 51,200 | 4096 | 5.20389 ± 0.04605 | 182.10847 ± 8.45145 | 3 |
+| repeat | S1 | 51,200 | 16384 | 5.21042 ± 0.04405 | 183.29096 ± 8.14538 | 3 |
+| repeat | S1 | 204,800 | 4096 | 3.29069 ± 0.00795 | 26.86204 ± 0.21313 | 3 |
+| repeat | S1 | 204,800 | 16384 | 3.34854 ± 0.00644 | 28.46146 ± 0.18322 | 3 |
+| repeat | S1 | 819,200 | 4096 | 3.17991 ± 0.02787 | 24.05080 ± 0.67127 | 3 |
+| repeat | S1 | 819,200 | 16384 | 3.21563 ± 0.03037 | 24.92667 ± 0.75698 | 3 |
 
 ## Final compute/repetition
 
 | Family | Scale | Repeats/edge | ≥2 fraction | ≥4 fraction | Edge additions/token | Repetition compute fraction | Active fraction |
 |---|---|---:|---:|---:|---:|---:|---:|
 | float | S0 | 1.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.00000 ± 0.00000 | 512.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.01562 ± 0.00000 |
+| float | S1 | 1.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.00000 ± 0.00000 | 512.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.00391 ± 0.00000 |
 | ternary | S0 | 1.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.00000 ± 0.00000 | 512.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.01562 ± 0.00000 |
+| ternary | S1 | 1.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.00000 ± 0.00000 | 512.00000 ± 0.00000 | 0.00000 ± 0.00000 | 0.00391 ± 0.00000 |
 | repeat | S0 | 1.59473 ± 0.09133 | 0.24618 ± 0.05751 | 0.08265 ± 0.01337 | 816.50106 ± 46.76219 | 0.37160 ± 0.03506 | 0.02492 ± 0.00143 |
+| repeat | S1 | 1.71520 ± 0.11790 | 0.24526 ± 0.07362 | 0.10306 ± 0.01425 | 878.18441 ± 60.36343 | 0.41517 ± 0.03950 | 0.00670 ± 0.00046 |
 All modeled active counts include zero ternary edges; nonzero operations are separately in JSON. Unique activated edges/token is512 by design. Consecutive revisits are counted within locked per-edge episodes, not different edges or new tokens. Repeated edges are interleaved parallel lanes; every lane retains identity/reference. Controller probabilities, full histograms, median, bound fraction, projected output contribution by count and correlations are in machine results.
 Output contribution is a PRE-NONLINEARITY readout-column magnitude proxy; count increases its magnitude by construction. Positive correlation is not causal evidence of useful language-model computation.
 
@@ -102,35 +129,59 @@ Output contribution is a PRE-NONLINEARITY readout-column magnitude proxy; count 
 |---|---|---:|---:|---|
 | float | S0 | 4096 | 0.09385 ± 0.02574 | {'42': 0.11668145656585693, '43': 0.09892170131206512, '44': 0.06595687568187714} |
 | ternary | S0 | 4096 | 0.09994 ± 0.03927 | {'42': 0.13865698873996735, '43': 0.10102854669094086, '44': 0.060138776898384094} |
+| float | S1 | 4096 | 0.09729 ± 0.03878 | {'42': 0.14011552929878235, '43': 0.0645456463098526, '44': 0.08721236884593964} |
+| ternary | S1 | 4096 | 0.07247 ± 0.01229 | {'42': 0.06988079845905304, '43': 0.06169264018535614, '44': 0.08584915101528168} |
 | float | S0 | 16384 | 0.10422 ± 0.03034 | {'42': 0.13417574018239975, '43': 0.1049601174890995, '44': 0.07351652160286903} |
 | ternary | S0 | 16384 | 0.11620 ± 0.04650 | {'42': 0.16284942254424095, '43': 0.11588728427886963, '44': 0.06985913217067719} |
+| float | S1 | 16384 | 0.11593 ± 0.03867 | {'42': 0.15633563697338104, '43': 0.07926047593355179, '44': 0.1122034341096878} |
+| ternary | S1 | 16384 | 0.08569 ± 0.02561 | {'42': 0.06554384157061577, '43': 0.07700004428625107, '44': 0.11451354995369911} |
 
 ## Nearest measured same-memory comparison
 
 | Float scale | Repeat scale | Validation bytes | Static byte ratio | Edge ratio | Loss delta | Within1% budget |
 |---|---|---:|---:|---:|---:|---|
-| S0 | S0 | 4096 | 0.402625 | 1.00 | 0.09385 | False |
-| S0 | S0 | 16384 | 0.402625 | 1.00 | 0.10422 | False |
+| S0 | S1 | 4096 | 0.522100 | 4.00 | 0.09638 | False |
+| S1 | S1 | 4096 | 0.179317 | 1.00 | 0.09729 | False |
+| S0 | S1 | 16384 | 0.522100 | 4.00 | 0.10935 | False |
+| S1 | S1 | 16384 | 0.179317 | 1.00 | 0.11593 | False |
 Only within1% measured matches support a same-memory claim; unmatched nearest rows are explicitly not budget matched. No interpolation/extrapolation. FP16 float models were not trained and are not substituted into the measured table.
 
 ## Empirical scaling slopes
 
 | Family | From | To | Validation bytes | Dimension | Loss/log-dimension slope |
 |---|---|---|---:|---|---:|
+| float | S0 | S1 | 4096 | edge_slots | -0.000660 |
+| float | S0 | S1 | 4096 | packed_static_bytes | -0.000856 |
+| ternary | S0 | S1 | 4096 | edge_slots | 0.021634 |
+| ternary | S0 | S1 | 4096 | packed_static_bytes | 0.115414 |
+| repeat | S0 | S1 | 4096 | edge_slots | 0.001820 |
+| repeat | S0 | S1 | 4096 | packed_static_bytes | 0.009711 |
+| float | S0 | S1 | 16384 | edge_slots | -0.004750 |
+| float | S0 | S1 | 16384 | packed_static_bytes | -0.006162 |
+| ternary | S0 | S1 | 16384 | edge_slots | 0.025711 |
+| ternary | S0 | S1 | 16384 | packed_static_bytes | 0.137166 |
+| repeat | S0 | S1 | 16384 | edge_slots | 0.003701 |
+| repeat | S0 | S1 | 16384 | packed_static_bytes | 0.019742 |
 
 ## Memory and prototype runtime
 
 | Family | Scale | Trainable FP params | Low-bit slots | Packed structure | Controller bytes | Embedding/head bytes | Static packed | Dynamic | Modeled peak | Export bytes | Resume bytes | Optimizer bytes |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | float | S0 | 51280 | 0 | 131072 | 516 | 65536 | 205700 | 5218 | 210918 | 210416.00000 ± 0.00000 | 812739.33333 ± 36.95042 | 410260 |
+| float | S1 | 149584 | 0 | 524288 | 516 | 65536 | 598916 | 5218 | 604134 | 603632.00000 ± 0.00000 | 1992430.00000 ± 0.00000 | 1196692 |
 | ternary | S0 | 51280 | 32768 | 8192 | 516 | 65536 | 82820 | 5218 | 88038 | 87536.00000 ± 0.00000 | 812760.66667 ± 36.95042 | 410260 |
+| ternary | S1 | 149584 | 131072 | 32768 | 516 | 65536 | 107396 | 5218 | 112614 | 112112.00000 ± 0.00000 | 1992430.00000 ± 0.00000 | 1196692 |
 | repeat | S0 | 51409 | 32768 | 8192 | 516 | 65536 | 82820 | 5218 | 88038 | 87536.00000 ± 0.00000 | 817107.33333 ± 36.95042 | 411308 |
+| repeat | S1 | 149713 | 131072 | 32768 | 516 | 65536 | 107396 | 5218 | 112614 | 112112.00000 ± 0.00000 | 1996755.33333 ± 36.95042 | 1197740 |
 
 | Family | Scale | Train tok/s | Inference tok/s | Latency ms/token | Peak process RSS bytes |
 |---|---|---:|---:|---:|---:|
 | float | S0 | 9315.94308 ± 313.54531 | 722.32423 ± 96.16907 | 1.40217 ± 0.20014 | 294100992.00000 ± 90576.25861 |
+| float | S1 | 9482.28540 ± 266.74030 | 784.31057 ± 6.25428 | 1.27506 ± 0.01017 | 297736874.66667 ± 171070.32796 |
 | ternary | S0 | 8892.18892 ± 179.88945 | 603.20354 ± 58.68037 | 1.66894 ± 0.17152 | 294638933.33333 ± 59403.76895 |
+| ternary | S1 | 8752.57277 ± 164.69970 | 545.49443 ± 145.78233 | 1.94251 ± 0.61356 | 298362197.33333 ± 408581.56053 |
 | repeat | S0 | 1170.90495 ± 26.27557 | 135.90620 ± 3.66701 | 7.36165 ± 0.20177 | 398875306.66667 ± 1486217.85729 |
+| repeat | S1 | 1166.55600 ± 7.29188 | 133.17699 ± 1.65809 | 7.50958 ± 0.09305 | 400594261.33333 ± 3938585.32814 |
 Timings are prototype measurements under the actual worker schedule. Peak process RSS includes interpreter/Torch and is cumulative per job process. CUDA stats are null on CPU. No GPU or custom-accelerator advantage is inferred from packed bytes or Python wall time.
 
 ## Representative repetition ablations
