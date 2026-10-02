@@ -1,0 +1,4 @@
+{
+  "training_started_before_recovery": false,
+  "reason": "Initial commit formatting check rejected an extra EOF blank line. Fixed before main training; no completed experiment rerun."
+}

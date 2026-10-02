@@ -1,0 +1,47 @@
+{
+  "base_commit": "67ac23b391a20ce0950cd8f48d5f48b5a30ce3bf",
+  "corpus": "data/raw/tinyshakespeare.txt",
+  "seeds": [
+    42
+  ],
+  "milestones": [
+    128,
+    256
+  ],
+  "validation_bytes": [
+    128,
+    256
+  ],
+  "batch": 4,
+  "val_batch": 8,
+  "lr": 0.0003,
+  "models": [
+    "prg_v21_core",
+    "prg_v21_clean_no_accum",
+    "prg_v21_gateway_probe"
+  ],
+  "v1": {
+    "vocab_size": 256,
+    "context": 32,
+    "regions": 32,
+    "region_size": 1024,
+    "edges_per_node": 16,
+    "gateways": 4,
+    "active_nodes": 16,
+    "initial_regions": 2,
+    "max_cycles": 4,
+    "d_model": 64
+  },
+  "variants": {
+    "prg_v21_core": {},
+    "prg_v21_clean_no_accum": {
+      "accumulation": false
+    },
+    "prg_v21_gateway_probe": {
+      "minimum_gateway_hops": 1
+    }
+  },
+  "threads": 1,
+  "ema_decay": 0.95,
+  "checkpoint_interval": 100
+}

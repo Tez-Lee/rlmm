@@ -1,0 +1,824 @@
+{
+  "pytest_summary": "42 passed; existing33 + new9 tests",
+  "smoke_summary": "All3 variants, seed42, full main shape,128\u2192256 training bytes; six finite milestones. Frozen baselines not trained.",
+  "characterization": {
+    "seed": 42,
+    "config": {
+      "regions": 6,
+      "region_size": 24,
+      "edges_per_node": 4,
+      "gateways": 2,
+      "active_nodes": 3,
+      "initial_regions": 1,
+      "context": 4,
+      "d_model": 16,
+      "max_cycles": 1
+    },
+    "v2_before": {
+      "prefix_embedding_gradient_L1": 0.0,
+      "per_token_gradient_L1": [
+        0.0,
+        0.0,
+        0.0,
+        1.6407793760299683
+      ],
+      "current_embedding_gradient_L1": 1.6407793760299683,
+      "prefix_change_last_logits_L2": 0.0,
+      "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+    },
+    "v21_after": {
+      "prefix_embedding_gradient_L1": 0.6084781065583229,
+      "per_token_gradient_L1": [
+        0.15598848462104797,
+        0.09998411685228348,
+        0.35250550508499146,
+        1.488006830215454
+      ],
+      "current_embedding_gradient_L1": 1.488006830215454,
+      "prefix_change_last_logits_L2": 0.8078175783157349,
+      "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+    }
+  },
+  "smoke_results": [
+    {
+      "model": "prg_v21_gateway_probe",
+      "tokens": 128,
+      "validation": {
+        "128": {
+          "sampled": {
+            "loss": 6.233794689178467,
+            "ppl": 509.68591811753953,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.1655773420479303,
+              "gateway_action_fraction": 0.6339869281045751,
+              "RETURN_action_fraction": 0.09803921568627451,
+              "OUTPUT_action_fraction": 0.10239651416122005,
+              "mean_gateway_hops_per_token": 4.546875,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 3.5859375,
+              "mean_cycles_per_token": 3.90625,
+              "gateway_slot_action_fraction": [
+                0.15904139433551198,
+                0.1655773420479303,
+                0.15468409586056645,
+                0.15468409586056645
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 5.328125,
+              "tokens_observed": 128.0
+            }
+          },
+          "argmax": {
+            "loss": 6.05756950378418,
+            "ppl": 427.33553623023994,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.18463180362860193,
+              "gateway_action_fraction": 0.3671291355389541,
+              "RETURN_action_fraction": 0.22305229455709713,
+              "OUTPUT_action_fraction": 0.22518676627534684,
+              "mean_gateway_hops_per_token": 2.6875,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 3.66015625,
+              "mean_cycles_per_token": 3.8359375,
+              "gateway_slot_action_fraction": [
+                0.054429028815368194,
+                0.007470651013874066,
+                0.0,
+                0.3052294557097118
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.1875,
+              "tokens_observed": 128.0
+            }
+          }
+        },
+        "256": {
+          "sampled": {
+            "loss": 6.1411356925964355,
+            "ppl": 464.58089244498285,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.17110266159695817,
+              "gateway_action_fraction": 0.6349809885931559,
+              "RETURN_action_fraction": 0.09342748506246605,
+              "OUTPUT_action_fraction": 0.10048886474741989,
+              "mean_gateway_hops_per_token": 4.56640625,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 3.595703125,
+              "mean_cycles_per_token": 3.90234375,
+              "gateway_slot_action_fraction": [
+                0.14883215643671918,
+                0.1645844649646931,
+                0.1520912547528517,
+                0.1694731124388919
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 5.40234375,
+              "tokens_observed": 256.0
+            }
+          },
+          "argmax": {
+            "loss": 6.01258659362793,
+            "ppl": 408.5386783364263,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.19068023567220138,
+              "gateway_action_fraction": 0.3658275307980718,
+              "RETURN_action_fraction": 0.2196036422067488,
+              "OUTPUT_action_fraction": 0.22388859132297803,
+              "mean_gateway_hops_per_token": 2.66796875,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 3.646484375,
+              "mean_cycles_per_token": 3.8515625,
+              "gateway_slot_action_fraction": [
+                0.04552758435993572,
+                0.010176754151044456,
+                0.0,
+                0.31012319228709156
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.17578125,
+              "tokens_observed": 256.0
+            }
+          }
+        }
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.20076485350728035,
+        "per_token_gradient_L1": [
+          0.07114806026220322,
+          0.06820924580097198,
+          0.06140754744410515,
+          1.1161645650863647
+        ],
+        "current_embedding_gradient_L1": 1.1161645650863647,
+        "prefix_change_last_logits_L2": 4.432085037231445,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      }
+    },
+    {
+      "model": "prg_v21_gateway_probe",
+      "tokens": 256,
+      "validation": {
+        "128": {
+          "sampled": {
+            "loss": 6.204434394836426,
+            "ppl": 494.9389367392245,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.16666666666666666,
+              "gateway_action_fraction": 0.6328976034858388,
+              "RETURN_action_fraction": 0.09803921568627451,
+              "OUTPUT_action_fraction": 0.10239651416122005,
+              "mean_gateway_hops_per_token": 4.5390625,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 3.5859375,
+              "mean_cycles_per_token": 3.90625,
+              "gateway_slot_action_fraction": [
+                0.1579520697167756,
+                0.1644880174291939,
+                0.15577342047930284,
+                0.15468409586056645
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 5.328125,
+              "tokens_observed": 128.0
+            }
+          },
+          "argmax": {
+            "loss": 6.044575214385986,
+            "ppl": 421.81853697407854,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.18696581196581197,
+              "gateway_action_fraction": 0.3611111111111111,
+              "RETURN_action_fraction": 0.22008547008547008,
+              "OUTPUT_action_fraction": 0.23183760683760685,
+              "mean_gateway_hops_per_token": 2.640625,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 3.65625,
+              "mean_cycles_per_token": 3.84375,
+              "gateway_slot_action_fraction": [
+                0.05128205128205128,
+                0.007478632478632479,
+                0.0,
+                0.30235042735042733
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.1796875,
+              "tokens_observed": 128.0
+            }
+          }
+        },
+        "256": {
+          "sampled": {
+            "loss": 6.112539291381836,
+            "ppl": 451.4837095078396,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.17200217037438958,
+              "gateway_action_fraction": 0.6326641345632121,
+              "RETURN_action_fraction": 0.09441128594682582,
+              "OUTPUT_action_fraction": 0.10092240911557243,
+              "mean_gateway_hops_per_token": 4.5546875,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 3.599609375,
+              "mean_cycles_per_token": 3.8984375,
+              "gateway_slot_action_fraction": [
+                0.14812805208898536,
+                0.16277807921866522,
+                0.15246880086814976,
+                0.16928920238741182
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 5.390625,
+              "tokens_observed": 256.0
+            }
+          },
+          "argmax": {
+            "loss": 6.01308536529541,
+            "ppl": 408.74249667943246,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.19269994632313472,
+              "gateway_action_fraction": 0.35909822866344604,
+              "RETURN_action_fraction": 0.21792807300053677,
+              "OUTPUT_action_fraction": 0.23027375201288244,
+              "mean_gateway_hops_per_token": 2.61328125,
+              "fraction_tokens_using_gateway": 1.0,
+              "mean_trajectory_length_per_walker": 3.638671875,
+              "mean_cycles_per_token": 3.85546875,
+              "gateway_slot_action_fraction": [
+                0.042404723564143855,
+                0.010198604401502952,
+                0.0,
+                0.3064949006977992
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.0,
+              "direct_OUTPUT_fraction_tokens": 0.0,
+              "unique_regions_visited_per_token": 4.16015625,
+              "tokens_observed": 256.0
+            }
+          }
+        }
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.20103365182876587,
+        "per_token_gradient_L1": [
+          0.07113100588321686,
+          0.06827796995639801,
+          0.061624675989151,
+          1.119822382926941
+        ],
+        "current_embedding_gradient_L1": 1.119822382926941,
+        "prefix_change_last_logits_L2": 4.424125671386719,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      }
+    },
+    {
+      "model": "prg_v21_clean_no_accum",
+      "tokens": 128,
+      "validation": {
+        "128": {
+          "sampled": {
+            "loss": 6.094212055206299,
+            "ppl": 443.284623721407,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.16687422166874222,
+              "gateway_action_fraction": 0.5790784557907845,
+              "RETURN_action_fraction": 0.09339975093399751,
+              "OUTPUT_action_fraction": 0.16064757160647572,
+              "mean_gateway_hops_per_token": 3.6328125,
+              "fraction_tokens_using_gateway": 0.9375,
+              "mean_trajectory_length_per_walker": 3.13671875,
+              "mean_cycles_per_token": 3.6875,
+              "gateway_slot_action_fraction": [
+                0.13947696139476962,
+                0.16189290161892902,
+                0.13947696139476962,
+                0.1382316313823163
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.15234375,
+              "direct_OUTPUT_fraction_tokens": 0.0390625,
+              "unique_regions_visited_per_token": 4.671875,
+              "tokens_observed": 128.0
+            }
+          },
+          "argmax": {
+            "loss": 6.159563064575195,
+            "ppl": 473.22126252294527,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.38461538461538464,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.6153846153846154,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.625,
+              "mean_cycles_per_token": 1.7734375,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.375,
+              "direct_OUTPUT_fraction_tokens": 0.2265625,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 128.0
+            }
+          },
+          "expected": {
+            "loss": 6.1691999435424805,
+            "ppl": 477.8036832075348,
+            "validation_tokens": 128,
+            "routing": null
+          }
+        },
+        "256": {
+          "sampled": {
+            "loss": 6.106734752655029,
+            "ppl": 448.8706459824465,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.16603295310519645,
+              "gateway_action_fraction": 0.5811153358681875,
+              "RETURN_action_fraction": 0.09188846641318124,
+              "OUTPUT_action_fraction": 0.16096324461343473,
+              "mean_gateway_hops_per_token": 3.58203125,
+              "fraction_tokens_using_gateway": 0.953125,
+              "mean_trajectory_length_per_walker": 3.08203125,
+              "mean_cycles_per_token": 3.68359375,
+              "gateway_slot_action_fraction": [
+                0.13751584283903676,
+                0.15335868187579213,
+                0.1394169835234474,
+                0.15082382762991128
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.171875,
+              "direct_OUTPUT_fraction_tokens": 0.03515625,
+              "unique_regions_visited_per_token": 4.70703125,
+              "tokens_observed": 256.0
+            }
+          },
+          "argmax": {
+            "loss": 6.083785057067871,
+            "ppl": 438.6865096979667,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.38164251207729466,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.6183574879227053,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.6171875,
+              "mean_cycles_per_token": 1.76171875,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.3828125,
+              "direct_OUTPUT_fraction_tokens": 0.23828125,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 256.0
+            }
+          },
+          "expected": {
+            "loss": 6.1101393699646,
+            "ppl": 450.4014832323014,
+            "validation_tokens": 256,
+            "routing": null
+          }
+        }
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.20062381029129028,
+        "per_token_gradient_L1": [
+          0.07099592685699463,
+          0.06811697781085968,
+          0.061510905623435974,
+          1.1189645528793335
+        ],
+        "current_embedding_gradient_L1": 1.1189645528793335,
+        "prefix_change_last_logits_L2": 4.421187400817871,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      }
+    },
+    {
+      "model": "prg_v21_clean_no_accum",
+      "tokens": 256,
+      "validation": {
+        "128": {
+          "sampled": {
+            "loss": 6.149117946624756,
+            "ppl": 468.3041353110904,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.16852540272614622,
+              "gateway_action_fraction": 0.5799256505576208,
+              "RETURN_action_fraction": 0.09169764560099132,
+              "OUTPUT_action_fraction": 0.15985130111524162,
+              "mean_gateway_hops_per_token": 3.65625,
+              "fraction_tokens_using_gateway": 0.9375,
+              "mean_trajectory_length_per_walker": 3.15234375,
+              "mean_cycles_per_token": 3.6875,
+              "gateway_slot_action_fraction": [
+                0.1412639405204461,
+                0.161090458488228,
+                0.13878562577447337,
+                0.13878562577447337
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.1484375,
+              "direct_OUTPUT_fraction_tokens": 0.0390625,
+              "unique_regions_visited_per_token": 4.6875,
+              "tokens_observed": 128.0
+            }
+          },
+          "argmax": {
+            "loss": 6.151688575744629,
+            "ppl": 469.50952019323876,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.38313253012048193,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.6168674698795181,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.62109375,
+              "mean_cycles_per_token": 1.796875,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.37890625,
+              "direct_OUTPUT_fraction_tokens": 0.203125,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 128.0
+            }
+          },
+          "expected": {
+            "loss": 6.1635613441467285,
+            "ppl": 475.11712099015926,
+            "validation_tokens": 128,
+            "routing": null
+          }
+        },
+        "256": {
+          "sampled": {
+            "loss": 6.093350887298584,
+            "ppl": 442.9030455544924,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.16540404040404041,
+              "gateway_action_fraction": 0.5833333333333334,
+              "RETURN_action_fraction": 0.09154040404040405,
+              "OUTPUT_action_fraction": 0.1597222222222222,
+              "mean_gateway_hops_per_token": 3.609375,
+              "fraction_tokens_using_gateway": 0.953125,
+              "mean_trajectory_length_per_walker": 3.09375,
+              "mean_cycles_per_token": 3.6953125,
+              "gateway_slot_action_fraction": [
+                0.13825757575757575,
+                0.1527777777777778,
+                0.14015151515151514,
+                0.15214646464646464
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.169921875,
+              "direct_OUTPUT_fraction_tokens": 0.03515625,
+              "unique_regions_visited_per_token": 4.73828125,
+              "tokens_observed": 256.0
+            }
+          },
+          "argmax": {
+            "loss": 6.076554298400879,
+            "ppl": 435.5259139391333,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.3808948004836759,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.619105199516324,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.615234375,
+              "mean_cycles_per_token": 1.7734375,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.384765625,
+              "direct_OUTPUT_fraction_tokens": 0.2265625,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 256.0
+            }
+          },
+          "expected": {
+            "loss": 6.104898929595947,
+            "ppl": 448.04735483966346,
+            "validation_tokens": 256,
+            "routing": null
+          }
+        }
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.20057127252221107,
+        "per_token_gradient_L1": [
+          0.07080726325511932,
+          0.06805956363677979,
+          0.061704445630311966,
+          1.121969223022461
+        ],
+        "current_embedding_gradient_L1": 1.121969223022461,
+        "prefix_change_last_logits_L2": 4.415092468261719,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      }
+    },
+    {
+      "model": "prg_v21_core",
+      "tokens": 128,
+      "validation": {
+        "128": {
+          "sampled": {
+            "loss": 6.143501281738281,
+            "ppl": 465.6812008853978,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.16770186335403728,
+              "gateway_action_fraction": 0.5788819875776398,
+              "RETURN_action_fraction": 0.09565217391304348,
+              "OUTPUT_action_fraction": 0.1577639751552795,
+              "mean_gateway_hops_per_token": 3.640625,
+              "fraction_tokens_using_gateway": 0.9375,
+              "mean_trajectory_length_per_walker": 3.14453125,
+              "mean_cycles_per_token": 3.6875,
+              "gateway_slot_action_fraction": [
+                0.1391304347826087,
+                0.16149068322981366,
+                0.1391304347826087,
+                0.1391304347826087
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.15234375,
+              "direct_OUTPUT_fraction_tokens": 0.0390625,
+              "unique_regions_visited_per_token": 4.671875,
+              "tokens_observed": 128.0
+            }
+          },
+          "argmax": {
+            "loss": 6.121158123016357,
+            "ppl": 455.391788932737,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.38461538461538464,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.6153846153846154,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.625,
+              "mean_cycles_per_token": 1.7734375,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.375,
+              "direct_OUTPUT_fraction_tokens": 0.2265625,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 128.0
+            }
+          },
+          "expected": {
+            "loss": 6.185615062713623,
+            "ppl": 485.71161485876104,
+            "validation_tokens": 128,
+            "routing": null
+          }
+        },
+        "256": {
+          "sampled": {
+            "loss": 6.125880241394043,
+            "ppl": 457.5472881241283,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.1651898734177215,
+              "gateway_action_fraction": 0.5835443037974684,
+              "RETURN_action_fraction": 0.09177215189873418,
+              "OUTPUT_action_fraction": 0.15949367088607594,
+              "mean_gateway_hops_per_token": 3.6015625,
+              "fraction_tokens_using_gateway": 0.953125,
+              "mean_trajectory_length_per_walker": 3.0859375,
+              "mean_cycles_per_token": 3.68359375,
+              "gateway_slot_action_fraction": [
+                0.1379746835443038,
+                0.15379746835443037,
+                0.13924050632911392,
+                0.15253164556962026
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.171875,
+              "direct_OUTPUT_fraction_tokens": 0.03515625,
+              "unique_regions_visited_per_token": 4.71875,
+              "tokens_observed": 256.0
+            }
+          },
+          "argmax": {
+            "loss": 6.069665908813477,
+            "ppl": 432.53615091673703,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.3823884197828709,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.617611580217129,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.619140625,
+              "mean_cycles_per_token": 1.765625,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.380859375,
+              "direct_OUTPUT_fraction_tokens": 0.234375,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 256.0
+            }
+          },
+          "expected": {
+            "loss": 6.117491722106934,
+            "ppl": 453.72519712743417,
+            "validation_tokens": 256,
+            "routing": null
+          }
+        }
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.200648732483387,
+        "per_token_gradient_L1": [
+          0.07100850343704224,
+          0.06809631735086441,
+          0.06154391169548035,
+          1.1183817386627197
+        ],
+        "current_embedding_gradient_L1": 1.1183817386627197,
+        "prefix_change_last_logits_L2": 4.4206318855285645,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      }
+    },
+    {
+      "model": "prg_v21_core",
+      "tokens": 256,
+      "validation": {
+        "128": {
+          "sampled": {
+            "loss": 6.1539177894592285,
+            "ppl": 470.55732471097645,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.16913580246913582,
+              "gateway_action_fraction": 0.5802469135802469,
+              "RETURN_action_fraction": 0.09506172839506173,
+              "OUTPUT_action_fraction": 0.15555555555555556,
+              "mean_gateway_hops_per_token": 3.671875,
+              "fraction_tokens_using_gateway": 0.9375,
+              "mean_trajectory_length_per_walker": 3.1640625,
+              "mean_cycles_per_token": 3.6875,
+              "gateway_slot_action_fraction": [
+                0.14074074074074075,
+                0.16049382716049382,
+                0.13950617283950617,
+                0.13950617283950617
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.1484375,
+              "direct_OUTPUT_fraction_tokens": 0.0390625,
+              "unique_regions_visited_per_token": 4.6796875,
+              "tokens_observed": 128.0
+            }
+          },
+          "argmax": {
+            "loss": 6.115391254425049,
+            "ppl": 452.7731622237135,
+            "validation_tokens": 128,
+            "routing": {
+              "LOCAL_action_fraction": 0.38313253012048193,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.6168674698795181,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.62109375,
+              "mean_cycles_per_token": 1.796875,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.37890625,
+              "direct_OUTPUT_fraction_tokens": 0.203125,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 128.0
+            }
+          },
+          "expected": {
+            "loss": 6.1805806159973145,
+            "ppl": 483.2724706368782,
+            "validation_tokens": 128,
+            "routing": null
+          }
+        },
+        "256": {
+          "sampled": {
+            "loss": 6.089877128601074,
+            "ppl": 441.36717641168445,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.16561712846347607,
+              "gateway_action_fraction": 0.5843828715365239,
+              "RETURN_action_fraction": 0.09193954659949623,
+              "OUTPUT_action_fraction": 0.1580604534005038,
+              "mean_gateway_hops_per_token": 3.625,
+              "fraction_tokens_using_gateway": 0.953125,
+              "mean_trajectory_length_per_walker": 3.1015625,
+              "mean_cycles_per_token": 3.6953125,
+              "gateway_slot_action_fraction": [
+                0.13916876574307305,
+                0.1530226700251889,
+                0.13916876574307305,
+                0.1530226700251889
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.169921875,
+              "direct_OUTPUT_fraction_tokens": 0.03515625,
+              "unique_regions_visited_per_token": 4.73828125,
+              "tokens_observed": 256.0
+            }
+          },
+          "argmax": {
+            "loss": 6.063235759735107,
+            "ppl": 429.76380184578113,
+            "validation_tokens": 256,
+            "routing": {
+              "LOCAL_action_fraction": 0.3808948004836759,
+              "gateway_action_fraction": 0.0,
+              "RETURN_action_fraction": 0.0,
+              "OUTPUT_action_fraction": 0.619105199516324,
+              "mean_gateway_hops_per_token": 0.0,
+              "fraction_tokens_using_gateway": 0.0,
+              "mean_trajectory_length_per_walker": 1.615234375,
+              "mean_cycles_per_token": 1.7734375,
+              "gateway_slot_action_fraction": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "output_at_first_cycle_fraction_walkers": 0.384765625,
+              "direct_OUTPUT_fraction_tokens": 0.2265625,
+              "unique_regions_visited_per_token": 2.0,
+              "tokens_observed": 256.0
+            }
+          },
+          "expected": {
+            "loss": 6.113999843597412,
+            "ppl": 452.14360682999734,
+            "validation_tokens": 256,
+            "routing": null
+          }
+        }
+      },
+      "temporal_credit": {
+        "prefix_embedding_gradient_L1": 0.200599305331707,
+        "per_token_gradient_L1": [
+          0.07082945108413696,
+          0.06802047789096832,
+          0.061749376356601715,
+          1.1213711500167847
+        ],
+        "current_embedding_gradient_L1": 1.1213711500167847,
+        "prefix_change_last_logits_L2": 4.416329383850098,
+        "definition": "Forced direct OUTPUT, argmax, max1 cycle, scalar next-byte logit69. Prefix-only embedding activation gradients; not parameter gradients or full ST training credit."
+      }
+    }
+  ]
+}
