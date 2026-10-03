@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "verified_extension_milestones": 132,
+  "frozen_file_count": 1203,
+  "per_seed_stream_hashes": {
+    "42": [
+      "66b82551ecc430f5141aa04cdd5d541d624e516ff6cc14a79fa81293b79a8b3a"
+    ],
+    "43": [
+      "d9aed5af21aca9893f5915c500523c7e5fb50872ce3fc3a8a297b78126ec9a02"
+    ],
+    "44": [
+      "05bf96d36141fc14cdd123dda4907fd58e05ea845f346eed19c3d89d99fb8b3f"
+    ]
+  }
+}

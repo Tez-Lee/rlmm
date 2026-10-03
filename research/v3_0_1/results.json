@@ -158943,5 +158943,11 @@
       "loss_improvement": 0.029288504272699356,
       "loss_slope_per_log_bytes": -0.04225437986927858
     }
-  ]
+  ],
+  "decision": {
+    "same_edge_crossover": "disappeared",
+    "same_memory_crossover": "no",
+    "stable_majority_seed_memory_pairs": [],
+    "case": "Case A: v3 crossover was substantially explained by unequal convergence under fixed-data-budget scaling. Current same-edge repetition-as-weight-substitution hypothesis is not supported strongly enough to justify further scaling in this architecture."
+  }
 }

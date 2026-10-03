@@ -357,3 +357,13 @@ Packed exports actually encode2-bit ternary edges; PyTorch execution decodesFP32
 
 Resume: `OMP_NUM_THREADS=1 PYTHONPATH=.deps:. python scripts/run_repetition_scaling.py --push`. Failed checkpoints remain under ignored runs/v3; completed rows skip. Resource-limited/failed jobs are recorded; `--retry-failed` explicitly retries only such jobs, preserving failure history. Install the project research/test extras on a fresh checkout.
 The prior AI-assisted development disclosure, novelty/prior-art caveats and ChatGPT-surfaced literature remain intact. The human author set the SAME-edge hypothesis and research direction; OpenAI models assisted discussion, implementation, testing, automation and reporting. No claim of original AI-generated source code or established architecture novelty is made.
+
+## PRG-v3.0.1 Extended-Training Verification
+
+This duration-only verification tests whether v3 S3/S4 same-edge crossover was undertraining under the uniform819200-byte budget. Architecture, topology, optimizer, learning rate, stream sampler, state, byte vocabulary and validation are unchanged. All33 selected runs resume original model/two-optimizer/RNG/cursor checkpoints. The preregistered final budget is13107200 bytes.
+
+Complete=True; latest completed bytes=13107200; failures/resource limits=0. Final same-edge crossover: disappeared; final same-memory crossover: no. Case A: v3 crossover was substantially explained by unequal convergence under fixed-data-budget scaling. Current same-edge repetition-as-weight-substitution hypothesis is not supported strongly enough to justify further scaling in this architecture.
+
+Every seed, milestone, paired difference, coverage diagnostic, runtime limitation, six static curves and all19 research answers: [research/v3_0_1/REPORT.md](research/v3_0_1/REPORT.md). [Machine results](research/v3_0_1/results.json). Original v3 results and earlier disclosure/prior-art sections remain unchanged.
+
+Resume: `OMP_NUM_THREADS=1 PYTHONPATH=.deps:. python scripts/run_extended_training.py --push`. Completed milestones skip. Use `--retry-failed` only for previously recorded failures/resource limits; source checkpoints are never retrained automatically.
