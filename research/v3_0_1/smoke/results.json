@@ -1,0 +1,806 @@
+{
+  "spec": {
+    "source_root": "runs/v3",
+    "source_report": "research/v3",
+    "base_training_bytes": 819200,
+    "milestones": [
+      832000
+    ],
+    "combinations": {
+      "float": [
+        "S0"
+      ]
+    },
+    "seeds": [
+      42
+    ],
+    "workers": 2,
+    "threads": 1,
+    "diagnostic_interval": 100,
+    "resource_limits": {
+      "job_stage_wall_seconds": 21600,
+      "minimum_free_disk_bytes": 2000000000
+    }
+  },
+  "base_spec": {
+    "base_commit": "dc2c8867abca93f80977bd83a6a8e24d0f867411",
+    "corpus": "data/raw/tinyshakespeare.txt",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "families": [
+      "float",
+      "ternary",
+      "repeat"
+    ],
+    "scales": {
+      "S0": 1024,
+      "S1": 4096,
+      "S2": 16384,
+      "S3": 65536,
+      "S4": 262144
+    },
+    "model": {
+      "slots": 32,
+      "active_sources": 16,
+      "hidden": 64,
+      "context": 32,
+      "max_repeat": 8,
+      "state_decay": 0.9
+    },
+    "milestones": [
+      12800,
+      51200,
+      204800,
+      819200
+    ],
+    "validation_bytes": [
+      4096,
+      16384
+    ],
+    "batch": 4,
+    "val_batch": 8,
+    "lr": 0.0003,
+    "checkpoint_interval": 100,
+    "workers": 2,
+    "threads": 1,
+    "diagnostic_scales": [
+      "S0",
+      "S2",
+      "S4"
+    ],
+    "fixed_repeats": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "diagnostic_validation_bytes": 4096,
+    "optimizer": "SparseAdam edge latents (no decay) + AdamW neural blocks; both lr3e-4, global combined gradient clip1; identical families",
+    "resource_limits": {
+      "job_wall_seconds": 21600,
+      "minimum_free_disk_bytes": 2000000000
+    }
+  },
+  "complete": true,
+  "expected_extension_milestones": 1,
+  "completed_extension_milestones": 1,
+  "latest_completed_training_bytes": 832000,
+  "missing": [],
+  "failures": [],
+  "results": [
+    {
+      "family": "float",
+      "scale": "S0",
+      "seed": 42,
+      "edge_slots": 32768,
+      "training_tokens": 819200,
+      "train_loss": 3.234553337097168,
+      "validation": {
+        "4096": {
+          "loss": 3.0776010900735855,
+          "ppl": 21.706268505960853,
+          "validation_tokens": 4096,
+          "repetition": {
+            "tokens": 4096,
+            "hist": [
+              2097152,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "contribution_sum_by_count": [
+              176978.72079467773,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moments": [
+              2097152.0,
+              2097152.0,
+              2097152.0,
+              176978.73097229004,
+              32493.15899658203,
+              176978.73097229004,
+              633177.1737670898,
+              396395.36781311035,
+              633177.1737670898
+            ],
+            "repeat_probability_sum": 0.0,
+            "controller_decisions": 0.0,
+            "nonzero_edge_operations": 2097152.0,
+            "controller_candidate_evaluations": 0,
+            "identity_failures": 0,
+            "mean_repeats": 1.0,
+            "median_repeats": 1,
+            "fraction_repeat_1": 1.0,
+            "fraction_repeat_ge2": 0.0,
+            "fraction_repeat_ge4": 0.0,
+            "fraction_at_max": 0.0,
+            "repeated_edge_operations_per_token": 0.0,
+            "unique_edges_per_token": 512.0,
+            "total_edge_operations_per_token": 512.0,
+            "compute_fraction_repetition": 0.0,
+            "same_edge_consecutive_revisits": 0,
+            "repeat_probability_mean": 0.0,
+            "advance_probability_mean": 1.0,
+            "repeat_output_proxy_correlation": null,
+            "repeat_accumulator_magnitude_correlation": null,
+            "mean_output_contribution_by_repeat": [
+              0.08439003028615844,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_edge_fraction_operations": 0.015625,
+            "unique_active_edge_fraction": 0.015625,
+            "approx_logical_edge_bytes_read_per_token": 2048.0,
+            "approx_fp32_latent_gather_bytes_per_token": 2048.0,
+            "scope": "Modeled additive operations including zero edges; shared CPU vector lanes interleave separate locked edges. Training evaluates all candidate gates; inference prototype also batches candidates, not a packed event-driven executor."
+          }
+        },
+        "16384": {
+          "loss": 3.0949433743953705,
+          "ppl": 22.08598786971908,
+          "validation_tokens": 16384,
+          "repetition": {
+            "tokens": 16384,
+            "hist": [
+              8388608,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "contribution_sum_by_count": [
+              701176.2743835449,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moments": [
+              8388608.0,
+              8388608.0,
+              8388608.0,
+              701176.3127746582,
+              128398.86709403992,
+              701176.3127746582,
+              2508804.3508911133,
+              1566777.371520996,
+              2508804.3508911133
+            ],
+            "repeat_probability_sum": 0.0,
+            "controller_decisions": 0.0,
+            "nonzero_edge_operations": 8388608.0,
+            "controller_candidate_evaluations": 0,
+            "identity_failures": 0,
+            "mean_repeats": 1.0,
+            "median_repeats": 1,
+            "fraction_repeat_1": 1.0,
+            "fraction_repeat_ge2": 0.0,
+            "fraction_repeat_ge4": 0.0,
+            "fraction_at_max": 0.0,
+            "repeated_edge_operations_per_token": 0.0,
+            "unique_edges_per_token": 512.0,
+            "total_edge_operations_per_token": 512.0,
+            "compute_fraction_repetition": 0.0,
+            "same_edge_consecutive_revisits": 0,
+            "repeat_probability_mean": 0.0,
+            "advance_probability_mean": 1.0,
+            "repeat_output_proxy_correlation": null,
+            "repeat_accumulator_magnitude_correlation": null,
+            "mean_output_contribution_by_repeat": [
+              0.08358672551912605,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_edge_fraction_operations": 0.015625,
+            "unique_active_edge_fraction": 0.015625,
+            "approx_logical_edge_bytes_read_per_token": 2048.0,
+            "approx_fp32_latent_gather_bytes_per_token": 2048.0,
+            "scope": "Modeled additive operations including zero edges; shared CPU vector lanes interleave separate locked edges. Training evaluates all candidate gates; inference prototype also batches candidates, not a packed event-driven executor."
+          }
+        }
+      },
+      "gradient_diagnostics": {
+        "prefix_embedding_gradient_L1": 3.064617156982422,
+        "current_embedding_gradient_L1": 10.333274841308594,
+        "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+      },
+      "memory": {
+        "trainable_float_parameters": 51280,
+        "trainable_fp32_edge_latents": 32768,
+        "low_bit_structural_edges": 0,
+        "edge_slots": 32768,
+        "static": {
+          "structural_edges": 131072,
+          "shared_controller": 516,
+          "embedding_head": 65536,
+          "seed_readout_norm": 8512,
+          "relative_offset_template": 64
+        },
+        "dynamic": {
+          "persistent_graph_readout_state": 64,
+          "rolling_address": 2,
+          "active_sources": 32,
+          "frozen_edge_messages_and_accumulators": 4096,
+          "repeat_counters_and_alive_flags": 1024
+        },
+        "packed_static_bytes": 205700,
+        "dynamic_inference_bytes": 5218,
+        "modeled_peak_bytes": 210918,
+        "shared_controller_fraction_static": 0.002508507535245503,
+        "actual_parameter_tensor_bytes": 205636,
+        "accounting": "Inference budgets count the frozen unused controller in single-pass controls, for exact repeat-OFF architecture matching. Training uses FP32 latent edges and dense SparseAdam moments; packed export is decoded to FP32 on load. Dynamic estimate per sequence excludes allocator, operators, unrolled autograd and controller candidate workspace."
+      },
+      "backend": "cpu",
+      "peak_process_rss_bytes": 293998592,
+      "actual_pytorch_resume_bytes": 812782,
+      "actual_inference_export_bytes": 210416,
+      "optimizer_training_only_tensor_bytes": 410260,
+      "checkpoint_identifier": "runs/v3/S0/float/seed42/tokens_819200.pt",
+      "checkpoint_sha256": "72998eaf4bc85ef782b4f59656d953a3426f84d74149f9e00ca1f25a01644765",
+      "stream_sha256": "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838",
+      "training_seconds": 89.23056964895659,
+      "training_tokens_per_second": 9180.710189600131,
+      "peak_allocated_cuda_bytes": null,
+      "peak_reserved_cuda_bytes": null,
+      "runtime": {
+        "inference_tokens_per_second": 613.2360720994176,
+        "latency_seconds_per_token": 0.0016306933748637675,
+        "generated_tokens": 16,
+        "note": "Short prototype sample, context recomputed, batched candidate gates even for inactive edges. No physical efficiency claim."
+      },
+      "historical_baseline": true
+    },
+    {
+      "family": "float",
+      "scale": "S0",
+      "seed": 42,
+      "training_tokens": 832000,
+      "edge_slots": 32768,
+      "train_loss": 3.158953905105591,
+      "validation": {
+        "4096": {
+          "loss": 3.0763725340366364,
+          "ppl": 21.679617513219366,
+          "validation_tokens": 4096,
+          "repetition": {
+            "tokens": 4096,
+            "hist": [
+              2097152,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "contribution_sum_by_count": [
+              175620.66137695312,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moments": [
+              2097152.0,
+              2097152.0,
+              2097152.0,
+              175620.67163085938,
+              32264.35639190674,
+              175620.67163085938,
+              627226.5307006836,
+              392293.2090148926,
+              627226.5307006836
+            ],
+            "repeat_probability_sum": 0.0,
+            "controller_decisions": 0.0,
+            "nonzero_edge_operations": 2097152.0,
+            "controller_candidate_evaluations": 0,
+            "identity_failures": 0,
+            "mean_repeats": 1.0,
+            "median_repeats": 1,
+            "fraction_repeat_1": 1.0,
+            "fraction_repeat_ge2": 0.0,
+            "fraction_repeat_ge4": 0.0,
+            "fraction_at_max": 0.0,
+            "repeated_edge_operations_per_token": 0.0,
+            "unique_edges_per_token": 512.0,
+            "total_edge_operations_per_token": 512.0,
+            "compute_fraction_repetition": 0.0,
+            "same_edge_consecutive_revisits": 0,
+            "repeat_probability_mean": 0.0,
+            "advance_probability_mean": 1.0,
+            "repeat_output_proxy_correlation": null,
+            "repeat_accumulator_magnitude_correlation": null,
+            "mean_output_contribution_by_repeat": [
+              0.08374245709273964,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_edge_fraction_operations": 0.015625,
+            "unique_active_edge_fraction": 0.015625,
+            "approx_logical_edge_bytes_read_per_token": 2048.0,
+            "approx_fp32_latent_gather_bytes_per_token": 2048.0,
+            "scope": "Modeled additive operations including zero edges; shared CPU vector lanes interleave separate locked edges. Training evaluates all candidate gates; inference prototype also batches candidates, not a packed event-driven executor."
+          }
+        },
+        "16384": {
+          "loss": 3.091372724622488,
+          "ppl": 22.00726716781408,
+          "validation_tokens": 16384,
+          "repetition": {
+            "tokens": 16384,
+            "hist": [
+              8388608,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "contribution_sum_by_count": [
+              696006.7250213623,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moments": [
+              8388608.0,
+              8388608.0,
+              8388608.0,
+              696006.7407226562,
+              127541.6277256012,
+              696006.7407226562,
+              2485986.745239258,
+              1551154.710144043,
+              2485986.745239258
+            ],
+            "repeat_probability_sum": 0.0,
+            "controller_decisions": 0.0,
+            "nonzero_edge_operations": 8388608.0,
+            "controller_candidate_evaluations": 0,
+            "identity_failures": 0,
+            "mean_repeats": 1.0,
+            "median_repeats": 1,
+            "fraction_repeat_1": 1.0,
+            "fraction_repeat_ge2": 0.0,
+            "fraction_repeat_ge4": 0.0,
+            "fraction_at_max": 0.0,
+            "repeated_edge_operations_per_token": 0.0,
+            "unique_edges_per_token": 512.0,
+            "total_edge_operations_per_token": 512.0,
+            "compute_fraction_repetition": 0.0,
+            "same_edge_consecutive_revisits": 0,
+            "repeat_probability_mean": 0.0,
+            "advance_probability_mean": 1.0,
+            "repeat_output_proxy_correlation": null,
+            "repeat_accumulator_magnitude_correlation": null,
+            "mean_output_contribution_by_repeat": [
+              0.08297046721236256,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_edge_fraction_operations": 0.015625,
+            "unique_active_edge_fraction": 0.015625,
+            "approx_logical_edge_bytes_read_per_token": 2048.0,
+            "approx_fp32_latent_gather_bytes_per_token": 2048.0,
+            "scope": "Modeled additive operations including zero edges; shared CPU vector lanes interleave separate locked edges. Training evaluates all candidate gates; inference prototype also batches candidates, not a packed event-driven executor."
+          }
+        }
+      },
+      "memory": {
+        "trainable_float_parameters": 51280,
+        "trainable_fp32_edge_latents": 32768,
+        "low_bit_structural_edges": 0,
+        "edge_slots": 32768,
+        "static": {
+          "structural_edges": 131072,
+          "shared_controller": 516,
+          "embedding_head": 65536,
+          "seed_readout_norm": 8512,
+          "relative_offset_template": 64
+        },
+        "dynamic": {
+          "persistent_graph_readout_state": 64,
+          "rolling_address": 2,
+          "active_sources": 32,
+          "frozen_edge_messages_and_accumulators": 4096,
+          "repeat_counters_and_alive_flags": 1024
+        },
+        "packed_static_bytes": 205700,
+        "dynamic_inference_bytes": 5218,
+        "modeled_peak_bytes": 210918,
+        "shared_controller_fraction_static": 0.002508507535245503,
+        "actual_parameter_tensor_bytes": 205636,
+        "accounting": "Inference budgets count the frozen unused controller in single-pass controls, for exact repeat-OFF architecture matching. Training uses FP32 latent edges and dense SparseAdam moments; packed export is decoded to FP32 on load. Dynamic estimate per sequence excludes allocator, operators, unrolled autograd and controller candidate workspace."
+      },
+      "backend": "cpu",
+      "checkpoint_identifier": "runs/v301_smoke/S0/float/seed42/tokens_832000.pt",
+      "checkpoint_sha256": "0218740066b6fb9fca545e7257832ef39505a1d102d2b7a676cf3e2b730f3bff",
+      "origin": {
+        "checkpoint_identifier": "runs/v3/S0/float/seed42/tokens_819200.pt",
+        "checkpoint_sha256": "72998eaf4bc85ef782b4f59656d953a3426f84d74149f9e00ca1f25a01644765",
+        "source_stream_sha256": "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838",
+        "baseline_training_seconds": 89.23056964895659,
+        "baseline_coverage": "not recorded in v3; continuation coverage starts at819200, not whole-history coverage"
+      },
+      "stream_sha256": "311417b344f2c80ef2c8c798f9106c6a6cfe62bd8e2523a2a0b5e8e77250b499",
+      "prefix_stream_sha256": "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838",
+      "gradient_diagnostics": {
+        "prefix_embedding_gradient_L1": 3.160897433757782,
+        "current_embedding_gradient_L1": 10.515228271484375,
+        "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+      },
+      "undertraining_diagnostics": {
+        "training_coverage": {
+          "unique_structural_edges_since_resume": 32768,
+          "visited_edge_fraction_since_resume": 1.0,
+          "per_source_optimizer_update_count_quantiles": [
+            76.0,
+            84.0,
+            87.0,
+            89.0,
+            97.0
+          ],
+          "coverage_counter_training_only_bytes": 4096,
+          "definition": "Exact distinct source rows present in coalesced sparse gradients; all slots are activated. Counts are optimizer steps touching each row, not nonzero parameter updates. Baseline coverage is not reconstructed."
+        },
+        "sampled_gradient_updates": [
+          {
+            "step": 6500,
+            "pre_clip_gradient_norm": 0.5557732156433423,
+            "post_clip_norm": 0.5557732156433423,
+            "sampled_edge_latent_mean_abs_update": 5.7951427152147517e-05,
+            "sampled_edge_latent_max_abs_update": 0.0002511739730834961,
+            "sample_rows": 64,
+            "sampling": "first64 sorted touched source rows every100 steps, not an unbiased graph-wide estimate"
+          }
+        ],
+        "held_out_coverage": {
+          "validation_bytes": 4096,
+          "unique_structural_edges": 32768,
+          "visited_edge_fraction": 1.0,
+          "definition": "Exact topology-defined distinct edges in fixed held-out windows; all slots of each activated source are used."
+        }
+      },
+      "continuation_seconds": 1.241837173998647,
+      "training_seconds": 90.47240682295524,
+      "training_tokens_per_second": 10307.309418661313,
+      "peak_process_rss_bytes": 295325696,
+      "actual_pytorch_resume_bytes": 821230,
+      "actual_inference_export_bytes": 210416,
+      "optimizer_training_only_tensor_bytes": 410260,
+      "peak_allocated_cuda_bytes": null,
+      "peak_reserved_cuda_bytes": null,
+      "runtime": {
+        "inference_tokens_per_second": 782.3227905574213,
+        "latency_seconds_per_token": 0.0012782447502104333,
+        "generated_tokens": 16,
+        "note": "Short prototype sample, context recomputed, batched candidate gates even for inactive edges. No physical efficiency claim."
+      }
+    }
+  ],
+  "summaries": [
+    {
+      "family": "float",
+      "scale": "S0",
+      "training_tokens": 819200,
+      "validation_bytes": 4096,
+      "loss": {
+        "mean": 3.0776010900735855,
+        "std": null,
+        "n": 1
+      },
+      "ppl": {
+        "mean": 21.706268505960853,
+        "std": null,
+        "n": 1
+      },
+      "repetition": {
+        "mean_repeats": {
+          "mean": 1.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_repeat_ge2": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_repeat_ge4": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_at_max": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "repeat_probability_mean": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "unique_edges_per_token": {
+          "mean": 512.0,
+          "std": null,
+          "n": 1
+        },
+        "total_edge_operations_per_token": {
+          "mean": 512.0,
+          "std": null,
+          "n": 1
+        },
+        "compute_fraction_repetition": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        }
+      }
+    },
+    {
+      "family": "float",
+      "scale": "S0",
+      "training_tokens": 832000,
+      "validation_bytes": 4096,
+      "loss": {
+        "mean": 3.0763725340366364,
+        "std": null,
+        "n": 1
+      },
+      "ppl": {
+        "mean": 21.679617513219366,
+        "std": null,
+        "n": 1
+      },
+      "repetition": {
+        "mean_repeats": {
+          "mean": 1.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_repeat_ge2": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_repeat_ge4": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_at_max": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "repeat_probability_mean": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "unique_edges_per_token": {
+          "mean": 512.0,
+          "std": null,
+          "n": 1
+        },
+        "total_edge_operations_per_token": {
+          "mean": 512.0,
+          "std": null,
+          "n": 1
+        },
+        "compute_fraction_repetition": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        }
+      }
+    },
+    {
+      "family": "float",
+      "scale": "S0",
+      "training_tokens": 819200,
+      "validation_bytes": 16384,
+      "loss": {
+        "mean": 3.0949433743953705,
+        "std": null,
+        "n": 1
+      },
+      "ppl": {
+        "mean": 22.08598786971908,
+        "std": null,
+        "n": 1
+      },
+      "repetition": {
+        "mean_repeats": {
+          "mean": 1.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_repeat_ge2": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_repeat_ge4": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_at_max": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "repeat_probability_mean": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "unique_edges_per_token": {
+          "mean": 512.0,
+          "std": null,
+          "n": 1
+        },
+        "total_edge_operations_per_token": {
+          "mean": 512.0,
+          "std": null,
+          "n": 1
+        },
+        "compute_fraction_repetition": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        }
+      }
+    },
+    {
+      "family": "float",
+      "scale": "S0",
+      "training_tokens": 832000,
+      "validation_bytes": 16384,
+      "loss": {
+        "mean": 3.091372724622488,
+        "std": null,
+        "n": 1
+      },
+      "ppl": {
+        "mean": 22.00726716781408,
+        "std": null,
+        "n": 1
+      },
+      "repetition": {
+        "mean_repeats": {
+          "mean": 1.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_repeat_ge2": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_repeat_ge4": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "fraction_at_max": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "repeat_probability_mean": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        },
+        "unique_edges_per_token": {
+          "mean": 512.0,
+          "std": null,
+          "n": 1
+        },
+        "total_edge_operations_per_token": {
+          "mean": 512.0,
+          "std": null,
+          "n": 1
+        },
+        "compute_fraction_repetition": {
+          "mean": 0.0,
+          "std": null,
+          "n": 1
+        }
+      }
+    }
+  ],
+  "paired_comparisons": [],
+  "improvement_slopes": [
+    {
+      "family": "float",
+      "scale": "S0",
+      "validation_bytes": 4096,
+      "from_bytes": 819200,
+      "to_bytes": 832000,
+      "loss_improvement": 0.0012285560369491577,
+      "loss_slope_per_log_bytes": -0.07924027707608271
+    },
+    {
+      "family": "float",
+      "scale": "S0",
+      "validation_bytes": 16384,
+      "from_bytes": 819200,
+      "to_bytes": 832000,
+      "loss_improvement": 0.0035706497728824615,
+      "loss_slope_per_log_bytes": -0.2303022970343901
+    }
+  ]
+}

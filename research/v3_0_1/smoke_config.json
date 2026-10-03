@@ -1,0 +1,23 @@
+{
+  "source_root": "runs/v3",
+  "source_report": "research/v3",
+  "base_training_bytes": 819200,
+  "milestones": [
+    832000
+  ],
+  "combinations": {
+    "float": [
+      "S0"
+    ]
+  },
+  "seeds": [
+    42
+  ],
+  "workers": 2,
+  "threads": 1,
+  "diagnostic_interval": 100,
+  "resource_limits": {
+    "job_stage_wall_seconds": 21600,
+    "minimum_free_disk_bytes": 2000000000
+  }
+}

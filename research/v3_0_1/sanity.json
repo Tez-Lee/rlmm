@@ -1,0 +1,207 @@
+{
+  "summary": "56 tests passed, including all previous tests. Tiny continuation matches an uninterrupted immutable v3 trainer bit-for-bit for weights, both optimizer states, RNG and history. Interrupted extension and milestone-stage barriers are also bit-exact. All33 original819200 checkpoints are present. Actual Float S0/seed42 checkpoint continuation smoke reached832000 bytes (12800 additional), preserving original files. Smoke is separate from primary results and did not select/tune settings.",
+  "tests_passed": 56,
+  "source_checkpoint_count": 33,
+  "smoke": {
+    "family": "float",
+    "scale": "S0",
+    "seed": 42,
+    "training_tokens": 832000,
+    "additional_training_bytes": 12800,
+    "origin": {
+      "checkpoint_identifier": "runs/v3/S0/float/seed42/tokens_819200.pt",
+      "checkpoint_sha256": "72998eaf4bc85ef782b4f59656d953a3426f84d74149f9e00ca1f25a01644765",
+      "source_stream_sha256": "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838",
+      "baseline_training_seconds": 89.23056964895659,
+      "baseline_coverage": "not recorded in v3; continuation coverage starts at819200, not whole-history coverage"
+    },
+    "validation": {
+      "4096": {
+        "loss": 3.0763725340366364,
+        "ppl": 21.679617513219366,
+        "validation_tokens": 4096,
+        "repetition": {
+          "tokens": 4096,
+          "hist": [
+            2097152,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "contribution_sum_by_count": [
+            175620.66137695312,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "moments": [
+            2097152.0,
+            2097152.0,
+            2097152.0,
+            175620.67163085938,
+            32264.35639190674,
+            175620.67163085938,
+            627226.5307006836,
+            392293.2090148926,
+            627226.5307006836
+          ],
+          "repeat_probability_sum": 0.0,
+          "controller_decisions": 0.0,
+          "nonzero_edge_operations": 2097152.0,
+          "controller_candidate_evaluations": 0,
+          "identity_failures": 0,
+          "mean_repeats": 1.0,
+          "median_repeats": 1,
+          "fraction_repeat_1": 1.0,
+          "fraction_repeat_ge2": 0.0,
+          "fraction_repeat_ge4": 0.0,
+          "fraction_at_max": 0.0,
+          "repeated_edge_operations_per_token": 0.0,
+          "unique_edges_per_token": 512.0,
+          "total_edge_operations_per_token": 512.0,
+          "compute_fraction_repetition": 0.0,
+          "same_edge_consecutive_revisits": 0,
+          "repeat_probability_mean": 0.0,
+          "advance_probability_mean": 1.0,
+          "repeat_output_proxy_correlation": null,
+          "repeat_accumulator_magnitude_correlation": null,
+          "mean_output_contribution_by_repeat": [
+            0.08374245709273964,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_edge_fraction_operations": 0.015625,
+          "unique_active_edge_fraction": 0.015625,
+          "approx_logical_edge_bytes_read_per_token": 2048.0,
+          "approx_fp32_latent_gather_bytes_per_token": 2048.0,
+          "scope": "Modeled additive operations including zero edges; shared CPU vector lanes interleave separate locked edges. Training evaluates all candidate gates; inference prototype also batches candidates, not a packed event-driven executor."
+        }
+      },
+      "16384": {
+        "loss": 3.091372724622488,
+        "ppl": 22.00726716781408,
+        "validation_tokens": 16384,
+        "repetition": {
+          "tokens": 16384,
+          "hist": [
+            8388608,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "contribution_sum_by_count": [
+            696006.7250213623,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "moments": [
+            8388608.0,
+            8388608.0,
+            8388608.0,
+            696006.7407226562,
+            127541.6277256012,
+            696006.7407226562,
+            2485986.745239258,
+            1551154.710144043,
+            2485986.745239258
+          ],
+          "repeat_probability_sum": 0.0,
+          "controller_decisions": 0.0,
+          "nonzero_edge_operations": 8388608.0,
+          "controller_candidate_evaluations": 0,
+          "identity_failures": 0,
+          "mean_repeats": 1.0,
+          "median_repeats": 1,
+          "fraction_repeat_1": 1.0,
+          "fraction_repeat_ge2": 0.0,
+          "fraction_repeat_ge4": 0.0,
+          "fraction_at_max": 0.0,
+          "repeated_edge_operations_per_token": 0.0,
+          "unique_edges_per_token": 512.0,
+          "total_edge_operations_per_token": 512.0,
+          "compute_fraction_repetition": 0.0,
+          "same_edge_consecutive_revisits": 0,
+          "repeat_probability_mean": 0.0,
+          "advance_probability_mean": 1.0,
+          "repeat_output_proxy_correlation": null,
+          "repeat_accumulator_magnitude_correlation": null,
+          "mean_output_contribution_by_repeat": [
+            0.08297046721236256,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_edge_fraction_operations": 0.015625,
+          "unique_active_edge_fraction": 0.015625,
+          "approx_logical_edge_bytes_read_per_token": 2048.0,
+          "approx_fp32_latent_gather_bytes_per_token": 2048.0,
+          "scope": "Modeled additive operations including zero edges; shared CPU vector lanes interleave separate locked edges. Training evaluates all candidate gates; inference prototype also batches candidates, not a packed event-driven executor."
+        }
+      }
+    },
+    "gradient_diagnostics": {
+      "prefix_embedding_gradient_L1": 3.160897433757782,
+      "current_embedding_gradient_L1": 10.515228271484375,
+      "definition": "Last next-byte scalar69; argmax single-pass, activation gradients not shared embedding parameter gradients; actual graph readout path."
+    },
+    "coverage": {
+      "training_coverage": {
+        "unique_structural_edges_since_resume": 32768,
+        "visited_edge_fraction_since_resume": 1.0,
+        "per_source_optimizer_update_count_quantiles": [
+          76.0,
+          84.0,
+          87.0,
+          89.0,
+          97.0
+        ],
+        "coverage_counter_training_only_bytes": 4096,
+        "definition": "Exact distinct source rows present in coalesced sparse gradients; all slots are activated. Counts are optimizer steps touching each row, not nonzero parameter updates. Baseline coverage is not reconstructed."
+      },
+      "sampled_gradient_updates": [
+        {
+          "step": 6500,
+          "pre_clip_gradient_norm": 0.5557732156433423,
+          "post_clip_norm": 0.5557732156433423,
+          "sampled_edge_latent_mean_abs_update": 5.7951427152147517e-05,
+          "sampled_edge_latent_max_abs_update": 0.0002511739730834961,
+          "sample_rows": 64,
+          "sampling": "first64 sorted touched source rows every100 steps, not an unbiased graph-wide estimate"
+        }
+      ],
+      "held_out_coverage": {
+        "validation_bytes": 4096,
+        "unique_structural_edges": 32768,
+        "visited_edge_fraction": 1.0,
+        "definition": "Exact topology-defined distinct edges in fixed held-out windows; all slots of each activated source are used."
+      }
+    }
+  },
+  "smoke_excluded_from_primary": true
+}

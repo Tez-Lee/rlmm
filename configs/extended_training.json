@@ -1,0 +1,12 @@
+{
+  "source_root":"runs/v3",
+  "source_report":"research/v3",
+  "base_training_bytes":819200,
+  "milestones":[1638400,3276800,6553600,13107200],
+  "combinations":{"float":["S0","S1","S2","S3","S4"],"ternary":["S2","S3","S4"],"repeat":["S2","S3","S4"]},
+  "seeds":[42,43,44],
+  "workers":2,
+  "threads":1,
+  "diagnostic_interval":100,
+  "resource_limits":{"job_stage_wall_seconds":21600,"minimum_free_disk_bytes":2000000000}
+}
