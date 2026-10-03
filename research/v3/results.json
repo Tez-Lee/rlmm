@@ -47841,5 +47841,76 @@
         "n": 3
       }
     }
+  ],
+  "measured_dominance_pairs": [
+    {
+      "repeat_scale": "S0",
+      "float_scale": "S2",
+      "memory_ratio": 0.03813461768687436,
+      "operations_ratio": 1.5947286287943523
+    },
+    {
+      "repeat_scale": "S0",
+      "float_scale": "S3",
+      "memory_ratio": 0.009785854961388292,
+      "operations_ratio": 1.5947286287943523
+    },
+    {
+      "repeat_scale": "S0",
+      "float_scale": "S4",
+      "memory_ratio": 0.0024627486225319434,
+      "operations_ratio": 1.5947286287943523
+    },
+    {
+      "repeat_scale": "S1",
+      "float_scale": "S3",
+      "memory_ratio": 0.01268970875915548,
+      "operations_ratio": 1.7152039210001628
+    },
+    {
+      "repeat_scale": "S1",
+      "float_scale": "S4",
+      "memory_ratio": 0.0031935444465761966,
+      "operations_ratio": 1.7152039210001628
+    },
+    {
+      "repeat_scale": "S2",
+      "float_scale": "S3",
+      "memory_ratio": 0.02430512395022424,
+      "operations_ratio": 1.7104446093241374
+    },
+    {
+      "repeat_scale": "S2",
+      "float_scale": "S4",
+      "memory_ratio": 0.006116727742753209,
+      "operations_ratio": 1.7104446093241374
+    },
+    {
+      "repeat_scale": "S3",
+      "float_scale": "S3",
+      "memory_ratio": 0.07076678471449928,
+      "operations_ratio": 1.717301368713379
+    },
+    {
+      "repeat_scale": "S3",
+      "float_scale": "S4",
+      "memory_ratio": 0.01780946092746126,
+      "operations_ratio": 1.717301368713379
+    },
+    {
+      "repeat_scale": "S4",
+      "float_scale": "S3",
+      "memory_ratio": 0.25661720883123196,
+      "operations_ratio": 1.7230095863342285
+    },
+    {
+      "repeat_scale": "S4",
+      "float_scale": "S4",
+      "memory_ratio": 0.06458134522335601,
+      "operations_ratio": 1.7230095863342285
+    }
+  ],
+  "observed_crossover_scales": [
+    "S3"
   ]
 }

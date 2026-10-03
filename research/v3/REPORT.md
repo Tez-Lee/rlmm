@@ -355,4 +355,40 @@ Ternary single-pass is the trained repetitionOFF control, proven equivalent to r
 | S4 | 4 | 4.61669 ± 0.29873 | 104.11494 ± 29.62086 | 3 |
 | S4 | 8 | 4.70843 ± 0.30991 | 114.35560 ± 33.56015 | 3 |
 
-Final17-question analysis pending until the planned jobs finish or documented resource limits are reached.
+## Final research questions
+
+1. Yes, the controlled linear accumulator reproduces (sign*count)*message for signs−1/0/+1 and counts1/2/4/8 within tolerance. This does not establish nonlinear LM equivalence.
+2. Actual learned repeat usage by scale: {'S0': '1.59473 ± 0.09133', 'S1': '1.71520 ± 0.11790', 'S2': '1.71044 ± 0.14133', 'S3': '1.71730 ± 0.15311', 'S4': '1.72301 ± 0.12876'}. Full histograms and actual locked identities verify repeats>1 where measured; usage alone is not usefulness.
+3. Trained repetitionOFF comparison (repeat − ternary) loss: {'S0': '0.09994 ± 0.03927', 'S1': '0.07247 ± 0.01229', 'S2': '-0.03985 ± 0.07617', 'S3': '-0.11379 ± 0.02280', 'S4': '-0.10941 ± 0.02457'}. Fixed1 inference intervention is a separate matched-checkpoint diagnostic above.
+4. Negative repeat−ternary deltas indicate recovery; compare float gaps separately. No single favorable seed/scale defines recovery.
+5. Same-edge float gaps by scale: {'S0': '0.09385 ± 0.02574', 'S1': '0.09729 ± 0.03878', 'S2': '0.00905 ± 0.03606', 'S3': '-0.11141 ± 0.02216', 'S4': '-0.10730 ± 0.02495'}.
+6. Within1% nearest MEASURED memory matches: [{'float_scale': 'S0', 'repeat_scale': 'S2', 'validation_bytes': 4096, 'static_byte_ratio': 1.0, 'structural_edge_ratio': 16.0, 'loss_delta': 0.10308160384496023, 'matched_within_one_percent': True}, {'float_scale': 'S1', 'repeat_scale': 'S3', 'validation_bytes': 4096, 'static_byte_ratio': 1.0, 'structural_edge_ratio': 16.0, 'loss_delta': 0.10504129032293985, 'matched_within_one_percent': True}, {'float_scale': 'S2', 'repeat_scale': 'S4', 'validation_bytes': 4096, 'static_byte_ratio': 1.0000147344574497, 'structural_edge_ratio': 16.0, 'loss_delta': 0.014871368805567275, 'matched_within_one_percent': True}]. Favorable matches: []. No unmatched/interpolated budget is treated as evidence.
+7. Float relative-gap sequence: [0.09385334451993306, 0.0972911814848582, 0.00904520352681478, -0.1114060531059901, -0.10730418066183726]. No monotonically improving relative gap across the measured points is established.
+8. Observed adjacent mean-loss sign-change crossover scales: ['S3']. Negative repeat−float measured points: ['S3', 'S4']. Seed SD/paired deltas limit confidence; no extrapolated crossover is claimed.
+9. Repeat count/output-proxy correlations are in JSON. Proxy magnitude grows with count by definition and is before tanh/head; this association does not show causal LM utility.
+10. Unique activated edges/token=512 by design, so unique active fraction falls4× per stored-capacity step. Operation fraction additionally depends on measured repeat counts. This is only attractive if quality also improves; fraction reduction alone is tautological.
+11. Shared controller stays129 params/516 bytes across scales. Its packed-static fractions are recorded per model: overhead is increasingly amortized, unlike FP32 training edge latents/optimizer memory.
+12. Measured equal-or-better mean-quality dominance pairs: [{'repeat_scale': 'S0', 'float_scale': 'S2', 'memory_ratio': 0.03813461768687436, 'operations_ratio': 1.5947286287943523}, {'repeat_scale': 'S0', 'float_scale': 'S3', 'memory_ratio': 0.009785854961388292, 'operations_ratio': 1.5947286287943523}, {'repeat_scale': 'S0', 'float_scale': 'S4', 'memory_ratio': 0.0024627486225319434, 'operations_ratio': 1.5947286287943523}, {'repeat_scale': 'S1', 'float_scale': 'S3', 'memory_ratio': 0.01268970875915548, 'operations_ratio': 1.7152039210001628}, {'repeat_scale': 'S1', 'float_scale': 'S4', 'memory_ratio': 0.0031935444465761966, 'operations_ratio': 1.7152039210001628}, {'repeat_scale': 'S2', 'float_scale': 'S3', 'memory_ratio': 0.02430512395022424, 'operations_ratio': 1.7104446093241374}, {'repeat_scale': 'S2', 'float_scale': 'S4', 'memory_ratio': 0.006116727742753209, 'operations_ratio': 1.7104446093241374}, {'repeat_scale': 'S3', 'float_scale': 'S3', 'memory_ratio': 0.07076678471449928, 'operations_ratio': 1.717301368713379}, {'repeat_scale': 'S3', 'float_scale': 'S4', 'memory_ratio': 0.01780946092746126, 'operations_ratio': 1.717301368713379}, {'repeat_scale': 'S4', 'float_scale': 'S3', 'memory_ratio': 0.25661720883123196, 'operations_ratio': 1.7230095863342285}, {'repeat_scale': 'S4', 'float_scale': 'S4', 'memory_ratio': 0.06458134522335601, 'operations_ratio': 1.7230095863342285}]. Only ratios<1 indicate a packed-memory saving at no worse measured mean quality; no quality interpolation or statistical-equivalence claim.
+13. The same measured dominance pairs report operation ratios. Only ratios<1 show active-addition savings at no worse mean quality; all families use the same512 unique activations, so repeated additions generally cost more.
+14. This is a CPU prototype; actual timings/RSS and decoded FP32 training/inference memory differ from2-bit packed estimates. No GPU-speed/energy claim is established.
+15. Controlled arithmetic supports feasibility of linear magnitude substitution. Practical LM/scaling support requires reproducible negative paired gaps and favorable memory-quality tradeoffs above; positive arithmetic alone is insufficient. No favorable matched-memory advantage is established here.
+16. These results do not yet justify claiming a larger-scale crossover; investigate the measured losses, controller utility and undertraining before scaling further.
+17. Positive float gaps, non-improving gap trends, repetition costs without ternary recovery or absent same-memory advantages weaken the practical hypothesis in this model. Undertraining, hashed compact-state limits and ST optimization prevent a universal impossibility claim.
+
+## Limits and preservation
+
+Only fully measured three-seed groups support primary conclusions. Fixed-data-budget large models can be undertrained, and hashed prefix-address capacity may generalize poorly. More stored low-bit edges without validation improvement is not useful capacity. Controller/address functions can only express a constrained shared magnitude family, unlike independent float weights. ST gradients are biased; count/output correlation is partly definitional. Model-wide confidence/generalization requires independent corpora and training-budget controls. No hyperparameter changes, old-model retraining or dashboard/UI work occurred.
+
+![loss_edges](loss_edges.svg)
+
+![loss_static](loss_static.svg)
+
+![loss_peak](loss_peak.svg)
+
+![loss_active](loss_active.svg)
+
+![ppl_scale](ppl_scale.svg)
+
+![repeat_utilization](repeat_utilization.svg)
+
+![relative_gap](relative_gap.svg)

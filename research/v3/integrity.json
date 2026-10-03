@@ -1,0 +1,17 @@
+{
+  "study_complete": true,
+  "verified_final_checkpoints": 45,
+  "frozen_artifact_count": 614,
+  "completed_milestones": 180,
+  "stream_hashes": {
+    "42": [
+      "80d3317d508b38930924686d93007f6e42bfd259a9d7b53140ac31584b0fb838"
+    ],
+    "43": [
+      "465a1a7d0d624937669bf51b924d37fde610730d1ed7caf229d7e615043574f6"
+    ],
+    "44": [
+      "13080e43d19ff3d856e79a000ab00411df04baf8eb81b433e909f5de72d09d03"
+    ]
+  }
+}

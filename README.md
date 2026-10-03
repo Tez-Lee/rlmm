@@ -326,3 +326,34 @@ The following were surfaced in the project discussion by ChatGPT. This does not 
 - Jack C. Gartside et al., *Reconfigurable training and reservoir computing in an artificial spin-vortex ice via spin-wave fingerprinting*, Nature Nanotechnology (2022).
 
 No additional looped/recurrent-LM or equilibrium citation is added: the inspected repository history did not provide a precise citation previously surfaced in discussion.
+
+## PRG-v3 Same-Edge Repetition Scaling Study
+
+**Research question:** Can repeated use of the SAME low-bit source node/destination/edge slot substitute for part of numerical weight magnitude, particularly as model scale grows? This means additive reuse of a frozen reference message, not visiting different edges or ordinary W^k composition.
+S0–S4 scale32768→131072→524288→2097152→8388608 edge slots. Float32 single-pass, ternary single-pass and learned bounded repetition share topology and neural blocks. Each has seeds42/43/44 and continuous fixed-data budgets12.8k/51.2k/204.8k/819.2k bytes. Large models may be undertrained.
+Scaling tests loss, packed storage, active operations and dynamic state, rather than judging a single small model. Region/gateway/mutable topology/fatigue are omitted to isolate core repetition, not to declare those ideas worthless. No dashboard/UI changes; all v0–v2.1 artifacts stay frozen.
+
+| Family | Scale | Final loss | Byte PPL | n |
+|---|---|---:|---:|---:|
+| float | S0 | 3.0835 ± 0.0153 | 21.8371 ± 0.3362 | 3 |
+| float | S1 | 3.0826 ± 0.0122 | 21.8165 ± 0.2645 | 3 |
+| float | S2 | 3.1776 ± 0.0633 | 24.0207 ± 1.5409 | 3 |
+| float | S3 | 3.2991 ± 0.0016 | 27.0873 ± 0.0435 | 3 |
+| float | S4 | 3.2997 ± 0.0031 | 27.1058 ± 0.0828 | 3 |
+| ternary | S0 | 3.0774 ± 0.0264 | 21.7079 ± 0.5756 | 3 |
+| ternary | S1 | 3.1074 ± 0.0272 | 22.3692 ± 0.6135 | 3 |
+| ternary | S2 | 3.2265 ± 0.0615 | 25.2225 ± 1.5771 | 3 |
+| ternary | S3 | 3.3015 ± 0.0002 | 27.1520 ± 0.0068 | 3 |
+| ternary | S4 | 3.3018 ± 0.0030 | 27.1629 ± 0.0814 | 3 |
+| repeat | S0 | 3.1774 ± 0.0148 | 23.9857 ± 0.3557 | 3 |
+| repeat | S1 | 3.1799 ± 0.0279 | 24.0508 ± 0.6713 | 3 |
+| repeat | S2 | 3.1866 ± 0.0277 | 24.2125 ± 0.6755 | 3 |
+| repeat | S3 | 3.1877 ± 0.0230 | 24.2359 ± 0.5621 | 3 |
+| repeat | S4 | 3.1924 ± 0.0220 | 24.3517 ± 0.5382 | 3 |
+
+Complete=True; recorded failed/resource-limited jobs=0. Measured same-edge mean-loss sign-change crossovers=['S3']. No extrapolated crossover is asserted.
+Canonical analysis, all17 answers, paired differences, exact memory matches, ablations, costs and static SVG/PNG figures: [research/v3/REPORT.md](research/v3/REPORT.md). Raw machine results: [research/v3/results.json](research/v3/results.json).
+Packed exports actually encode2-bit ternary edges; PyTorch execution decodesFP32 and batches controller candidates. Arithmetic k*s*m equivalence is not nonlinear LM equivalence or a hardware-efficiency claim. Fixed16-channel hashed state and biased ST optimization restrict generality; useful repetition must improve measured quality/memory/compute jointly.
+
+Resume: `OMP_NUM_THREADS=1 PYTHONPATH=.deps:. python scripts/run_repetition_scaling.py --push`. Failed checkpoints remain under ignored runs/v3; completed rows skip. Resource-limited/failed jobs are recorded; `--retry-failed` explicitly retries only such jobs, preserving failure history. Install the project research/test extras on a fresh checkout.
+The prior AI-assisted development disclosure, novelty/prior-art caveats and ChatGPT-surfaced literature remain intact. The human author set the SAME-edge hypothesis and research direction; OpenAI models assisted discussion, implementation, testing, automation and reporting. No claim of original AI-generated source code or established architecture novelty is made.
